@@ -1,22 +1,23 @@
-# M2 Abschlußarbeit  Shop-System
+# M2 Abschlußarbeit Shop-System
 
-Hier sind ein paar kurze Aufgaben, mit denen du alles bisher Gelernte wiederholen kannst.
-Sie dienen dazu, dass du dich selbst besser einschätzen kannst!
+Hier sind ein paar kurze Angaben, um das folgende Projekt zu verstehen:
+Dieses README dient außerdem als Coding-Tagebuch.
 
-(Image) [///Users/andreasblechschmidt/IdeaProjects/M2_Abschlussarbeit/everybodysShop.png]
 
+![image: EverybodysShop](everybodysShop.png)
 
 ---
 
 <details>
 <summary> <b> Anlegen von Projektdaten  </b></summary>
 
+20230612 21:34
 - erstelle Projekt
 - erstelle Packages und Klassen
 - speichere das Projekt auf GitHub, um eine zusätzliche Sicherung des Projektes zu haben
 - Commit & Push auf Github Account GitteHeino
 - erstelle ein klassendiagramm
-- 
+-
 
 **Package für die Aufgabe:** Kunden, Mitarbeiter, Waren …  
 **fun main für den Code:** Main.kt
@@ -29,7 +30,7 @@ Sie dienen dazu, dass du dich selbst besser einschätzen kannst!
 <summary> <b> Aufgabe  </b></summary>
 
 **Modul für die Aufgabe:**  
-**Datei für die Aufgabe:** 
+**Datei für die Aufgabe:**
 </details>
 
 ---
@@ -37,8 +38,8 @@ Sie dienen dazu, dass du dich selbst besser einschätzen kannst!
 <details>
 <summary> <b> Aufgabe  </b></summary>
 
-**Modul für die Aufgabe:**   
-**Datei für die Aufgabe:** 
+**Modul für die Aufgabe:**
+**Datei für die Aufgabe:**
 
 </details>
 
@@ -47,11 +48,11 @@ Sie dienen dazu, dass du dich selbst besser einschätzen kannst!
 <details>
 <summary> <b> Aufgabe n </b></summary>
 
-- 
-- 
+-
+-
 
-**Modul für die Aufgabe:** 
-**Datei für die Aufgabe:** 
+**Modul für die Aufgabe:**
+**Datei für die Aufgabe:**
 
 </details>
 
@@ -62,16 +63,20 @@ Sie dienen dazu, dass du dich selbst besser einschätzen kannst!
 
 <b> a) </b>
 
-- 
-- 
-- 
-- 
+-
+-
+-
+-
 
-**Modul für die Aufgabe:** 
+**Modul für die Aufgabe:**
 
-**Datei für die Aufgabe:** 
+**Datei für die Aufgabe:**
 
 </details>
 
 ---
 
+
+
+Projekt auf GitHub:
+**https://github.com/GitteHeino/M2_Abschlussarbeit.git**
