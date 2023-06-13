@@ -6,6 +6,7 @@ Dieses README dient außerdem als Coding-Tagebuch.
 
 ![image: EverybodysShop](everybodysShop.png)
 
+
 ---
 
 <details>
