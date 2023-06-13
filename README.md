@@ -81,3 +81,6 @@ Dieses README dient außerdem als Coding-Tagebuch.
 
 Projekt auf GitHub:
 **https://github.com/GitteHeino/M2_Abschlussarbeit.git**
+
+
+![image: ClassDiagram](Klassendiagramm.png)

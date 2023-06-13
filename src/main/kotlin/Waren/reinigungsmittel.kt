@@ -1,4 +1,0 @@
-package Waren
-
-class reinigungsmittel {
-}
