@@ -20,7 +20,7 @@ Dieses README dient außerdem als Coding-Tagebuch.
 - erstelle ein klassendiagramm
 -
 
-**Package für die Aufgabe:** Kunden, Mitarbeiter, Waren …  
+**Package für die Aufgabe:** USER, Mitarbeiter, Waren …  
 **fun main für den Code:** Main.kt
 
 </details>

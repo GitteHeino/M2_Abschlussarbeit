@@ -1,0 +1,4 @@
+package Waren
+
+class lebensmittel {
+}

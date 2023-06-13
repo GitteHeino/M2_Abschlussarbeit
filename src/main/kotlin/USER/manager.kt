@@ -1,0 +1,4 @@
+package USER
+
+class manager {
+}
