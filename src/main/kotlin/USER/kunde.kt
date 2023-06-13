@@ -1,5 +1,0 @@
-package USER
-
-class kunde {
-
-}

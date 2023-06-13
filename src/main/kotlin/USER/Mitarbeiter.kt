@@ -1,6 +1,6 @@
 package USER
 
-class mitarbeiter {
+class Mitarbeiter {
 
     val geburtstag: String = ""
 

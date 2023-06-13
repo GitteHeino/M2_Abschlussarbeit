@@ -1,6 +1,6 @@
 package USER
 
-open class user {
+open class User {
 
     val id: Int = 1
     val name: String = ""
