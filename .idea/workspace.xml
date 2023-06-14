@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230613 22:28&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Manager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_bodyCare.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_bodyCare.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Lebensmittel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Lebensmittel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Reinigungsmittel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Reinigungsmittel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2__Haushalt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2__Haushalt.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/blechi2020/IdeaProjects/M2_Abschlussarbeit/src/main/kotlin/USER",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/blechi2020/IdeaProjects/M2_Abschlussarbeit/src/main/kotlin/USER&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/USER" />

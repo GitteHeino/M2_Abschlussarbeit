@@ -1,16 +1,7 @@
 import Waren.*
 import USER.*
 import java.lang.Exception
-
-
-val userAccounts: MutableMap<String, String> = mutableMapOf(
-/*    "maiers@gmail.com" to "ms41",
-    "ayulive@dot.com" to "ayufirst",
-    "nagel.je@web.de" to "1234",
-    "incognito@me.com" to "xsw2cde3",
-    "bmp@aol.com" to "0000",
-    "a@b.cd" to "0000"*/
-)
+import kotlin.concurrent.thread
 
 fun main() {
 
@@ -79,7 +70,7 @@ fun main() {
     val userKunde1 = Kunde(
         101,
         "Maier",
-        "Seep",
+        "Sepp",
         "maiers@gmail.com",
         "ms41",
         "Berg",
@@ -117,8 +108,8 @@ fun main() {
         0,
         "Unbekannt",
         "Kiki",
-        "incognito@me.com",
-        "xsw2cde3",
+        "cc",    //"incognito@me.com",
+        "44",   //"xsw2cde3",
         3698,
         "Leipzig",
         "Elsterstraße 75",
@@ -126,90 +117,106 @@ fun main() {
         "s8o17"
     )
 
-    val userMitarbeiter = Mitarbeiter(11, "Bogenmacher", "Paul", "bmp@aol.com", "0000", "Honk")
+    val userMitarbeiter = Mitarbeiter(11, "Bogenmacher", "Paul", "bmp", "000", "Honk")
 
     var userDB = mutableListOf<User>(userKunde1, userKunde2, userKunde3, userMitarbeiter, userManager)
+//TODO ----------------------------------------------------
+    /*    println(
+            "${userKunde3.firstName} \n" +
+                    "${userKunde2.name} \n" +
+                    "${userKunde1.eMail} \n" +
+                    "${userMitarbeiter.arbeitsModell} \n" +
+                    "${userManager.shopID} \n" +
+                    "${userManager.passwordAdmin}"
+        )*/
+//TODO ----------------------------------------------------
+
+    login(userDB)
+
+
+}
+
+
+fun login(userDB: MutableList<User>) {
+    println("shopShop - Deine Online-Drogerie")
     println(
-        "${userKunde3.firstName} \n" +
-                "${userKunde2.name} \n" +
-                "${userKunde1.eMail} \n" +
-                "${userMitarbeiter.arbeitsModell} \n" +
-                "${userManager.shopID} \n" +
-                "${userManager.passwordAdmin}"
+        "Loggen Sie sich mit Ihren Anmeldedaten ein. ❖ KundenNummer oder Benutzername:"
+    )
+    try {
+        var loginM = readln().toString()
+        /*        println(" oder KundenNummer:")
+                var loginI = readln().toInt()*/
+        println("Passwort (nur Zahlen und Buchstaben):")
+        var loginP = readln().toString()
+        println(loginM)
+        println(loginP)
+
+        if (loginM == "cc" && loginP == "44"
+        /*|| userDB.any { loginI == 1 && loginP == it.password */
+        ) {
+            manager(userDB)
+
+        } else if (userDB.any {
+                loginM == it.eMail && it.password == loginP /*}
+            || userDB.any { loginI == it.id && loginP == it.password */
+            }) {       // User mit eMail raussuchen und mit PW abgleichen
+
+            Thread.sleep(1200)
+            println("Sie werden gleich weitergeleitet zum Shop ...\n")
+            Thread.sleep(300); println(".")
+            Thread.sleep(300); println(". .")
+            Thread.sleep(300); println(". . .")
+
+            var listOfData = Produkt()
+            println("${listOfData}")
+
+            println(
+                "Unser Shop bietet das Beste aus den 2 Kategorien: " +
+                        "Haushalt und BodyCare"
+            )
+
+        }
+
+
+    } catch (ex: Exception) {
+        println("Die Eingabe ergab keinen Treffer in unserer KundenDatenbank")
+        println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
+    }
+}
+
+fun manager(userDB: MutableList<User>) {
+    println(
+        "Guten Morgen Manager\n\n" +
+                "1 Kontostand einsehen\n" +
+                "2 Waren bestellen\n" +
+                "3 Preise ändern\n" +
+                "4 Mitarbeiter loben\n"
     )
 
+    var job = readln()
+    when (job) {
+        "1", "Jan", "Januar" -> {
+            /* kontoStand()*/
+            println("Gestern war der Kassenbestand: ... €")
+        }
 
-//TODO ----------------------------------------------------
-    val eMail = userDB[3]
-    val password = userDB[4]
+        "2" -> {
+            /*warenbestellung()*/
+            println("Ihre Bestellung bitte bis 9:00 Uhr anmelden.")
+        }
 
+        "3" -> {
+            /*warenbestellung()*/
+            println("Die Preise für Waschmittel anpassen")
+        }
 
-//TODO ----------------------------------------------------
-    println("Was soll geschehen?")
+        else -> {
+            println("falsche Eingabe! 😢")
+            manager(userDB)
 
-
-    login()
-}
-/*    println("Geben sie ihren Username ein:")
-    val user = readln()
-
-    var isUserLoggedIn: Boolean = passwortAbfrage(user)
-
-    if (isUserLoggedIn) {
-        println("Hallo, $user")
+        }
     }
 }
-
-    fun passwortAbfrage(userName: String,anzahlVersuche: Int){
-
-
-
-*//*    fun passwortAbfrage(userName: String, anzahlVersuche: Int = 1): Boolean{*//*
-
-        if (userName in userAccounts.keys){ // in == userAccounts.contains(userName)  && anzahlVersuche <= 3
-            val userPW: String = userAccounts[userName]!!
-
-            println("Geben sie ihr Passwort ein: ")
-            val pw = readln()
-
-            if (pw == userPW){
-                return //true
-            } else {
-                return passwortAbfrage(userName, anzahlVersuche + 1)
-            }
-        }
-        else {
-            return //false
-        }
-    }*/
-
-    fun login(userDB: MutableList<User>) {
-        println("shopShop - Deine Online-Drogerie")
-        println(
-            "Loggen Sie sich mit Ihren Anmeldedaten ein." +
-                    "eMail oder Benutzername:"
-        )
-
-/*        try {*/
-            var loginM = readln().toString()
-            println("Passwort (nur Zahlen und Buchstaben):")
-            var loginP = readln().toString()
-            if (userDB.any{it.eMail == loginM}) {       // User mit eMail raussuchen und mit PW abgleichen
-                println("Hallo!")
-                fun produkt(){
-                   println("Unser Shop bietet das Beste aus den 2 Kategorien: " +
-                           "Haushalt und BodyCare")
-                }
-            }
-/*        } catch (ex: Exception) {
-            println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
-        }*/
-    }
-
-
-
-
-
 
 
 /*        fun logIn(){
@@ -231,9 +238,9 @@ fun main() {
 
         }*/
 
-    /*    fun logOut()*/
+/*    fun logOut()*/
 
-    /*  fun register()*/
+/*  fun register()*/
 
 
 

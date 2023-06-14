@@ -87,7 +87,6 @@ class Shop_Drugstore() {
                 "innen"
             )
             println(produktDB.addAll(mutableListOf()))
-
         }
     }
 
