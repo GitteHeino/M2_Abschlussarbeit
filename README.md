@@ -83,4 +83,4 @@ Projekt auf GitHub:
 **https://github.com/GitteHeino/M2_Abschlussarbeit.git**
 
 
-![image: ClassDiagram](Klassendiagramm.png)
+![image: ClassDiagram](20230614ClassDiagram.png)
