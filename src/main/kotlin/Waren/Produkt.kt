@@ -1,14 +1,17 @@
 package Waren
 
-class Produkt(var name: String,var bio: Boolean, var preis: Double, var kundenRezension: Double, var me: String, var merkmale: String) {
+open class Produkt(
+    var name: String = "produkt",
+    var preis: Double =1.0,
+    var kundenRezension: Double = 5.0
+) {
     init {
 /*      Code kann nicht lose in Klasse stehen, nur:
         - Eigenschaften
         - Konstruktoren
         - Methoden*/
-/*        println("Produkt  wurde erstellt")*/
+/*        println("Produkt wurde erstellt")*/
     }
-
 
 
 }
