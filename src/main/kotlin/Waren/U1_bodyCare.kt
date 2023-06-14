@@ -11,8 +11,8 @@ class U1_bodyCare(
 
 
 
-/*    {
-        var Ware: MutableList<MutableList> = MutableListOf()
-    }*/
+    init {
+/*        println("U1__bodyCare")*/
+    }
 
 }

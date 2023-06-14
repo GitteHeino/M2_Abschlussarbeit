@@ -10,7 +10,7 @@ class U2_Reinigungsmittel(
 ) : Produkt(name, preis, kundenRezension) {
 
     init {
-        println("Produkt wurde erstellt")
+/*        println("Reinigung")*/
     }
 }
 

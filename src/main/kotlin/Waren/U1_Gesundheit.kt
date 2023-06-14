@@ -9,7 +9,8 @@ class U1_Gesundheit(
     var begrenzteAbgabe: Boolean
 ) : Produkt(name, preis, kundenRezension) {
 
+
     init {
-        println("Produkt wurde erstellt")
+/*        println("Gesundheit")*/
     }
 }

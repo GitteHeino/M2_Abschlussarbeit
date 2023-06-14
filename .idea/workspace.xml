@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230613 22:13&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M2_Abschlussarbeit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/M2_Abschlussarbeit.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/00 Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/00 Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/01 test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01 test.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/02 utilities.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/02 utilities.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/mitarbeiter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/user.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/Lebensmittel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/Lebensmittel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Manager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_bodyCare.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_bodyCare.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Lebensmittel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Lebensmittel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Reinigungsmittel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2_Reinigungsmittel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U2__Haushalt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U2__Haushalt.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -48,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/blechi2020/IdeaProjects/M2_Abschlussarbeit",
+    "last_opened_file_path": "/Users/blechi2020/IdeaProjects/M2_Abschlussarbeit/src/main/kotlin/USER",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -56,12 +59,28 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/USER" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/Waren" />
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="Waren" />
       <recent name="USER" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="_01_TestKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_01_TestKt" />
+      <module name="M2_Abschlussarbeit" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin._01_TestKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,7 +126,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686658646080</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="20230614 12:00&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
+      <created>1686736802188</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686736802188</updated>
+    </task>
+    <task id="LOCAL-00007" summary="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
+      <created>1686736990612</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686736990613</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +160,8 @@
     <MESSAGE value="20230613 13:23 &#10;Klassen anlegen &#10;upd.README" />
     <MESSAGE value="20230613 14:17 &#10;Klassen anlegen &#10;upd.README" />
     <MESSAGE value="20230613 22:13&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230613 22:13&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
+    <MESSAGE value="20230614 12:00&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
+    <MESSAGE value="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
   </component>
 </project>

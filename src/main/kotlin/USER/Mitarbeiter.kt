@@ -1,19 +1,39 @@
 package USER
 
-class Mitarbeiter {
+class Mitarbeiter(
+    id: Int,
+    name: String,
+    firstName: String,
+    eMail: String,
+    password: String,
+    /*        city: String = "",
+            street_Nr: String = "",
+            plz: String = "",*/
+    var arbeitsModell: String = "Vollzeit"      // "Teilzeit", "Honk"
 
-    val geburtstag: String = ""
+) : User(id, name, firstName, eMail, password) {
 
-    fun warenZumBestand(){
+    init {
     }
 
-    fun warenAusBestand(){
+
+    // TODO _________________________________________________________
+    fun passwordAdmin() {
     }
 
-    fun suchen() {
+    fun warenbestandPrüfen() {
     }
 
-    fun filtern() {
+    fun kontostandstandPrüfen() {
+    }
+
+    fun warenBestellen() {
+    }
+
+    fun preiseÄndern() {
+    }
+
+    fun sonderAngebote() {
     }
 
 }

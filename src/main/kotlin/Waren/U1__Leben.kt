@@ -8,9 +8,9 @@ class U1__Leben(
 ) : Produkt(name, preis, kundenRezension) {
 
 
-/*    init {
-        println("underCat2")
-    }*/
+    init {
+/*        println("U1__Leben")*/
+    }
 }
 
 

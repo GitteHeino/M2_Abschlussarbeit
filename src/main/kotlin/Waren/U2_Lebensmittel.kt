@@ -10,6 +10,6 @@ class U2_Lebensmittel(
 ) : Produkt(name, preis, kundenRezension) {
 
     init {
-        println("Produkt wurde erstellt")
+/*        println("Lebensmittel")*/
     }
 }

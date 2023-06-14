@@ -6,11 +6,11 @@ open class Produkt(
     var kundenRezension: Double = 5.0
 ) {
     init {
-/*      Code kann nicht lose in Klasse stehen, nur:
+  /*    Code kann nicht lose in Klasse stehen, nur:
         - Eigenschaften
         - Konstruktoren
         - Methoden*/
-/*        println("Produkt wurde erstellt")*/
+/*        println("das ist die Klasse aller Produkte.")*/
     }
 
 

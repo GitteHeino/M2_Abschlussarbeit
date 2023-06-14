@@ -10,7 +10,7 @@ class U2__Haushalt(
 ) : Produkt(name, preis, kundenRezension) {
 
     init {
-        println("underCat2")
+        println("U2__Haushalt")
     }
 }
 
