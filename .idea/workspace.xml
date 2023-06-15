@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230613 22:28&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -118,3 +118,10 @@ fun wordsInText(){
             return //false
         }
     }*/
+
+
+
+/*if (userDB.any {
+    loginM == it.eMail && it.password == loginP}
+            || userDB.any { loginI == it.id && loginP == it.password
+}) */      // User mit eMail raussuchen und mit PW abgleichen
