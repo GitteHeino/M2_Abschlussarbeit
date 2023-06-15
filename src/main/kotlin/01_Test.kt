@@ -1,179 +1,100 @@
 import Waren.*
 import USER.*
 import java.lang.Exception
-import kotlin.concurrent.thread
-import kotlin.system.exitProcess
 
 fun main() {
 
     Shop_Drugstore()
-    var produktDB = mutableListOf<String>()
+/*    var produktDB = mutableListOf<String>()*/
     var produktKörper1 = U1_bodyCare("Sonnenfluid Gesicht, 50ml", 4.75, 3.8, "sensitiv LSF 50+", "all", "L")
-    var produktKörper2 = U1_bodyCare(
-            "Axe 3in1 Duschgel & Shampoo 250 ml",
-            26.99,
-            4.5,
-            "Face Body Hair, 6x 250ml, dermatologisch getestet",
-            "Men",
-            "XL"
-    )
-    var produktKörper3 = U1_bodyCare(
-            "Lippenstift Velvet Matt Berry Nude, 4,5 g",
-            8.75,
-            3.5,
-            "Naturkosmetik, matt, alle Hauttypen",
-            "Woman",
-            "S"
-    )
+    var produktKörper2 = U1_bodyCare("Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL")
+    var produktKörper3 = U1_bodyCare("Lippenstift Velvet Matt Berry Nude, 4,5 g", 8.75, 3.5, "Naturkosmetik, matt, alle Hauttypen", "Woman", "S")
 
-    var produktGesund = U1_Gesundheit(
-            "Mund- und Rachenspülung antiviral, fluoridfrei ab 6 Jahren, 300 ml",
-            7.95,
-            4.5,
-            "Hals gurgeln",
-            "",
-            false
-    )
+    var produktGesund1 = U1_Gesundheit("Mund- und Rachenspülung antiviral, fluoridfrei ab 6 Jahren, 300 ml", 7.95, 4.5, "Hals gurgeln", "", false)
     var produktGesund2 = U1_Gesundheit("Doppelherz Omega-3 1400 Kapseln", 12.95, 4.7, " 90 St, 171,3 g", "innen", false)
-    var produktGesund3 =
-            U1_Gesundheit("Ecodenta Zahnpasta, Sensitivity, 75 ml", 7.47, 4.2, "Ohne Fluorid", "Ohne Fluorid", false)
+    var produktGesund3 = U1_Gesundheit("Ecodenta Zahnpasta, Sensitivity, 75 ml", 7.47, 4.2, "Ohne Fluorid", "Ohne Fluorid", false)
 
     var produktLeben1 = U2_Lebensmittel("Milch, haltbare Alpenmilch, 1 l", 1.65, 4.9, "3,5% Fett", true, "H H N")
     var produktLeben2 = U2_Lebensmittel("EXTRA Kaugummi, Blueberry, 50 St", 1.85, 4.6, "Laktosefrei", false, " H H H")
-    var produktLeben3 = U2_Lebensmittel(
-            "Fertiggericht italienische Ravioli mit Gemüsefüllung, 270 g",
-            2.45,
-            4.3,
-            "Laktosefrei, Vegan",
-            true,
-            "H M M"
-    )
+    var produktLeben3 = U2_Lebensmittel("Fertiggericht italienische Ravioli mit Gemüsefüllung, 270 g", 2.45, 4.3, "Laktosefrei, Vegan", true, "H M M")
 
-    var produktReini1 = U2_Reinigungsmittel(
-            "Essigreiniger Essenz zum Reinigen & Kochen, 0,4 l",
-            1.45,
-            4.9,
-            "Vorsicht! Nicht unverdünnt genießen!",
-            "ja",
-            "Nassbereich"
-    )
+    var produktReini1 = U2_Reinigungsmittel("Essigreiniger Essenz zum Reinigen & Kochen, 0,4 l", 1.45, 4.9, "Vorsicht! Nicht unverdünnt genießen!", "ja", "Nassbereich")
     var produktReini2 = U2_Reinigungsmittel("Colorwaschmittel Power Caps, 40 Wl", 8.95, 4.8, "Mit Duft", "nein", "-")
-    var produktReini3 = U2_Reinigungsmittel(
-            "Vileda Ultramax Bodenwischer",
-            41.51,
-            4.4,
-            "Komplett Ultramax Set + 2 extra Bezüge",
-            "nicht verschlucken!",
-            "innen"
-    )
+    var produktReini3 = U2_Reinigungsmittel("Vileda Ultramax Bodenwischer", 41.51, 4.4, "Komplett Ultramax Set + 2 extra Bezüge", "nicht verschlucken!", "innen")
 
 
-    val userKunde1 = Kunde(
-            101,
-            "Maier",
-            "Sepp",
-            "maiers@gmail.com",
-            "ms41",
-            "Berg",
-            "Zur Schmiede 11",
-            "82335",
-            "Sehr geehrter Herr ",
-            "1951-06-14"
-    )
-    val userKunde2 = Kunde(
-            102,
-            "Niblock",
-            "Phil",
-            "ayulive@dot.com",
-            "ayufirst",
-            "Hannover",
-            "Berliner Straße 211",
-            "30457",
-            "Guten Tag ",
-            "1987-02-07"
-    )
-    val userKunde3 = Kunde(
-            103,
-            "Nagel",
-            "Jenny",
-            "nagel.je@web.de",
-            "1234",
-            "Rochlitz",
-            "Kunigundentraße 54",
-            "09306",
-            "Sehr geehrte Frau ",
-            "1967-06-23"
-    )
+    val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede 11", "82335", "Sehr geehrter Herr ", "1951-06-14")
+    val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße 211", "30457", "Guten Tag ", "1987-02-07")
+    val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße 54", "09306", "Sehr geehrte Frau ", "1967-06-23")
 
-    val userManager = Manager(
-            0,
-            "Unbekannt",
-            "Kiki",
-            "cc",    //"incognito@me.com",
-            "44",   //"xsw2cde3",
-            3698,
-            "Leipzig",
-            "Elsterstraße 75",
-            "04109",
-            "s8o17"
-    )
+    val userManager = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße 75", "04109", "s8o17")
 
     val userMitarbeiter = Mitarbeiter(11, "Bogenmacher", "Paul", "bmp", "000", "Honk")
 
+    var produkteDatenbank = mutableListOf<Produkt>(produktKörper1, produktKörper2, produktKörper3, produktGesund1, produktGesund2, produktGesund3, produktLeben1, produktLeben2, produktLeben3, produktReini1, produktReini2, produktReini3)
     var userDB = mutableListOf<User>(userKunde1, userKunde2, userKunde3, userMitarbeiter, userManager)
 
-
-
-    println("shopShop - Deine Online-Drogerie")
-
+    auswahlStart(userDB, produkteDatenbank )
     login(userDB)
-
-
-/*    if (login(()) = false)*/
-    produkt()
-
+    produkt(produkteDatenbank)
 
 }
+
 //TODO -----Ende der fun maim-----------------------------------------------
+
+fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>) {
+    println("shopShop - Deine Online-Drogerie\n" +
+            "Bitte  L  eingeben für LogIn oder  R  für Registrierung:")
+    var auswahl = readln().capitalize().toString()
+    when (auswahl) {
+        "R" -> register()
+        "L" -> login(userDB)
+        "P" -> produkt(produkteDatenbank)
+    }
+}
+
 
 
 fun login(userDB: MutableList<User>) {
     println("Loggen Sie sich mit Ihren Anmeldedaten ein.\nBenutzername (eMail):"
     )
-    repeat(3) {
+    var i = 1
+    while (i <= 3) {
         var loginM = readln().toString()
         println("Passwort (nur Zahlen und Buchstaben):")
         var loginP = readln().toString()
-        try {
-            if (loginM == "cc" && loginP == "44"
-            ) {
-                println("2FA  Geben Sie nun Ihre ID ein:")
+        if (loginM == "cc" && loginP == "44"
+        ) {
+            println("2FA  Geben Sie nun Ihre ID ein:")
+            try {
                 var loginI = readln().toInt()
                 if (userDB.any { it.id == loginI })
                     manager(userDB)
-
-
-            } else if (userDB.any {
-                        loginM == it.eMail && it.password == loginP     // Justus
-                    }) {
-                myAccount()     // return: eMail des Kunden
-            } else {
-                println("Diese Kombination existiert nicht in unserer Datenbank.")
-                        // zu register()
+            } catch (ex: Exception) {
+                println("Die ID stimmt nicht")
             }
-
-
-        } catch (ex: Exception) {
-            println("Die ID stimmt nicht")
+        } else if (userDB.any {
+                    loginM == it.eMail && it.password == loginP     // Justus
+                }) {
+            myAccount()     // return: eMail des Kunden
+        } else {
+            println("Diese Kombination existiert nicht in unserer Datenbank.")
+        }
+        i++
+        if (i > 3) {
+            println("Zu viele Fehlversuche. Der Login-Vorgang wird beendet.\n")
+            register()
         }
     }
-        return
 
 }
 
 fun myAccount() {
-    TODO("hier beginnt der Account des Kunden")
+    /*TODO("hier beginnt der Account des Kunden")*/
     println("hier beginnt der Account des Kunden")
+
+
+    /*    warenkorb()*/
 }
 
 fun manager(userDB: MutableList<User>) {
@@ -205,6 +126,7 @@ fun manager(userDB: MutableList<User>) {
 
             else -> {
                 println("falsche Eingabe! 😢")
+                return
 
             }
         }
@@ -223,27 +145,33 @@ fun warteschleife() {
 }
 
 fun register() {
-    println("Es konnte keine Übereinstimmung in unserer Datenbank gefunden werden. \n" +
-            "Möchten Sie einen neuen Account anlegen? j/n:")
+    println("Möchten Sie einen neuen Account anlegen? j/n:")
     var neuerAccount = readln().toString()
-    if (neuerAccount == "j") {
-// TODO     newAccount()
-        println("Si´e werden nun zum shop weitergeleitet. Einen Moment")
+    while (neuerAccount == "j") {
+        println("Sie werden nun zum shop weitergeleitet. Einen Moment")
         warteschleife()
-    } else {
-        println("Auf Wiedersehen!")
-        return
+        while (neuerAccount == "n")
+            println("Good bye!")
+        break
+        break
+    }
+}
+
+fun produkt(produkteDatenbank: MutableList<Produkt>) {
+    warteschleife()
+    println(" hier ist shopShop. DER Online_DrugStore!")
+
+    println("Hier sehen Sie die Kategorien, in denen Sie eine gute Auswahl haben.\n" +
+            "Beachten sie auch unsere Sonderangebote!")
+    println("${produkteDatenbank.size}.000 Produkte im Shop!")
+    /*println("${produkteDatenbank}")*/
+    for (produkt in produkteDatenbank){
+        println("${produkt.name}, produkt.")
     }
 }
 
 //TODO -----zu schreibende fun-----------------------------------------------
 
-
-fun produkt() {
-    warteschleife()
-    println(" hier ist shopShop. DER Online_DrugStore!")
-
-}
 
 /*        fun logIn(){
           println("shopShop_Drugstore" +

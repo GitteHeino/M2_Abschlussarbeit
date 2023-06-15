@@ -25,6 +25,10 @@ open class User(
     fun bezahlen() {
     }
 
+    open fun userMenu(){
+
+    }
+
 }
 
 

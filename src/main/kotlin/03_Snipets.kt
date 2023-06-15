@@ -1,3 +1,6 @@
+import USER.*
+import java.lang.Exception
+
 /*
 fun main(args: Array<String>) {
     println("Hello World!")
@@ -119,9 +122,122 @@ fun wordsInText(){
         }
     }*/
 
-
-
 /*if (userDB.any {
     loginM == it.eMail && it.password == loginP}
             || userDB.any { loginI == it.id && loginP == it.password
 }) */      // User mit eMail raussuchen und mit PW abgleichen
+
+
+/*fun main() {
+    login()
+}
+        fun login() {
+    var i = 1
+    while (i < 4) {
+            println("Loggen Sie sich mit Ihren Anmeldedaten ein.\nBenutzername (eMail):"
+            )
+            *//*repeat(3) {*//*
+            var loginM = readln().toString()
+            println("Passwort (nur Zahlen und Buchstaben):")
+            var loginP = readln().toString()
+            if (loginM == "cc" && loginP == "44"
+            ) {
+                println("2FA  Geben Sie nun Ihre ID ein:")
+                try {
+                    var loginI = readln().toInt()
+                    if (userDB.any { it.id == loginI })
+                        *//*manager(userDB)*//*
+                } catch (ex: Exception) {
+                    println("Die ID stimmt nicht")
+                }
+            } else if (userDB.any {
+                        loginM == it.eMail && it.password == loginP     // Justus
+                    }) {
+                *//*myAccount() *//*    // return: eMail des Kunden
+            } else {
+                println("Diese Kombination existiert nicht in unserer Datenbank.")
+            }
+            return
+
+    }
+
+}*/
+
+
+
+
+/*fun myAccount() {
+    *//*TODO("hier beginnt der Account des Kunden")*//*
+    println("hier beginnt der Account des Kunden")
+    *//*    warenkorb()*//*
+}
+
+fun manager(userDB: MutableList<User>) {
+    println(" Guten Morgen Manager\n")
+    repeat(10) {
+        println(
+                "1 Kontostand einsehen\n" +
+                        "2 Waren bestellen\n" +
+                        "3 Preise ändern\n" +
+                        "4 Mitarbeiter loben\n"
+        )
+
+        var job = readln()
+        when (job) {
+            "1", "Jan", "Januar" -> {
+                *//* kontoStand()*//*
+                println("Gestern war der Kassenbestand: ... €")
+            }
+
+            "2" -> {
+                *//*warenbestellung()*//*
+                println("Ihre Bestellung bitte bis 9:00 Uhr anmelden.")
+            }
+
+            "3" -> {
+                *//*preisÄnderung()*//*
+                println("Die Preise für Waschmittel anpassen")
+            }
+
+            else -> {
+                println("falsche Eingabe! 😢")
+                return
+
+            }
+        }
+    }
+}
+
+fun warteschleife() {
+    Thread.sleep(700)
+    println("Sie werden gleich weitergeleitet zum Shop ...\n")
+    Thread.sleep(300); print(".")
+    Thread.sleep(300); print(" .")
+    Thread.sleep(300); print(" .")
+    Thread.sleep(300); print(" .")
+    Thread.sleep(300); print(" .")
+    Thread.sleep(300); println(" .\n")
+}
+
+fun register() {
+    println("Möchten Sie einen neuen Account anlegen? j/n:")
+    var neuerAccount = readln().toString()
+    while (neuerAccount == "j") {
+        println("Sie werden nun zum shop weitergeleitet. Einen Moment")
+        warteschleife()
+        while (neuerAccount == "n")
+            println("Good bye!")
+        break
+        break
+    }
+}*/
+
+
+
+/*
+fun normalizeStringLength(str: String, nc-chars: Int = 20) : String {
+    return if (str. length < nr_chars) str.padEnd (nr_chars, padChar:
+    else if (str.length > nr_chars)
+        str.substring(0, nr_chars) else str
+
+}*/     // Text in tabellarischer Form

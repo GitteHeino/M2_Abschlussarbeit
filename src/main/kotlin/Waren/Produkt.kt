@@ -13,5 +13,8 @@ open class Produkt(
 /*        println("das ist die Klasse aller Produkte.")*/
     }
 
+    override fun toString(): String {
+        return "$name"
+    }
 
 }

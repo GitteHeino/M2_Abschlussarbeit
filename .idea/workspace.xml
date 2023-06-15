@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686736990613</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen">
+      <created>1686824617896</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686824617896</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +161,7 @@
     <MESSAGE value="20230613 22:13&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
     <MESSAGE value="20230614 12:00&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
     <MESSAGE value="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
+    <MESSAGE value="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen" />
   </component>
 </project>
