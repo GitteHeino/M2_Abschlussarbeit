@@ -1,4 +1,6 @@
 import USER.*
+import Waren.Produkt
+import Waren.U1_bodyCare
 import java.lang.Exception
 
 /*
@@ -86,9 +88,6 @@ fun wordsInText(){
     }
 }*/     // ändern Preis mit PW
 
-
-/*private val s = "Loggen Sie sich mit Ihren Anmeldedaten ein"*/
-
 /*    println("Geben sie ihren Username ein:")
     val user = readln()
 
@@ -103,7 +102,10 @@ fun wordsInText(){
 
 
 
-*//*    fun passwortAbfrage(userName: String, anzahlVersuche: Int = 1): Boolean{*//*
+*/
+
+/*   fun passwortAbfrage(userName: String, anzahlVersuche: Int = 1): Boolean{
+
 
         if (userName in userAccounts.keys){ // in == userAccounts.contains(userName)  && anzahlVersuche <= 3
             val userPW: String = userAccounts[userName]!!
@@ -120,15 +122,17 @@ fun wordsInText(){
         else {
             return //false
         }
-    }*/
+    }
+*/
 
 /*if (userDB.any {
     loginM == it.eMail && it.password == loginP}
             || userDB.any { loginI == it.id && loginP == it.password
 }) */      // User mit eMail raussuchen und mit PW abgleichen
 
+/*
+fun main() {
 
-/*fun main() {
     login()
 }
         fun login() {
@@ -136,7 +140,7 @@ fun wordsInText(){
     while (i < 4) {
             println("Loggen Sie sich mit Ihren Anmeldedaten ein.\nBenutzername (eMail):"
             )
-            *//*repeat(3) {*//*
+repeat(3) {
             var loginM = readln().toString()
             println("Passwort (nur Zahlen und Buchstaben):")
             var loginP = readln().toString()
@@ -146,14 +150,15 @@ fun wordsInText(){
                 try {
                     var loginI = readln().toInt()
                     if (userDB.any { it.id == loginI })
-                        *//*manager(userDB)*//*
+                        manager(userDB)
                 } catch (ex: Exception) {
                     println("Die ID stimmt nicht")
                 }
             } else if (userDB.any {
                         loginM == it.eMail && it.password == loginP     // Justus
                     }) {
-                *//*myAccount() *//*    // return: eMail des Kunden
+
+                myAccount()
             } else {
                 println("Diese Kombination existiert nicht in unserer Datenbank.")
             }
@@ -161,17 +166,10 @@ fun wordsInText(){
 
     }
 
-}*/
-
-
-
-
-/*fun myAccount() {
-    *//*TODO("hier beginnt der Account des Kunden")*//*
-    println("hier beginnt der Account des Kunden")
-    *//*    warenkorb()*//*
 }
+*/       // return: eMail des Kunden
 
+/*
 fun manager(userDB: MutableList<User>) {
     println(" Guten Morgen Manager\n")
     repeat(10) {
@@ -185,21 +183,21 @@ fun manager(userDB: MutableList<User>) {
         var job = readln()
         when (job) {
             "1", "Jan", "Januar" -> {
-                *//* kontoStand()*//*
+               kontoStand()
                 println("Gestern war der Kassenbestand: ... €")
             }
 
             "2" -> {
-                *//*warenbestellung()*//*
+               warenbestellung()
                 println("Ihre Bestellung bitte bis 9:00 Uhr anmelden.")
             }
 
             "3" -> {
-                *//*preisÄnderung()*//*
+                 //preisÄnderung()
                 println("Die Preise für Waschmittel anpassen")
             }
 
-            else -> {
+           else -> {
                 println("falsche Eingabe! 😢")
                 return
 
@@ -207,8 +205,9 @@ fun manager(userDB: MutableList<User>) {
         }
     }
 }
+*/
 
-fun warteschleife() {
+/*fun warteschleife() {
     Thread.sleep(700)
     println("Sie werden gleich weitergeleitet zum Shop ...\n")
     Thread.sleep(300); print(".")
@@ -217,9 +216,9 @@ fun warteschleife() {
     Thread.sleep(300); print(" .")
     Thread.sleep(300); print(" .")
     Thread.sleep(300); println(" .\n")
-}
+}*/
 
-fun register() {
+/*fun register() {
     println("Möchten Sie einen neuen Account anlegen? j/n:")
     var neuerAccount = readln().toString()
     while (neuerAccount == "j") {
@@ -234,10 +233,71 @@ fun register() {
 
 
 
-/*
-fun normalizeStringLength(str: String, nc-chars: Int = 20) : String {
-    return if (str. length < nr_chars) str.padEnd (nr_chars, padChar:
-    else if (str.length > nr_chars)
-        str.substring(0, nr_chars) else str
 
-}*/     // Text in tabellarischer Form
+/*
+// Text in tabellarischer Form aufbereiten
+
+val hea_ders = listOf("Name", "Alter", "Stadt")
+val data = listOf(
+        listOf("Max", "25", "Berlin"),
+        listOf("Anna", "32", "München"),
+        listOf("Tom", "19", "Hamburg")
+)
+
+// Tabellenkopf erstellen
+
+fun main() {
+    val headerRow = headers.joinToString(" | ")
+    println(headerRow)
+
+// Trennlinie erstellen
+    val separator = "-".repeat(headerRow.length)
+    println(separator)
+
+// Datensätze ausgeben
+    for (row in data) {
+        val formattedRow = row.map { it.padEnd(10) } // Spaltenbreite anpassen
+        val formattedString = formattedRow.joinToString(" | ")
+        println(formattedString)
+    }
+}*/
+
+
+/*
+
+val headers = listOf("name", "preis", "kundenRezension", "anwendungsbereich", "begrenzteAbgabe")
+val produkteDatenbank = mutableListOf<Produkt>()
+var produktKörper4 = U1_bodyCare("Sonnenfluid Gesicht, 50ml", 4.75, 3.8, "sensitiv LSF 50+", "all", "L")
+var produktKörper5 = U1_bodyCare("Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL")
+var produktKörper6 = U1_bodyCare("Lippenstift Velvet Matt Berry Nude, 4,5 g", 8.75, 3.5, "Naturkosmetik, matt, alle Hauttypen", "Woman", "S")
+
+fun main() {
+    produkteDatenbank.add(produktKörper4)
+    produkteDatenbank.add(produktKörper5)
+    produkteDatenbank.add(produktKörper6)
+
+    val headerRow = headers.joinToString(" | ")
+    println(headerRow)
+
+    // Trennlinie erstellen
+    val separator = "-".repeat(headerRow.length)
+    println(separator)
+
+    // Datensätze ausgeben
+    for (row in produkteDatenbank) {
+        val formattedRow = listOf(
+                row.name,
+                row.preis.toString(),
+                row.kundenRezension.toString(),
+                */
+
+/*                row.anwendungsBereich.toString(),
+                                row.begrenzteAbgabe.toString()
+
+
+        ).map { it.padEnd(20) } // Spaltenbreite anpassen
+
+        val formattedString = formattedRow.joinToString(" | ")
+        println(formattedString)
+    }
+}*/

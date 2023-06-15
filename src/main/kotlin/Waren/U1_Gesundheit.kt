@@ -13,4 +13,7 @@ class U1_Gesundheit(
     init {
 /*        println("Gesundheit")*/
     }
+    override fun toString(): String {
+        return "$anwendungsBereich" + "$begrenzteAbgabe"
+    }
 }

@@ -2,6 +2,9 @@ import Waren.*
 import USER.*
 import java.lang.Exception
 
+val header = listOf("name", "preis", "Bewertung", "Anwendungsbereich", "begrenzteAbgabe")
+val produkteDatenbankT = mutableListOf<Produkt>()
+
 fun main() {
 
     Shop_Drugstore()
@@ -36,7 +39,7 @@ fun main() {
 
     auswahlStart(userDB, produkteDatenbank )
     login(userDB)
-    produkt(produkteDatenbank)
+    produkt(produkteDatenbankT)
 
 }
 
@@ -53,7 +56,39 @@ fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produ
     }
 }
 
+fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>){
 
+/*    produkteDatenbankT.add(produktKörper1)
+    produkteDatenbankT.add(produktKörper2)
+    produkteDatenbankT.add(produktKörper3)*/
+
+    val columnWidths = listOf(70, 10, 10, 30, 30)
+
+    val headerRow = header.mapIndexed { index, header ->
+        header.padEnd(columnWidths[index])
+    }.joinToString(" | ")
+    println(headerRow)
+
+    val separator = columnWidths.map { "-".repeat(it) }.joinToString(" | ")
+    println(separator)
+
+
+    for (row in produkteDatenbank) {
+        val formattedRow = listOf(
+                row.name,
+                row.preis.toString(),
+                row.kundenRezension.toString()/*,
+                row.anwendungsbereich,
+                row.begrenzteAbgabe*/
+        ).mapIndexed { index, value ->
+            value.padEnd(columnWidths[index])
+        }
+
+        val formattedString = formattedRow.joinToString(" | ")
+        println(formattedString)
+    }
+println("\n\n")
+}
 
 fun login(userDB: MutableList<User>) {
     println("Loggen Sie sich mit Ihren Anmeldedaten ein.\nBenutzername (eMail):"
@@ -98,7 +133,7 @@ fun myAccount() {
 }
 
 fun manager(userDB: MutableList<User>) {
-    println(" Guten Morgen Manager\n")
+    println("       Guten Morgen Manager\n")
     repeat(10) {
         println(
                 "1 Kontostand einsehen\n" +
@@ -109,7 +144,7 @@ fun manager(userDB: MutableList<User>) {
 
         var job = readln()
         when (job) {
-            "1", "Jan", "Januar" -> {
+            "1", "Konto", "Millionär" -> {
                 /* kontoStand()*/
                 println("Gestern war der Kassenbestand: ... €")
             }
@@ -159,15 +194,16 @@ fun register() {
 
 fun produkt(produkteDatenbank: MutableList<Produkt>) {
     warteschleife()
-    println(" hier ist shopShop. DER Online_DrugStore!")
+    println("Hier ist shopShop. DER Online_DrugStore!")
 
-    println("Hier sehen Sie die Kategorien, in denen Sie eine gute Auswahl haben.\n" +
+    println("Sie sehen die Kategorien, in denen Sie eine gute Auswahl haben.\n" +
             "Beachten sie auch unsere Sonderangebote!")
-    println("${produkteDatenbank.size}.000 Produkte im Shop!")
+    println(">>> ${produkteDatenbank.size}.000 Produkte im Shop!")
     /*println("${produkteDatenbank}")*/
-    for (produkt in produkteDatenbank){
-        println("${produkt.name}, produkt.")
-    }
+    tabelle(produkteDatenbank, produkteDatenbankT)
+/*    for (produkt in produkteDatenbank){
+        println("${produkt.name}, ${produkt.preis},  ${produkt.kundenRezension}")
+    }*/
 }
 
 //TODO -----zu schreibende fun-----------------------------------------------

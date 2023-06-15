@@ -11,7 +11,11 @@ class U1__Leben(
     init {
 /*        println("U1__Leben")*/
     }
+    override fun toString(): String {
+        return "$merkmal"
+    }
 }
+
 
 
 
