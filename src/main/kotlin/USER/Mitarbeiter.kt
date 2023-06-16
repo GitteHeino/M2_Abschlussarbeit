@@ -8,7 +8,7 @@ class Mitarbeiter(
     password: String,
     /*        city: String = "",
             street_Nr: String = "",
-            plz: String = "",*/
+            zipCode: String = "",*/
     var arbeitsModell: String = "Vollzeit"      // "Teilzeit", "Honk"
 
 ) : User(id, name, firstName, eMail, password) {

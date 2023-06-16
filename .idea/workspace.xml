@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel">
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="202306112:25&#10;&#10;Login rough&#10;div. fun angelegt&#10;&#10;open&#10;override &#10;init {}&#10;&#10;&#10;Dank an Lukas">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Book.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Page.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Person.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/USER/userDB.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Manager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Mitarbeiter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +59,9 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin/USER" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/Waren" />
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="USER" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="Test_Buch" />
@@ -162,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686844496547</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="202306112:25&#10;&#10;Login rough&#10;div. fun angelegt&#10;&#10;open&#10;override &#10;init {}&#10;&#10;&#10;Dank an Lukas">
+      <created>1686911206911</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686911206911</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,6 +198,7 @@
     <MESSAGE value="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen" />
     <MESSAGE value="20230615 15:55&#10;&#10;Eigenschafen Methoden anlegen" />
     <MESSAGE value="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel" />
+    <MESSAGE value="202306112:25&#10;&#10;Login rough&#10;div. fun angelegt&#10;&#10;open&#10;override &#10;init {}&#10;&#10;&#10;Dank an Lukas" />
+    <option name="LAST_COMMIT_MESSAGE" value="202306112:25&#10;&#10;Login rough&#10;div. fun angelegt&#10;&#10;open&#10;override &#10;init {}&#10;&#10;&#10;Dank an Lukas" />
   </component>
 </project>

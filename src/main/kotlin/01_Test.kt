@@ -7,14 +7,13 @@ import java.lang.Exception
 
 
 // txt2tab
-val header = listOf("name", "preis", "Bewertung", "Anwendungsbereich", "begrenzteAbgabe")
+val header = listOf("Artikel", "Preis", "Bewertung", "Anwendungsbereich", "begrenzteAbgabe")
 
 
 val produkteDatenbankT = mutableListOf<Produkt>()
-
 fun main() {
 
-    Shop_Drugstore()
+    Shop_Drugstore()        //TODO  Dezu der Daten für txt2tab
     // produkteDatenbank
     var produktKörper1 = U1_bodyCare("Sonnenfluid Gesicht, 50ml", 4.75, 3.8, "sensitiv LSF 50+", "all", "L")
     var produktKörper2 = U1_bodyCare("Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL")
@@ -33,24 +32,28 @@ fun main() {
     var produktReini3 = U2_Reinigungsmittel("Vileda Ultramax Bodenwischer", 41.51, 4.4, "Komplett Ultramax Set + 2 extra Bezüge", "nicht verschlucken!", "innen")
 
 // userDB
-    val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede 11", "82335", "Sehr geehrter Herr ", "1951-06-14")
-    val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße 211", "30457", "Guten Tag ", "1987-02-07")
-    val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße 54", "09306", "Sehr geehrte Frau ", "1967-06-23")
-    val userManager = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße 75", "04109", "s8o17")
+    val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
+    val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07")
+    val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23")
+    val userManager = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75,"04109", "s8o17")
     val userMitarbeiter = Mitarbeiter(11, "Bogenmacher", "Paul", "bmp", "000", "Honk")
 
     var produkteDatenbank = mutableListOf<Produkt>(produktKörper1, produktKörper2, produktKörper3, produktGesund1, produktGesund2, produktGesund3, produktLeben1, produktLeben2, produktLeben3, produktReini1, produktReini2, produktReini3)
     var userDB = mutableListOf<User>(userKunde1, userKunde2, userKunde3, userMitarbeiter, userManager)
     var userMenus = Produkt()
 
+    var neuKunde = Kunde(100, "Mustermann", "Max", "eMail", "password", "Musterstadt", "X-Straße", 11, "12345", "hi", "11-11-2000")
+
+//TODO -----Ende der fun maim-----------------------------------------------
+
+    /*    auswahlStart(userDB, produkteDatenbank)  //TODO  Boolean
+        login(userDB)*/
+    neuKunde.registerNeu()
     /*    // TODO Test  import
         val mensch = Person("host", "KRAUSE", 88)
         mensch.geburtstag()
         println("\n")*/
 
-    auswahlStart(userDB, produkteDatenbank)  //TODO  Boolean
-    login(userDB)
-    /*    userMenu() // TODO  leitet zum einzelnen Kunden*/
     produkt(produkteDatenbankT) // TODO  zeigt Produkte in Tabelle
 
 
@@ -59,9 +62,9 @@ fun main() {
 
 //TODO -----Ende der fun maim-----------------------------------------------
 
-fun userMenu(userMenus: Unit) {
+/*fun userMenu(userMenus: Unit) {
 
-}
+}*/
 
 fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>): Boolean {
     println("shopShop - Deine Online-Drogerie\n" +
@@ -69,9 +72,9 @@ fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produ
     var auswahl = readln().capitalize().toString()
     if (auswahl == "L") {
         return true
-    } else if (auswahl == "R") {
-        return false
     }
+    /*register(userDB: MutableList<Kunde>)*/
+    return false
 
     /*    when (auswahl) {
         "R" -> register()
@@ -79,7 +82,6 @@ fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produ
         "P" -> produkt(produkteDatenbank)
     }*/
 }
-
 
 fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>) {
 
@@ -144,25 +146,24 @@ fun login(userDB: MutableList<User>) {
         i++
         if (i > 3) {
             println("Zu viele Fehlversuche. Der Login-Vorgang wird beendet.\n")
-            register()
         }
     }
 
 }
 
-fun myAccount(user: User) {
+fun myAccount(kunde: Kunde) {
     /*TODO("hier beginnt der Account des Kunden")*/
     println("hier beginnt der Account des Kunden")
     /*userMenu(userDB: MutableList<User>)*/
     /*    userMenus()*/
-    user.produkt()
+    kunde.produkt()
 
     /*    warenkorb()*/
 }
 
 fun manager(userDB: MutableList<User>) {
     println("       Guten Morgen Manager\n")
-    repeat(10) {
+    repeat(5) {
         println(
                 "1 Kontostand einsehen\n" +
                         "2 Waren bestellen\n" +
@@ -207,18 +208,7 @@ fun warteschleife() {
     Thread.sleep(300); println(" .\n")
 }
 
-fun register() {
-    println("Möchten Sie einen neuen Account anlegen? j/n:")
-    var neuerAccount = readln().toString()
-    while (neuerAccount == "j") {
-        println("Sie werden nun zum shop weitergeleitet. Einen Moment")
-        warteschleife()
-        while (neuerAccount == "n")
-            println("Good bye!")
-        break
-        break
-    }
-}
+// TODO Fun register verlagert in Kunde.kt
 
 fun produkt(produkteDatenbank: MutableList<Produkt>) {
     warteschleife()
@@ -233,6 +223,14 @@ fun produkt(produkteDatenbank: MutableList<Produkt>) {
             println("${produkt.name}, ${produkt.preis},  ${produkt.kundenRezension}")
         }*/
 }
+
+
+/*fun register() {
+    println("Willkommen als neuer kunde in shopShop!" +
+            "Zuerst geben Sie bitte Ihre persönlichen Daten ein")
+    registerNeu()
+}*/     // TODO Weiterleitung zu registertNeu  alt
+
 
 //TODO -----zu schreibende fun-----------------------------------------------
 
@@ -254,7 +252,7 @@ fun produkt(produkteDatenbank: MutableList<Produkt>) {
                 Kunde
             }
 
-        }*/
+        }*/     // alt
 
 /*warteschleife()*/     // Verzögerung mit Punkten
 

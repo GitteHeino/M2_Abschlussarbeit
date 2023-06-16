@@ -334,3 +334,7 @@ enum class Suit(val symbol: String) {
     } catch (ex: Exception) {
         println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
     }*/
+
+// TODO  leitet zum einzelnen Kunden
+/*neuKunde.registerNeu()
+userMenu()*/
