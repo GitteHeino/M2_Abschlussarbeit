@@ -30,3 +30,18 @@ import java.lang.Exception
         println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
     }*/
 
+
+
+
+/*
+fun changePreis(neuerPreis: Double){
+    println("Geben sie master-Passwort ein")
+    var input = readln()
+
+    if (input == "master123"){
+        this.preis = neuerPreis
+    }
+    else {
+        println("Authorisierung fehlgeschlagen.")
+    }
+}*/

@@ -14,10 +14,42 @@ class Kunde(
         var geburtstag: String = "yyyy-mm-dd"
 ) : User(id, name, firstName, eMail, password) {
 
-    init {
-        fun userMenu() {
+init {
 
+}
+    fun userKonto() {
+        println("Das Konto des Users")
+    }
+
+    fun userGuthaben() {
+        println("Das Guthaben des Users")
+    }
+
+    fun userBestellung() {
+        println("Users Bestellung")
+    }
+
+    fun sterne() {
+        println("Users Bewertung (* * * * *)")
+    }
+
+    override fun userMenu() {
+        println("""
+            wählen sie aus:
+                1 - Einkaufen
+                2 - Konto einsehen
+                3 - Guthaben
+                4 - Bestellung ansehen
+        """.trimIndent())
+        var userMenu = readln().toInt()
+        when (userMenu) {
+            1 -> produkt()
+            2 -> userKonto()
+            3 -> userGuthaben()
+            4 -> userBestellung()
         }
 
+
     }
+
 }

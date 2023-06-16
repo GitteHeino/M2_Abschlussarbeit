@@ -1,14 +1,21 @@
+import Test_W6_Buch.Book
+import Test_W6_Buch.Page
+import Test_W6_Buch.Person
 import Waren.*
 import USER.*
 import java.lang.Exception
 
+
+// txt2tab
 val header = listOf("name", "preis", "Bewertung", "Anwendungsbereich", "begrenzteAbgabe")
+
+
 val produkteDatenbankT = mutableListOf<Produkt>()
 
 fun main() {
 
     Shop_Drugstore()
-/*    var produktDB = mutableListOf<String>()*/
+    // produkteDatenbank
     var produktKörper1 = U1_bodyCare("Sonnenfluid Gesicht, 50ml", 4.75, 3.8, "sensitiv LSF 50+", "all", "L")
     var produktKörper2 = U1_bodyCare("Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL")
     var produktKörper3 = U1_bodyCare("Lippenstift Velvet Matt Berry Nude, 4,5 g", 8.75, 3.5, "Naturkosmetik, matt, alle Hauttypen", "Woman", "S")
@@ -25,42 +32,60 @@ fun main() {
     var produktReini2 = U2_Reinigungsmittel("Colorwaschmittel Power Caps, 40 Wl", 8.95, 4.8, "Mit Duft", "nein", "-")
     var produktReini3 = U2_Reinigungsmittel("Vileda Ultramax Bodenwischer", 41.51, 4.4, "Komplett Ultramax Set + 2 extra Bezüge", "nicht verschlucken!", "innen")
 
-
+// userDB
     val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede 11", "82335", "Sehr geehrter Herr ", "1951-06-14")
     val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße 211", "30457", "Guten Tag ", "1987-02-07")
     val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße 54", "09306", "Sehr geehrte Frau ", "1967-06-23")
-
     val userManager = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße 75", "04109", "s8o17")
-
     val userMitarbeiter = Mitarbeiter(11, "Bogenmacher", "Paul", "bmp", "000", "Honk")
 
     var produkteDatenbank = mutableListOf<Produkt>(produktKörper1, produktKörper2, produktKörper3, produktGesund1, produktGesund2, produktGesund3, produktLeben1, produktLeben2, produktLeben3, produktReini1, produktReini2, produktReini3)
     var userDB = mutableListOf<User>(userKunde1, userKunde2, userKunde3, userMitarbeiter, userManager)
+    var userMenus = Produkt()
 
-    auswahlStart(userDB, produkteDatenbank )
+    /*    // TODO Test  import
+        val mensch = Person("host", "KRAUSE", 88)
+        mensch.geburtstag()
+        println("\n")*/
+
+    auswahlStart(userDB, produkteDatenbank)  //TODO  Boolean
     login(userDB)
-    produkt(produkteDatenbankT)
+    /*    userMenu() // TODO  leitet zum einzelnen Kunden*/
+    produkt(produkteDatenbankT) // TODO  zeigt Produkte in Tabelle
+
 
 }
+
 
 //TODO -----Ende der fun maim-----------------------------------------------
 
-fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>) {
+fun userMenu(userMenus: Unit) {
+
+}
+
+fun auswahlStart(userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>): Boolean {
     println("shopShop - Deine Online-Drogerie\n" +
             "Bitte  L  eingeben für LogIn oder  R  für Registrierung:")
     var auswahl = readln().capitalize().toString()
-    when (auswahl) {
+    if (auswahl == "L") {
+        return true
+    } else if (auswahl == "R") {
+        return false
+    }
+
+    /*    when (auswahl) {
         "R" -> register()
         "L" -> login(userDB)
         "P" -> produkt(produkteDatenbank)
-    }
+    }*/
 }
 
-fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>){
 
-/*    produkteDatenbankT.add(produktKörper1)
-    produkteDatenbankT.add(produktKörper2)
-    produkteDatenbankT.add(produktKörper3)*/
+fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>) {
+
+    /*    produkteDatenbankT.add(produktKörper1)
+        produkteDatenbankT.add(produktKörper2)
+        produkteDatenbankT.add(produktKörper3)*/
 
     val columnWidths = listOf(70, 10, 10, 30, 30)
 
@@ -87,11 +112,11 @@ fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: Mutable
         val formattedString = formattedRow.joinToString(" | ")
         println(formattedString)
     }
-println("\n\n")
+    println("\n\n")
 }
 
 fun login(userDB: MutableList<User>) {
-    println("Loggen Sie sich mit Ihren Anmeldedaten ein.\nBenutzername (eMail):"
+    println("Zuerst müssen Sie sich mit Ihren Anmeldedaten einloggen.\nBenutzername (eMail):"
     )
     var i = 1
     while (i <= 3) {
@@ -111,7 +136,8 @@ fun login(userDB: MutableList<User>) {
         } else if (userDB.any {
                     loginM == it.eMail && it.password == loginP     // Justus
                 }) {
-            myAccount()     // return: eMail des Kunden
+            return
+            /* myAccount()     // return: eMail des Kunden*/
         } else {
             println("Diese Kombination existiert nicht in unserer Datenbank.")
         }
@@ -124,10 +150,12 @@ fun login(userDB: MutableList<User>) {
 
 }
 
-fun myAccount() {
+fun myAccount(user: User) {
     /*TODO("hier beginnt der Account des Kunden")*/
     println("hier beginnt der Account des Kunden")
-
+    /*userMenu(userDB: MutableList<User>)*/
+    /*    userMenus()*/
+    user.produkt()
 
     /*    warenkorb()*/
 }
@@ -201,9 +229,9 @@ fun produkt(produkteDatenbank: MutableList<Produkt>) {
     println(">>> ${produkteDatenbank.size}.000 Produkte im Shop!")
     /*println("${produkteDatenbank}")*/
     tabelle(produkteDatenbank, produkteDatenbankT)
-/*    for (produkt in produkteDatenbank){
-        println("${produkt.name}, ${produkt.preis},  ${produkt.kundenRezension}")
-    }*/
+    /*    for (produkt in produkteDatenbank){
+            println("${produkt.name}, ${produkt.preis},  ${produkt.kundenRezension}")
+        }*/
 }
 
 //TODO -----zu schreibende fun-----------------------------------------------

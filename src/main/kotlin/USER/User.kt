@@ -25,11 +25,10 @@ open class User(
     fun bezahlen() {
     }
 
-    open fun userMenu(){
+    open fun userMenu() {
+        println("Dein persönliches Menü")
 
     }
 
+
 }
-
-
-

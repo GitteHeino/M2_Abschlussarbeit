@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230615 15:55&#10;&#10;Eigenschafen Methoden anlegen">
+    <list default="true" id="8560490b-55f0-4cd4-8489-2b7c446e5178" name="Changes" comment="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Book.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Page.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test_W6_Buch/Person.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/01_Test.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/02_Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/03_Snipets.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/Produkt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1_Gesundheit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Waren/U1__Leben.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Shop_Drugstore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/Kunde.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/USER/User.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +59,12 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin/Waren" />
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="Test_Buch" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="Test_W6_Buch" />
+      <recent name="" />
       <recent name="Waren" />
       <recent name="USER" />
     </key>
@@ -146,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686837565273</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel">
+      <created>1686844496547</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686844496547</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +186,7 @@
     <MESSAGE value="20230614 12:03&#10;Klassen anlegen &#10;Eigenschafen Methoden, Produkte anlegen" />
     <MESSAGE value="20230615 12:23&#10;&#10;Eigenschafen Methoden anlegen" />
     <MESSAGE value="20230615 15:55&#10;&#10;Eigenschafen Methoden anlegen" />
-    <option name="LAST_COMMIT_MESSAGE" value="20230615 15:55&#10;&#10;Eigenschafen Methoden anlegen" />
+    <MESSAGE value="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel" />
+    <option name="LAST_COMMIT_MESSAGE" value="20230615 17:55&#10;&#10;Login rough&#10;div. fun angelegt&#10;created txt2tab &#10;[ ©cGPT]&#10;&#10;Dank an Pavel" />
   </component>
 </project>

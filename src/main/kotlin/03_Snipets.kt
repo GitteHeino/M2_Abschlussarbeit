@@ -207,6 +207,7 @@ fun manager(userDB: MutableList<User>) {
 }
 */
 
+// TODO warteschleife . . . .
 /*fun warteschleife() {
     Thread.sleep(700)
     println("Sie werden gleich weitergeleitet zum Shop ...\n")
@@ -218,6 +219,7 @@ fun manager(userDB: MutableList<User>) {
     Thread.sleep(300); println(" .\n")
 }*/
 
+// TODO neuer Kunde  Registrierung
 /*fun register() {
     println("Möchten Sie einen neuen Account anlegen? j/n:")
     var neuerAccount = readln().toString()
@@ -231,12 +233,8 @@ fun manager(userDB: MutableList<User>) {
     }
 }*/
 
-
-
-
+// TODO txt in tab v1
 /*
-// Text in tabellarischer Form aufbereiten
-
 val hea_ders = listOf("Name", "Alter", "Stadt")
 val data = listOf(
         listOf("Max", "25", "Berlin"),
@@ -262,7 +260,7 @@ fun main() {
     }
 }*/
 
-
+// TODO txt in tab v2
 /*
 
 val headers = listOf("name", "preis", "kundenRezension", "anwendungsbereich", "begrenzteAbgabe")
@@ -289,9 +287,8 @@ fun main() {
                 row.name,
                 row.preis.toString(),
                 row.kundenRezension.toString(),
-                */
 
-/*                row.anwendungsBereich.toString(),
+                row.anwendungsBereich.toString(),
                                 row.begrenzteAbgabe.toString()
 
 
@@ -301,3 +298,39 @@ fun main() {
         println(formattedString)
     }
 }*/
+
+// TODO enum class
+enum class Suit(val symbol: String) {
+    SPADES("\u2660"),
+    HEARTS("\u2665"),
+    DIAMONDS("\u2666"),
+    CLUBS("\u2663")
+}
+
+// TODO fun login
+/*fun login(){
+    println("shopShop - Deine Online-Drogerie")
+    println("Loggen Sie sich mit Ihren Anmeldedaten ein. ▷▷ " +
+            "eMail oder Benutzername:")
+
+    try {
+        var loginM = readln().toString()
+        println("Passwort (nur Zahlen und Buchstaben):")
+        var loginP = readln().toString()
+        println(loginM + loginP)
+        if (userDB.any { it.eMail == loginM }) {       // User mit eMail raussuchen und mit PW abgleichen
+            println("Hallo!")
+            println(loginM + loginP)
+
+            var listOfData = Produkt()
+            println(listOfData)
+
+            println(
+                "Unser Shop bietet das Beste aus den 2 Kategorien: " +
+                        "Haushalt und BodyCare"
+            )
+
+        }
+    } catch (ex: Exception) {
+        println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
+    }*/
