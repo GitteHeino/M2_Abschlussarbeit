@@ -24,6 +24,7 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
 
     override fun produkt() {
         println("Hier ist für heute Schluß")
+
     }
 
     fun sterne() {
@@ -77,7 +78,7 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
             println("Kein Zugriff, Programm wird geschlossen")
         }
         if (userLoggedIn) {
-            datenEingabe()      //appStarten()
+            /*            datenEingabe()      //appStarten()*/
         }
     }
 
@@ -171,7 +172,9 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
 
 
         println("\nKontrollieren Sie bitte Ihre Angaben:")
-        println("$firstName, $name,  eMail: \n$eMail, Passwort: ******,\n$city,\n$street, $nr,\n$zipCode,\n$geburtstag")        // TODO  <- ${auswahlAnrede()}
+        println("$firstName, $name,  \neMail: $eMail, \nPasswort: ******,\n$city,\n$street, $nr,\n$zipCode,\n$geburtstag") // TODO  <- ${auswahlAnrede()}
+        auswahlAnrede().toString()
+        println("\n\t◌\t◌\n\n")
 
 
 
@@ -181,8 +184,8 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
                       println("Sie werden nun zum shop weitergeleitet. Einen Moment")
                             warteschleife()*/
             println("Jetzt können Sie shopShoppen :-)")     //TODO  springt zu Zeile 63 WARUM ???
-           produkt()
-
+            produkt()
+            exitProcess(5)
 
 
             /*
@@ -204,8 +207,7 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
         println("$firstName, $name,  eMail: \n$eMail, Passwort: ******,\n$city,\n$street, $nr,\n$zipCode,$ausgewehlteAnrede,\n$geburtstag")
         exitProcess(2)
         */
-        }
-        else {
+        } else {
             println("Good bye!")
             exitProcess(1)
         }
