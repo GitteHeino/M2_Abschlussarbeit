@@ -1,5 +1,7 @@
 package Test_W6_Buch
+fun main(){
 
+}
 class Person {
 
     var vorname: String

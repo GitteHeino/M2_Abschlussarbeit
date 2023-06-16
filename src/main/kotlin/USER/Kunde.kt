@@ -2,8 +2,8 @@ package USER
 
 import kotlin.system.exitProcess
 
-class Kunde(id: Int, name: String, firstName: String, eMail: String, password: String,/*    val id: Int = 0,*/
-            var city: String, val street: String, val nr: Int, val zipCode: String, var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
+class Kunde(id: Int, name: String, firstName: String, eMail: String, password: String,/*    var id: Int = 0,*/
+            var city: String, var street: String, var nr: Int, var zipCode: String, var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
             var geburtstag: String = "yyyy-mm-dd") : User(id, name, firstName, eMail, password) {
 
     init {
@@ -20,6 +20,10 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
 
     fun userBestellung() {
         println("Users Bestellung")
+    }
+
+    override fun produkt() {
+        println("Hier ist für heute Schluß")
     }
 
     fun sterne() {
@@ -46,25 +50,25 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
     }
 
     fun registerNeu() {
-        println("Möchten Sie einen neuen Account anlegen? j/n:")
-        var neuerAccount = readln().toString()
+        println("Möchten Sie einen neuen Account anlegen? j/n:  ")
+        var neuerAccount = readln().capitalize().toString()
         /*        while (neuerAccount == "j") {*/
         /*        if (neuerAccount == "n") {
         exitProcess(0)*/
         when (neuerAccount) {
-            "j" -> datenEingabe()
-            "n" -> exitProcess(0)
+            "J" -> datenEingabe()
+            "N" -> exitProcess(0)
         }
 
         var versuche = 0
         var userLoggedIn = false
         while (versuche < 3 && !userLoggedIn) {
-            println("geben sie ihr Passwort ein:")
+            println("geben sie ihr Passwort ein:  ")
             var pw = readln()
             if (pw == "guest123") {
                 userLoggedIn = true
             } else {
-                println("Falsches Passwort. Versuch sie es noch einmal")
+                println("Falsches Passwort. Versuchen Sie es noch einmal")
                 versuche++ // versuche = versuche + 1
             }
         } // Ende der Schleife
@@ -78,58 +82,136 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
     }
 
 
-    fun datenEingabe() {
+    fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
+        println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
+        print("Nachname:  ")
+        name = readln().toString()
+        print("Vorname:  ")
+        firstName = readln().toString()
+        print("eMail:  ")
+        eMail = readln().toString()
+        print("Passwort:  ")
         var i = 0
-        while(i < 3) {
-            println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein:")
-            name = readln().toString()
-            firstName = readln().toString()
-            var eMail = readln().toString()
+        while (i < 3) {
             var password0 = readln().toString()
-            println("Bitte wiederholen Sie das Passwort:")
-            var password = readln().toString()
-            if (password0 !== password) {
-                println("Die beiden Passwörter stimmen nicht überein. Bitte wiederholen")
+            print("Bitte wiederholen Sie das Passwort:  \n")
+            password = readln().toString()
+            if (password0 == password) {
+                print("\t◌\n\n")
+                break
+            } else {
+                println("Die beiden Passwörter stimmen nicht überein. Bitte wiederholen …")
+            }
+            i++
+        }
+
+
+        println("Geben Sie nun noch Ihre Adresse an:")
+        print("Wohnort:  ")
+        city = readln().toString()
+        print("PLZ: ")
+        zipCode = readln().toString()
+        print("Straße:  ")
+        street = readln().toString()
+
+        var j = 1
+        /*while (j < 2) {*/
+        try {       // TODO Warum springt die try catch an, wenn alles richtig ist?
+            print("Nr:  ")
+            nr = readln().toInt()
+        } catch (ex: Exception) {
+            println("Nur Ziffern von 0 - 9 sind erlaubt")
+            j++
+        }
+
+        /*  }*/
+
+
+        print("Geburtstag (dd.mm.yyyy):  ")
+        geburtstag = readln().toString()
+
+        /*            print("wählen sie nun eine Anrede:\n" + " 1  für \'SGF\', 2  für \'SGH\', 3  für \'hi\', 4  für \'GutenTag\':  ")
+                    anrede = readln()
+                    when (anrede) {
+                        "1" -> println("Sehr geehrte Frau")
+                        "2" -> println("Sehr geehrter Herr")
+                        "3" -> println("hi")
+                        "4" -> println("Guten Tag")*/
+
+        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'SGF', 2 für 'SGH', 3 für 'hi', 4 für 'Guten Tag': ")
+        val anrede = readln()
+
+        fun auswahlAnrede() {
+            when (anrede) {
+                "1" -> {
+                    println("Sehr geehrte Frau")
+                    /*ergebnisListe.add("Sehr geehrte Frau")*/
+                }
+
+                "2" -> {
+                    println("Sehr geehrter Herr")
+                    /*ergebnisListe.add("Sehr geehrter Herr")*/
+                }
+
+                "3" -> {
+                    println("hi")
+                    /*userDB.add("hi")*/
+                }
+
+                "4" -> {
+                    println("Guten Tag")
+                    /*ergebnisListe.add("Guten Tag")*/
+                }
+
+                else -> {
+                    println("Ungültige Auswahl")
+                }
             }
         }
 
 
+        println("\nKontrollieren Sie bitte Ihre Angaben:")
+        println("$firstName, $name,  eMail: \n$eMail, Passwort: ******,\n$city,\n$street, $nr,\n$zipCode,\n$geburtstag")        // TODO  <- ${auswahlAnrede()}
 
 
 
-
-        println("Geben Sie nun noch Ihre Adresse an: Ort:")
-        var city = readln().toString()
-        println("Straße")
-        var street = readln().toString()
-        println("Nr")
-        var nr = readln().toInt()
-        println("PLZ")
-        var zipCode = readln().toString()
-        println("wählen sie nun eine Anrede:\n" + " 1  für \'SGF\', 2  für \'SGH\', 3  für \'hi\', 4  für \'GutenTag\'")
-        var anrede = readln().toInt()
-        when (anrede) {
-            1 -> println("Sehr geehrte Frau")
-            2 -> println("Sehr geehrter Herr")
-            3 -> println("hi")
-            4 -> println("Guten Tag")
-        }/*        println("Sie werden nun zum shop weitergeleitet. Einen Moment")
-                warteschleife()*/
-        println("Geburtstag (yyyy-mm-dd)")
-        val geburtstag = readln().toString()
-
-        println("Kontrollieren Sie bitte Ihre Angaben:")
-        println("$name, $firstName, \n$eMail, ******, \n$city,$street, $nr, $zipCode, \n$anrede, $geburtstag")
         println("Alles ok? J/N:")
-        val ok = readln().capitalize().toString()
-        if (ok == "j") {/*            warteschleife(02_Utils. Utils)*/
-            println("Sie können nun shopShoppen :-)")
+        var ok = readln().capitalize().toString()
+        if (ok == "J") {/*            warteschleife(02_Utils. Utils)
+                      println("Sie werden nun zum shop weitergeleitet. Einen Moment")
+                            warteschleife()*/
+            println("Jetzt können Sie shopShoppen :-)")     //TODO  springt zu Zeile 63 WARUM ???
+           produkt()
+
+
+
+            /*
+        fun auswahlAnrede(anrede: String): String {
+            return when (anrede) {
+                "1" -> "Sehr geehrte Frau"
+                "2" -> "Sehr geehrter Herr"
+                "3" -> "hi"
+                "4" -> "Guten Tag"
+                else -> "Ungültige Auswahl"
+            }
         }
 
-        /*        while (neuerAccount == "n") println("Good bye!")*/
+        val anrede = readLine()?.trim()
+
+        val ausgewehlteAnrede = auswahlAnrede(anrede)
+
+        println("\nKontrollieren Sie bitte Ihre Angaben:")
+        println("$firstName, $name,  eMail: \n$eMail, Passwort: ******,\n$city,\n$street, $nr,\n$zipCode,$ausgewehlteAnrede,\n$geburtstag")
         exitProcess(2)
+        */
+        }
+        else {
+            println("Good bye!")
+            exitProcess(1)
+        }
     }
 }
+
 
 
 

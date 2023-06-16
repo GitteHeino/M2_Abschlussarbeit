@@ -20,7 +20,7 @@ open class User(
     fun logout() {
     }
 
-    fun produkt() {
+    open fun produkt() {
     }
 
     fun bezahlen() {

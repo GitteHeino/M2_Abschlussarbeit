@@ -105,8 +105,8 @@ fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: Mutable
                 row.name,
                 row.preis.toString(),
                 row.kundenRezension.toString(),
-                row.anwendungsbereich,
-                row.begrenzteAbgabe
+/*                row.anwendungsbereich,        // TODO weglassen in der primären Ansicht
+                row.begrenzteAbgabe*/
         ).mapIndexed { index, value ->
             value.padEnd(columnWidths[index])
         }
