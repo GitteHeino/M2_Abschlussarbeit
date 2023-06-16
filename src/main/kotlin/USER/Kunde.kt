@@ -3,7 +3,7 @@ package USER
 import kotlin.system.exitProcess
 
 class Kunde(id: Int, name: String, firstName: String, eMail: String, password: String,/*    val id: Int = 0,*/
-            val city: String, val street: String, val nr: Int, val zipCode: String, var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
+            var city: String, val street: String, val nr: Int, val zipCode: String, var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
             var geburtstag: String = "yyyy-mm-dd") : User(id, name, firstName, eMail, password) {
 
     init {
@@ -82,8 +82,8 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
         var i = 0
         while(i < 3) {
             println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein:")
-            var name = readln().toString()
-            var firstName = readln().toString()
+            name = readln().toString()
+            firstName = readln().toString()
             var eMail = readln().toString()
             var password0 = readln().toString()
             println("Bitte wiederholen Sie das Passwort:")

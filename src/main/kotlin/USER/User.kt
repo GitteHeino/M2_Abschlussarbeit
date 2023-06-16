@@ -3,10 +3,10 @@ package USER
 
 open class User(
         val id: Int = 0,
-        val name: String = "",
-        val firstName: String = "",
-        val eMail: String = "",
-        val password: String = ""
+        var name: String = "",
+        var firstName: String = "",
+        var eMail: String = "",
+        var password: String = ""
         /*    val location: String = "",
             val street_Nr: String = "",
             val plz: String = ""*/

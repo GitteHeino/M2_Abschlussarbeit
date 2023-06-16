@@ -104,9 +104,9 @@ fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: Mutable
         val formattedRow = listOf(
                 row.name,
                 row.preis.toString(),
-                row.kundenRezension.toString()/*,
+                row.kundenRezension.toString(),
                 row.anwendungsbereich,
-                row.begrenzteAbgabe*/
+                row.begrenzteAbgabe
         ).mapIndexed { index, value ->
             value.padEnd(columnWidths[index])
         }
