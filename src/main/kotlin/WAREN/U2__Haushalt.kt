@@ -1,4 +1,4 @@
-package Waren
+package WAREN
 
 class U2__Haushalt(
     name: String,

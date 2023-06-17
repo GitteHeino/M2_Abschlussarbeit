@@ -1,12 +1,18 @@
-import Waren.U1_Gesundheit
-import Waren.U1_bodyCare
-import Waren.U2_Lebensmittel
-import Waren.U2_Reinigungsmittel
+import WAREN.U1_Gesundheit
+import WAREN.U1_bodyCare
+import WAREN.U2_Lebensmittel
+import WAREN.U2_Reinigungsmittel
 
 class Shop_Drugstore() {
 
     /*    init {
     * }*/
+
+    fun willkommen(){
+        println("shopShop - Ihr Drugstore digital um die Ecke!")
+        Thread.sleep(1000)
+
+    }
 
     fun Produkt() {
         var produktDB = mutableListOf<String>()

@@ -29,7 +29,7 @@ open class User(
     open fun userMenu() {
         println("Dein persönliches Menü")
 
-    }
+    }       // TODO wird in subClass überschrieben …
 
 }
 

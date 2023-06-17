@@ -2,16 +2,32 @@ package USER
 
 import kotlin.system.exitProcess
 
-class Kunde(id: Int, name: String, firstName: String, eMail: String, password: String,/*    var id: Int = 0,*/
-            var city: String, var street: String, var nr: Int, var zipCode: String, var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
-            var geburtstag: String = "yyyy-mm-dd") : User(id, name, firstName, eMail, password) {
+class Kunde(
+    id: Int,
+    name: String,
+    firstName: String,
+    eMail: String,
+    password: String,/*    var id: Int = 0,*/
+    var city: String,
+    var street: String,
+    var nr: Int,
+    var zipCode: String,
+    var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
+    var geburtstag: String = "yyyy-mm-dd"
+) : User(id, name, firstName, eMail, password) {
 
     init {
-
     }
 
     fun userKonto() {
         println("Das Konto des Users")
+        back()
+    }
+
+    fun back() {
+        println("Zurück zum Menü")
+        var back = readln()
+        userMenu()
     }
 
     fun userGuthaben() {
@@ -32,13 +48,15 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
     }
 
     override fun userMenu() {
-        println("""
+        println(
+            """
             wählen sie aus:
                 1 - Einkaufen
                 2 - Konto einsehen
                 3 - Guthaben
                 4 - Bestellung ansehen
-        """.trimIndent())
+        """.trimIndent()
+        )
         var userMenu = readln().toInt()
         when (userMenu) {
             1 -> produkt()
@@ -46,8 +64,6 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
             3 -> userGuthaben()
             4 -> userBestellung()
         }
-
-
     }
 
     fun registerNeu() {
@@ -58,32 +74,32 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
         exitProcess(0)*/
         when (neuerAccount) {
             "J" -> datenEingabe()
-            "N" -> exitProcess(0)
+            "N" -> exitProcess(0)       // TODO ersetzen mit back()
         }
 
-        var versuche = 0
-        var userLoggedIn = false
-        while (versuche < 3 && !userLoggedIn) {
-            println("geben sie ihr Passwort ein:  ")
-            var pw = readln()
-            if (pw == "guest123") {
-                userLoggedIn = true
-            } else {
-                println("Falsches Passwort. Versuchen Sie es noch einmal")
-                versuche++ // versuche = versuche + 1
-            }
-        } // Ende der Schleife
+        /*        var versuche = 0
+                var userLoggedIn = false
+                while (versuche < 3 && !userLoggedIn) {
+                    println("geben sie ihr Passwort ein:  ")
+                    var pw = readln()
+                    if (pw == "guest123") {
+                        userLoggedIn = true
+                    } else {
+                        println("Falsches Passwort. Versuchen Sie es noch einmal")
+                        versuche++ // versuche = versuche + 1
+                    }
+                } // Ende der Schleife
 
-        if (versuche == 3) {
-            println("Kein Zugriff, Programm wird geschlossen")
-        }
-        if (userLoggedIn) {
-            /*            datenEingabe()      //appStarten()*/
-        }
+                if (versuche == 3) {
+                    println("Kein Zugriff, Programm wird geschlossen")
+                }
+                if (userLoggedIn) {
+                    *//*            datenEingabe()      //appStarten()*//*
+        }*/
     }
 
-
     fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
+        userMenu()
         println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
         print("Nachname:  ")
         name = readln().toString()
@@ -139,28 +155,28 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
                         "3" -> println("hi")
                         "4" -> println("Guten Tag")*/
 
-        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'SGF', 2 für 'SGH', 3 für 'hi', 4 für 'Guten Tag': ")
+        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'SGF', 2 für 'SGH', 3 für 'hej', 4 für 'Guten Tag': ")
         val anrede = readln()
 
         fun auswahlAnrede() {
             when (anrede) {
                 "1" -> {
-                    println("Sehr geehrte Frau")
+                    println("Sehr geehrte Frau ")
                     /*ergebnisListe.add("Sehr geehrte Frau")*/
                 }
 
                 "2" -> {
-                    println("Sehr geehrter Herr")
+                    println("Sehr geehrter Herr ")
                     /*ergebnisListe.add("Sehr geehrter Herr")*/
                 }
 
                 "3" -> {
-                    println("hi")
+                    println("hej ")
                     /*userDB.add("hi")*/
                 }
 
                 "4" -> {
-                    println("Guten Tag")
+                    println("Guten Tag ")
                     /*ergebnisListe.add("Guten Tag")*/
                 }
 
@@ -176,15 +192,13 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
         auswahlAnrede().toString()
         println("\n\t◌\t◌\n\n")
 
-
-
         println("Alles ok? J/N:")
         var ok = readln().capitalize().toString()
         if (ok == "J") {/*            warteschleife(02_Utils. Utils)
                       println("Sie werden nun zum shop weitergeleitet. Einen Moment")
                             warteschleife()*/
             println("Jetzt können Sie shopShoppen :-)")     //TODO  springt zu Zeile 63 WARUM ???
-            produkt()
+            userMenu()
             exitProcess(5)
 
 
@@ -211,10 +225,7 @@ class Kunde(id: Int, name: String, firstName: String, eMail: String, password: S
             println("Good bye!")
             exitProcess(1)
         }
-    }
-}
+    }       // TODO Zeile 87: Abkürzung rausnehmen, wenn fertig!
 
 
-
-
-
+}       // TODO Ende der Class Kunde

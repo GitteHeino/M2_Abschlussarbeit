@@ -1,4 +1,4 @@
-package Waren
+package WAREN
 
 class U1_Gesundheit(
     name: String,
@@ -9,11 +9,16 @@ class U1_Gesundheit(
     var begrenzteAbgabe: Boolean
 ) : Produkt(name, preis, kundenRezension) {
 
+    init {      //todo  println("Gesundheit")
 
-    init {
-/*        println("Gesundheit")*/
     }
+
     override fun toString(): String {
         return "$anwendungsBereich" + "$begrenzteAbgabe"
-    }
+    }       // TODO  hier werden die @speicherAdressen gegen den wahren Inhalt getauscht
+
+/*    fun text() {
+        println("{U1_Gesundheit.merkmal[0]}")
+    }*/
 }
+

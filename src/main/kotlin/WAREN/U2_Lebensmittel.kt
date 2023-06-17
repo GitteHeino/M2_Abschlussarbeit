@@ -1,4 +1,4 @@
-package Waren
+package WAREN
 
 class U2_Lebensmittel(
     name: String,

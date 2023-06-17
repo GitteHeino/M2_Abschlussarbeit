@@ -1,4 +1,4 @@
-package Waren
+package WAREN
 
 class U1__Leben(
     name: String,

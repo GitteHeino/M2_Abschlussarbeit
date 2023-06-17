@@ -1,8 +1,3 @@
-import Waren.Produkt
-import java.lang.Exception
-
-
-
 /*fun login(){
     println("shopShop - Deine Online-Drogerie")
     println("Loggen Sie sich mit Ihren Anmeldedaten ein. ▷▷ " +

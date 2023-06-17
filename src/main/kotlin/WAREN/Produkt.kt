@@ -1,4 +1,4 @@
-package Waren
+package WAREN
 
 
 open class Produkt(

@@ -1,16 +1,18 @@
-package Waren
+package WAREN
 
-class U2_Reinigungsmittel(
+class U1_bodyCare(
     name: String,
     preis: Double,
     kundenRezension: Double,
     merkmal: String,
-    var gefährlich: String,
-    var innenAußen: String
+    var who: String,
+    var size: String
 ) : Produkt(name, preis, kundenRezension) {
 
-    init {
-/*        println("Reinigung")*/
-    }
-}
 
+
+    init {
+/*        println("U1__bodyCare")*/
+    }
+
+}

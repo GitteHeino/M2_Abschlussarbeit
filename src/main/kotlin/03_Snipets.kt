@@ -1,8 +1,3 @@
-import USER.*
-import Waren.Produkt
-import Waren.U1_bodyCare
-import java.lang.Exception
-
 /*
 fun main(args: Array<String>) {
     println("Hello World!")
