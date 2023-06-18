@@ -77,7 +77,10 @@ fun main() {
         /*return*/
     }
 
-    fun auswahlStart(/*userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>*/) {
+/*
+    fun auswahlStart(*/
+/*userDB: MutableList<User>, produkteDatenbank: MutableList<Produkt>*//*
+) {
         var auswahl = readln().capitalize().toString()
         when (auswahl) {
             "L" -> println("logIn  ")
@@ -85,6 +88,7 @@ fun main() {
             "R" -> println("  signUp")
         }
     }
+*/
 
     fun anmeldung() {
         var login = User()
@@ -178,6 +182,7 @@ fun main() {
     }       //todo  >>> in Class Manager
 
 
+
 }
 
 
@@ -194,23 +199,24 @@ fun willkommen() {
 }
 
 fun auswahlStart() {        // userDB: User, produkteDatenbank: MutableList<Produkt>
-    var auswahl = readln().capitalize().toString()
-    /*    when (auswahl) {
+/*    var auswahl = readln().capitalize().toString()
+        when (auswahl) {
             "L" -> println("logIn  ");
             "R" -> println("  signUp")
             "M" -> println("Manager")
         }*/
 
+    var auswahl = readln().capitalize().toString()
     when (auswahl) {
         "L" -> {
-            val kundenAccount = Kunde()
+            val kundenAccount = Kunde(101, "Maier","Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
             kundenAccount.userBestellung()
         }
 
         "M" -> {
 
-            val managerAccount = Manager()
-                    managerAccount.warenbestandPrüfen()
+            val managerAccount = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75, "04109", "s8o17")
+            managerAccount.warenbestandPrüfen()
 
         }
 

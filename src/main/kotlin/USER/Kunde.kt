@@ -49,7 +49,7 @@ class Kunde(
     }
 
     fun userBestellung() {
-        println("Users Bestellung")
+        println("\u001B[34m Users Bestellung. Diese Info kommt von der Class Kunde.kt\u001B[0m")
     }
 
     override fun produkt() {
