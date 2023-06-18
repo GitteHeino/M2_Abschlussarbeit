@@ -19,6 +19,23 @@ class Kunde(
     init {
     }
 
+/*
+    val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
+    val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07")
+    val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23")
+*/
+
+/*
+    var neuKunde = Kunde(100, "Mustermann", "Max", "eMail", "password", "Musterstadt", "X-Straße", 11, "12345", "hi", "11-11-2000")
+*/
+
+
+
+
+
+
+
+
     fun userKonto() {
         println("Das Konto des Users")
         back()
@@ -229,3 +246,9 @@ class Kunde(
 
 
 }       // TODO Ende der Class Kunde
+
+
+
+//todo -----------------------------------------------
+// Ü > mT/f(m)  10  CC
+

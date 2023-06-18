@@ -17,11 +17,13 @@ class Manager(
     init {
     }
 
-
 // TODO _________________________________________________________
 
 
-fun passwordAdmin() {
+
+
+// TODO _________________________________________________________
+    fun passwordAdmin() {
 }
 
 fun warenbestandPrüfen() {
@@ -38,6 +40,19 @@ fun preiseÄndern() {
 
 fun sonderAngebote() {
 }
+
+
+
+//todo -----------------------------------------------
+// Ü > mT/f(m)  40  Preise ändern
+
+
+
+
+
+
+
+
 
 
 }

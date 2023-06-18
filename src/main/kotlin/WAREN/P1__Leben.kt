@@ -1,23 +1,25 @@
 package WAREN
 
-class U1__Leben(
-    name: String,
-    preis: Double,
-    kundenRezension: Double,
-    var merkmal: String = "sauber"
-) : Produkt(name, preis, kundenRezension) {
+class P1__Leben(
+        nr: Int,
+        name: String,
+        preis: Double,
+        kundenRezension: Double,
+        var merkmal: String = "sauber"
+) : Produkt(nr, name, preis, kundenRezension) {
+
 
 
     init {
-/*        println("U1__Leben")*/
+        println("P2__Haushalt")
     }
+
     override fun toString(): String {
         return "$merkmal"
     }
+
+
 }
-
-
-
 
 
 /*
