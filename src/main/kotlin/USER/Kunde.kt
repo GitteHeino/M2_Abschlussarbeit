@@ -33,9 +33,6 @@ class Kunde(
 
 
 
-
-
-
     fun userKonto() {
         println("Das Konto des Users")
         back()
@@ -43,7 +40,7 @@ class Kunde(
 
     fun back() {
         println("Zurück zum Menü")
-        var back = readln()
+        readln()
         userMenu()
     }
 
@@ -115,7 +112,7 @@ class Kunde(
         }*/
     }
 
-    fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
+    open fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
         userMenu()
         println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
         print("Nachname:  ")
@@ -245,7 +242,8 @@ class Kunde(
     }       // TODO Zeile 87: Abkürzung rausnehmen, wenn fertig!
 
 
-}       // TODO Ende der Class Kunde
+}
+// TODO Ende der Class Kunde
 
 
 

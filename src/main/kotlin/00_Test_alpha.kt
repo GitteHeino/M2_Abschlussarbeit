@@ -1,5 +1,6 @@
 import WAREN.*
 import USER.*
+import kotlin.system.exitProcess
 
 // Globale Variablen
 
@@ -23,7 +24,7 @@ fun main() {
         *//*userKunde1, userKunde2, userKunde3, userMitarbeiter11 ,userMitarbeiter12, userManager*/
 
     // produkteDB:
-    val produkte = Produkt(0, "", 0.0,5.0)
+    val produkte = Produkt(0, "", 0.0, 5.0)
     /* var produkte = mutableListOf<Produkt>()*/
 
     // produkteDB: für txt2tab
@@ -60,8 +61,7 @@ fun main() {
     warteschleife()
     produkt()
     alleProdukte()
-    /*tabelle()*/
-        /*tabelle(produkteDatenbank, produkteDatenbankT)        //alpha */
+
 
 //TODO -----Ende der fun maim--------------------------------------------------
 
@@ -129,39 +129,7 @@ fun main() {
         }
     }*/
 
-    /*    fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>) {
 
-        *//*            produkteDatenbankT.add(produktKörper1)
-                    produkteDatenbankT.add(produktKörper2)
-                    produkteDatenbankT.add(produktKörper3)*//*
-        produkteDatenbankT.addAll(produkteDatenbank)
-
-        val columnWidths = listOf(70, 10, 10)
-
-        val headerRow = header.mapIndexed { index, header ->
-            header.padEnd(columnWidths[index])
-        }.joinToString(" | ")
-        println(headerRow)
-
-        val separator = columnWidths.map { "-".repeat(it) }.joinToString(" | ")
-        println(separator)
-
-
-        for (row in produkteDatenbank) {
-            val formattedRow = listOf(
-                    row.name,
-                    row.preis.toString(),
-                    row.kundenRezension.toString(),
-
-                    ).mapIndexed { index, value ->
-                value.padEnd(columnWidths[index])
-            }
-
-            val formattedString = formattedRow.joinToString(" | ")
-            println(formattedString)
-        }
-        println("\n\n")
-    }*/
 
     fun myAccount(kunde: Kunde) {
         /*TODO("hier beginnt der Account des Kunden")*/
@@ -210,55 +178,7 @@ fun main() {
     }       //todo  >>> in Class Manager
 
 
-    /*    fun produkt(warenkorb: MutableList<Produkt>) {
-        warteschleife()
-        println("Hier ist shopShop. DER Online_DrugStore!")
-
-        println(
-                "Sie sehen die Kategorien, in denen Sie eine gute Auswahl haben.\n" +
-                        "Beachten sie auch unsere Sonderangebote!"
-        )
-        println(">>> ${warenkorb.size}.000 Produkte im Shop!")
-
-
-        for (produkt in warenkorb) {
-            println("${produkt.name}, ${produkt.preis},  ${produkt.kundenRezension}")
-        }
-    }*/
-
-
-
-fun tabelle(produkteDatenbank: MutableList<Produkt>, produkteDatenbankT: MutableList<Produkt>) {
-
-        produkteDatenbankT.addAll(produkteDatenbank)
-
-        val columnWidths = listOf(70, 10, 10)
-
-        val headerRow = header.mapIndexed { index, header ->
-            header.padEnd(columnWidths[index])
-        }.joinToString(" | ")
-        println(headerRow)
-
-        val separator = columnWidths.map { "-".repeat(it) }.joinToString(" | ")
-        println(separator)
-
-        for (row in produkteDatenbank) {
-            val formattedRow = listOf(
-                    row.name,
-                    row.preis.toString(),
-                    row.kundenRezension.toString(),
-
-                    ).mapIndexed { index, value ->
-                value.padEnd(columnWidths[index])
-            }
-
-            val formattedString = formattedRow.joinToString(" | ")
-            println(formattedString)
-        }
-        println("\n\n")
-    }
 }
-
 
 
 fun willkommen() {
@@ -275,13 +195,35 @@ fun willkommen() {
 
 fun auswahlStart() {        // userDB: User, produkteDatenbank: MutableList<Produkt>
     var auswahl = readln().capitalize().toString()
+    /*    when (auswahl) {
+            "L" -> println("logIn  ");
+            "R" -> println("  signUp")
+            "M" -> println("Manager")
+        }*/
+
     when (auswahl) {
-        "L" -> println("logIn  ");
-        "R" -> println("  signUp")
+        "L" -> {
+            val kundenAccount = Kunde()
+            kundenAccount.userBestellung()
+        }
+
+        "M" -> {
+
+            val managerAccount = Manager()
+                    managerAccount.warenbestandPrüfen()
+
+        }
+
+        else -> {
+            println("Ungültige Eingabe")
+            exitProcess(1)
+        }
     }
 }
 
-fun input(){
+
+
+fun input() {
     println("eMail")
     val inputEmail = readLine()
     println("password")
@@ -296,7 +238,6 @@ fun input(){
         println("Login fehlgeschlagen")
     }
 }
-
 
 
 fun warteschleife() {
@@ -316,18 +257,20 @@ fun produkt() {
     println("\n\t\t = = = shopShop. DER Online_DrugStore! = = =\n")
     println("Sie sehen die Kategorien, in denen Sie eine gute Auswahl haben.")      // "Beachten sie auch unsere Sonderangebote!"
     println(">>> ${warenAngebot.size}.000 Produkte im Shop!\n\n")
-    println("Nr.\t Artikel ${leer.padEnd(64, ' ')}Preis\t\tBewertung")
+    println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
+
 
     for (produkt in warenAngebot) {
         println("${produkt.nr}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
         Thread.sleep(200)
+
 
     }
 }
 
 fun alleProdukte() {
     val warenkorb = ProductList.productList
-    println("\ninsgesamt ${warenkorb.lastIndex+1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")
+    println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")
 
 
 }
