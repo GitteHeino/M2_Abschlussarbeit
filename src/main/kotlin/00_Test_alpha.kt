@@ -17,9 +17,9 @@ fun main() {
     /*    warteschleife()*/
 
     loginUseroderManager()
-/*    auswahlStart()  */      // User(), produkteDatenbank
-/*    produktAngebotAlleKategorien()*/
-/*    alleProdukte()*/
+    /*    auswahlStart()  */      // User(), produkteDatenbank
+    /*    produktAngebotAlleKategorien()*/
+    /*    alleProdukte()*/
 
 
 //TODO -----Ende der fun maim--------------------------------------------------
@@ -35,7 +35,7 @@ fun loginUseroderManager() {
         println("eMail eingeben:  ")
         var loginM = readln()
         println("Passwort (nur Zahlen und Buchstaben):  ")
-        var loginP = readln().toString()
+        var loginP = readln()
 
         if (UserList.UserExist(loginM)) {
             var user = UserList.GetUserByEmail(loginM)!!
@@ -102,20 +102,18 @@ fun alleProdukte() {
 }        //  Anzahl der Produkte
 
 
-
 fun auswahlStart() {
-    var auswahl = readln().capitalize()
+    val auswahl = readln().capitalize()
     when (auswahl) {
         "L" -> {
             val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
-
+            kundenAccount.userMenu()
 
         }
 
         "R" -> {
             val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
-
-                        kundenAccount.userMenu()
+            kundenAccount.datenEingabe()
         }
 
 
@@ -132,8 +130,4 @@ fun auswahlStart() {
         }
     }
 }        // todo löschen/archivieren und XXX
-
-
-
-
 
