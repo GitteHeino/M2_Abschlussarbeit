@@ -1,83 +1,163 @@
 package USER
 
+import ProductList
+import ProductList.productList
+import UserList
+import UserList.userList
+import produktAngebotAlleKategorien
 import kotlin.system.exitProcess
 
 class Kunde(
-    id: Int,
-    name: String,
-    firstName: String,
-    eMail: String,
-    password: String,/*    var id: Int = 0,*/
-    var city: String,
-    var street: String,
-    var nr: Int,
-    var zipCode: String,
-    var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
-    var geburtstag: String = "yyyy-mm-dd"
+        id: Int,
+        name: String,
+        firstName: String,
+        eMail: String,
+        password: String,/*    var id: Int = 0,*/
+        var city: String,
+        var street: String,
+        var nr: Int,
+        var zipCode: String,
+        var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
+        var geburtstag: String = "yyyy-mm-dd"
 ) : User(id, name, firstName, eMail, password) {
 
-    init {
-    }
-
-/*
-    val userKunde1 = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
-    val userKunde2 = Kunde(102, "Niblock", "Phil", "ayulive@dot.com", "ayufirst", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07")
-    val userKunde3 = Kunde(103, "Nagel", "Jenny", "nagel.je@web.de", "1234", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23")
-*/
-
-/*
-    var neuKunde = Kunde(100, "Mustermann", "Max", "eMail", "password", "Musterstadt", "X-Straße", 11, "12345", "hi", "11-11-2000")
-*/
 
 
-
+    var meinWarenkorb: MutableList<Kunde> = mutableListOf<Kunde>(
+    )
 
 
     fun userKonto() {
         println("Das Konto des Users")
-        back()
-    }
+        println("Sie haben die Möglichkeit Ihre persönlichen Daten einzusehen und zu ändern.\n" +
+                "Sie können auch Ihre Bestellung und Ihren Kontostand einsehen\n" +
+                "1 - aktuelles Guthaben\n" +
+                "2 - Konto\n" +
+                "3 - persönliche Daten einsehen")
+        var eingabe = readln().toInt()
+        when (eingabe) {
+            1 -> meinWarenkorb()
+            2 -> userGuthaben()
+            3 -> anzeigenKundenEintrag(userList, eMail)
 
-    fun back() {
-        println("Zurück zum Menü")
-        readln()
-        userMenu()
-    }
 
-    fun userGuthaben() {
-        println("Das Guthaben des Users")
-    }
+        }
+    }       // TODO löschen/archivieren || noch nicht!!
 
-    fun userBestellung() {
-        println("\u001B[34m Users Bestellung. Diese Info kommt von der Class Kunde.kt\u001B[0m")
-    }
-
-    override fun produkt() {
-        println("Hier ist für heute Schluß")
-
-    }
-
-    fun sterne() {
-        println("Users Bewertung (* * * * *)")
-    }
 
     override fun userMenu() {
         println(
-            """
-            wählen sie aus:
+                """
+            Guten Tag, , wählen sie aus:
                 1 - Einkaufen
-                2 - Konto einsehen
-                3 - Guthaben
-                4 - Bestellung ansehen
+                2 - Warenkorb ansehen
+                3 - Konto einsehen
+                4 - ausloggen
         """.trimIndent()
         )
         var userMenu = readln().toInt()
         when (userMenu) {
-            1 -> produkt()
-            2 -> userKonto()
-            3 -> userGuthaben()
-            4 -> userBestellung()
+            1 -> this.produkt()
+            2 -> this.userWarenAuswahl()
+            3 -> this.userKonto()
+            4 -> back()
         }
+    }
+
+    fun back() {
+        println("Zurück zum Menü")
+        backToUserBestellung()
+        println("Auf Wiedersehen!")
+
+    }
+
+    fun backToUserBestellung() {
+        println("Zurück zum Menü")
+        userWarenAuswahl()
+    }
+
+    fun meinWarenkorb() {
+        var w = readln()
+        println(w)
+    }
+
+    /*    fun addToList(item: String) {
+            meinWarenkorb.add()
+        }*/
+
+    fun userWarenAuswahl() {
+        println("\u001B[34m Um einen Artikel genauer anzusehen geben Sie die dreistellige ArtikelNr. ein:  \u001B[0m")
+        var auswahlArtikel = readln()?.toIntOrNull()
+
+        if (auswahlArtikel != null) {
+            val selectedItem = productList.firstOrNull { it.nr == auswahlArtikel }
+            if (selectedItem != null) {
+                /*                println("ArtikelNr: ${selectedItem.nr} \nName: ${selectedItem.name} \nPreis: ${selectedItem.preis}\n" +
+                                        "Bewertung: ${selectedItem.kundenRezension}\nMerkmal: ${selectedItem.warenAngebot} ${selectedItem}\n")*/
+                println(" Merkmal   $selectedItem")
+
+            } else {
+                println("Artikel nicht gefunden")
+            }
+        } else {
+            println("Ungültige Eingabe")
+        }
+        auswahlMenge()
+        /*        backToUserBestellung()*/
+
+
+    }
+
+    fun auswahlMenge() {
+        println("Wieviele Teile möchten Sie kaufen?")
+        var menge = readln().toInt()
+        println("${meinWarenkorb}")
+        back()
+    }
+
+    private fun anzeigenKundenEintrag(userList: List<User>, eMail: String) {
+        val gefundeneEinträge = userList.filter { user -> user is Kunde && user.eMail == eMail } as List<Kunde>
+
+        if (gefundeneEinträge.isNotEmpty()) {
+            for (kunde in gefundeneEinträge) {
+                println("Name: ${kunde.name}")
+                println("Vorname: ${kunde.firstName}")
+                println("eMail: ${kunde.eMail}")
+                println("Passwort: ${kunde.password}")
+                println("Stadt: ${kunde.city}")
+                println("Straße: ${kunde.street}")
+                println("Hausnummer: ${kunde.nr}")
+                println("PLZ: ${kunde.zipCode}")
+                println("Anrede: ${kunde.anrede}")
+                println("Geburtstag: ${kunde.geburtstag}")
+                println("------------------------")
+            }
+        } else {
+            println("Kein Kunde mit der angegebenen E-Mail-Adresse gefunden.")
+        }
+    }
+
+
+    fun userGuthaben() {
+        val startBudgetClient = 150.0
+        println("\tAktuell haben Sie ein Budget von '$startBudgetClient€' auf Ihrem Konto.")
+        val artikel = productList[3]
+        var budgetKunde1 = startBudgetClient
+        println("\tNach dem Kauf beträgt ihr Budget '$budgetKunde1€'.")
+
+    }
+
+    override fun produkt() {
+        var leer = ""
+        println("unser Angebot\n\n")
+        println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
+        for (produkt in ProductList.productList)
+            println("${produkt.nr}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
+        this.userWarenAuswahl()
+    }
+
+    fun sterne() {
+        println("Users Bewertung (* * * * *)")
     }
 
     fun registerNeu() {
@@ -110,10 +190,9 @@ class Kunde(
                 if (userLoggedIn) {
                     *//*            datenEingabe()      //appStarten()*//*
         }*/
-    }
+    }       // TODO löschen/archivieren
 
     open fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
-        userMenu()
         println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
         print("Nachname:  ")
         name = readln().toString()
@@ -155,42 +234,33 @@ class Kunde(
             j++
         }
 
-        /*  }*/
-
-
         print("Geburtstag (dd.mm.yyyy):  ")
         geburtstag = readln().toString()
 
-        /*            print("wählen sie nun eine Anrede:\n" + " 1  für \'SGF\', 2  für \'SGH\', 3  für \'hi\', 4  für \'GutenTag\':  ")
-                    anrede = readln()
-                    when (anrede) {
-                        "1" -> println("Sehr geehrte Frau")
-                        "2" -> println("Sehr geehrter Herr")
-                        "3" -> println("hi")
-                        "4" -> println("Guten Tag")*/
 
-        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'SGF', 2 für 'SGH', 3 für 'hej', 4 für 'Guten Tag': ")
+
+        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'Sehr geehrte Frau', 2 für 'Sehr geehrter Herr', 3 für 'hej', 4 für 'Guten Tag': ")
         val anrede = readln()
 
         fun auswahlAnrede() {
             when (anrede) {
                 "1" -> {
-                    println("Sehr geehrte Frau ")
+                    print("Sehr geehrte Frau ")
                     /*ergebnisListe.add("Sehr geehrte Frau")*/
                 }
 
                 "2" -> {
-                    println("Sehr geehrter Herr ")
+                    print("Sehr geehrter Herr ")
                     /*ergebnisListe.add("Sehr geehrter Herr")*/
                 }
 
                 "3" -> {
-                    println("hej ")
+                    print("hej ")
                     /*userDB.add("hi")*/
                 }
 
                 "4" -> {
-                    println("Guten Tag ")
+                    print("Guten Tag ")
                     /*ergebnisListe.add("Guten Tag")*/
                 }
 
@@ -202,49 +272,30 @@ class Kunde(
 
 
         println("\nKontrollieren Sie bitte Ihre Angaben:")
-        println("$firstName, $name,  \neMail: $eMail, \nPasswort: ******,\n$city,\n$street, $nr,\n$zipCode,\n$geburtstag") // TODO  <- ${auswahlAnrede()}
         auswahlAnrede().toString()
-        println("\n\t◌\t◌\n\n")
+        println("$firstName $name \neMail: $eMail \nPasswort: ****** \n$zipCode\t$city \n$street $nr \n$geburtstag") // TODO  <- ${auswahlAnrede()}
+        println("\n\n\t◌\t◌\n\n")
 
         println("Alles ok? J/N:")
         var ok = readln().capitalize().toString()
-        if (ok == "J") {/*            warteschleife(02_Utils. Utils)
-                      println("Sie werden nun zum shop weitergeleitet. Einen Moment")
-                            warteschleife()*/
+        if (ok == "J") {
             println("Jetzt können Sie shopShoppen :-)")     //TODO  springt zu Zeile 63 WARUM ???
-            userMenu()
-            exitProcess(5)
+
+            produktAngebotAlleKategorien()
 
 
-            /*
-        fun auswahlAnrede(anrede: String): String {
-            return when (anrede) {
-                "1" -> "Sehr geehrte Frau"
-                "2" -> "Sehr geehrter Herr"
-                "3" -> "hi"
-                "4" -> "Guten Tag"
-                else -> "Ungültige Auswahl"
-            }
-        }
-
-        val anrede = readLine()?.trim()
-
-        val ausgewehlteAnrede = auswahlAnrede(anrede)
-
-        println("\nKontrollieren Sie bitte Ihre Angaben:")
-        println("$firstName, $name,  eMail: \n$eMail, Passwort: ******,\n$city,\n$street, $nr,\n$zipCode,$ausgewehlteAnrede,\n$geburtstag")
-        exitProcess(2)
-        */
-        } else {
+        } else if (ok == "N") {
+            datenEingabe()
+        } else
             println("Good bye!")
-            exitProcess(1)
-        }
-    }       // TODO Zeile 87: Abkürzung rausnehmen, wenn fertig!
+        exitProcess(1)
+    }       // TodO Zeile 87: Abkürzung (?? gibt es die noch ?) rausnehmen, wenn fertig!
 
 
 }
-// TODO Ende der Class Kunde
 
+
+// TODO Ende der Class Kunde
 
 
 //todo -----------------------------------------------

@@ -11,7 +11,7 @@ class P2__Haushalt(
 ) : Produkt(nr, name, preis, kundenRezension) {
 
     init {
-        println("P2__Haushalt")
+/*        println("P2__Haushalt")*/
     }
 
     /*

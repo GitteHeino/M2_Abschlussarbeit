@@ -333,3 +333,46 @@ enum class Suit(val symbol: String) {
 // TODO  leitet zum einzelnen Kunden
 /*neuKunde.registerNeu()
 userMenu()*/
+
+
+
+
+
+
+/*    fun login(user: MutableList<UserDB>) {
+            println(
+                    "Benutzername (eMail):"     //todo Zuerst müssen Sie sich mit Ihren Anmeldedaten einloggen.
+            )
+            var i = 1
+            while (i <= 3) {
+                var loginM = readln().toString()
+                println("Passwort (nur Zahlen und Buchstaben):")
+                var loginP = readln().toString()
+                        if (userDB.any { loginM == it.eMail && loginP == it.password }) {
+                if (loginM == "cc" && loginP == "44") {
+                    println("2FA  Geben Sie nun Ihre ID ein:")
+                    try {
+                        var loginI = readln().toInt()
+                        if(loginI == 0 )
+                        if (userDatenbank.any { it.id == loginI })
+                            manager(User())
+                    } catch (ex: Exception) {
+                        println("Die ID stimmt nicht")
+                    }
+                } else if (userDatenbank.any {
+                            loginM == it.eMail && it.password == loginP     // Justus
+                        }) {
+                    println("yes!")
+                    true
+                     myAccount()     // return: eMail des Kunden
+                } else {
+                    println("Diese Kombination existiert nicht in unserer Datenbank.")
+                }
+                i++
+                if (i > 2) {
+                    println("Zu viele Fehlversuche. Der Login-Vorgang wird beendet.\n")
+                    exitProcess(0)
+                }
+                false
+            }
+        }*/

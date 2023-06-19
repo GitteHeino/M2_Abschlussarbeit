@@ -20,24 +20,20 @@ open class Produkt(
     }       // macht den eigentlichen Inhalt (des Speicherplatzes) sichtbar
 
 
+    val warenAngebot = mutableListOf<Produkt>()
 
-val warenAngebot = mutableListOf<Produkt>()
-
-val produkteBodyCare = mutableListOf<P11_BodyCare>()
-val produkteGesundheit = mutableListOf<P12_Gesundheit>()
-val produkteLebensmittel = mutableListOf<P21_Lebensmittel>()
-val produkteReinigungsmittel = mutableListOf<P22_Reinigungsmittel>()
-
-
-fun auswahlProdukt() {
-    println("Wählen Sie einen Artikel aus der Tabelle und geben Sie die ersten Buchstaben ein:")
-    var dmArtikel = readln().capitalize().toString()
-    val i = 1
-   for (i in warenAngebot)
-        println(i)
+    val produkteBodyCare = mutableListOf<P11_BodyCare>()
+    val produkteGesundheit = mutableListOf<P12_Gesundheit>()
+    val produkteLebensmittel = mutableListOf<P21_Lebensmittel>()
+    val produkteReinigungsmittel = mutableListOf<P22_Reinigungsmittel>()
 
 
-
+    fun auswahlProdukt() {
+        println("Wählen Sie einen Artikel aus der Tabelle und geben Sie die ersten Buchstaben ein:")
+        var dmArtikel = readln().capitalize().toString()
+        val i = 1
+        for (i in warenAngebot)
+            println(i)
 
 
     }

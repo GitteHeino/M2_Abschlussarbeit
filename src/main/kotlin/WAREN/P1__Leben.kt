@@ -1,6 +1,6 @@
 package WAREN
 
-class P1__Leben(
+open class P1__Leben(
         nr: Int,
         name: String,
         preis: Double,
@@ -11,7 +11,7 @@ class P1__Leben(
 
 
     init {
-        println("P2__Haushalt")
+
     }
 
     override fun toString(): String {

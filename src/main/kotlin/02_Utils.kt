@@ -26,10 +26,7 @@
     }*/
 
 
-
-
-/*
-fun changePreis(neuerPreis: Double){
+/*fun changePreis(neuerPreis: Double){
     println("Geben sie master-Passwort ein")
     var input = readln()
 
@@ -39,4 +36,16 @@ fun changePreis(neuerPreis: Double){
     else {
         println("Authorisierung fehlgeschlagen.")
     }
-}*/
+}*/       // Preis ändern
+
+fun warteschleife() {
+    Thread.sleep(700)
+    print("Sie werden gleich weitergeleitet zum Shop  . ")
+    Thread.sleep(300); print(".")
+    Thread.sleep(300); print(" .")
+    /*    Thread.sleep(300); print(" .")
+        Thread.sleep(300); print(" .")*/
+    Thread.sleep(300); print(" .")
+    Thread.sleep(800); println("\n")
+}       //  für überall
+
