@@ -82,7 +82,7 @@ fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
     }
 }       //todo  für Registrierung neuerKunde
 
-fun produktAngebotAlleKategorien() {
+fun produktAngebotAlleKategorien() {        // todo für den Kunden
     val warenAngebot = ProductList.productList
     val leer = " "
     println("\n\t\t = = = shopShop. DER Online_DrugStore! = = =\n")
