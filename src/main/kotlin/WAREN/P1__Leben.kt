@@ -5,8 +5,8 @@ open class P1__Leben(
         name: String,
         preis: Double,
         kundenRezension: Double,
-        var merkmal: String = "sauber"
-) : Produkt(id, name, preis, kundenRezension) {
+        var merkmal: String = ""
+) : Produkt(id, name, preis, kundenRezension, merkmal) {
 
 
 

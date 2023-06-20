@@ -5,10 +5,10 @@ class P2__Haushalt(
         name: String,
         preis: Double,
         kundenRezension: Double,
-        var merkmal: String,
+        merkmal: String = "",
         var gefährlich: String,
         var innenAußen: String
-) : Produkt(id, name, preis, kundenRezension) {
+) : Produkt(id, name, preis, kundenRezension, merkmal) {
 
     init {
 /*        println("P2__Haushalt")*/

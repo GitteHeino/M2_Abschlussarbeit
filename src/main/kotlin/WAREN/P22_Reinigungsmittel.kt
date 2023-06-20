@@ -5,10 +5,10 @@ class P22_Reinigungsmittel(
         name: String,
         preis: Double,
         kundenRezension: Double,
-        merkmal: String,
+        merkmal: String = "",
         var gefährlich: String,
         var innenAußen: String
-) : Produkt(id, name, preis, kundenRezension) {
+) : Produkt(id, name, preis, kundenRezension, merkmal) {
 
     init {
         /*        println("Reinigung")*/

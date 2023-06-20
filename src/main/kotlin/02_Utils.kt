@@ -1,5 +1,9 @@
-import USER.Kunde
+import WAREN.P11_BodyCare
+import WAREN.P12_Gesundheit
+import WAREN.P21_Lebensmittel
+import WAREN.P22_Reinigungsmittel
 import kotlin.system.exitProcess
+import USER.*
 
 
 fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
@@ -97,16 +101,159 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
     }
 }     //  Liste der Produkte
 
+
+fun eingabeWarenP11() {
+    println("Machen Sie alle Angaben zum neuen Artikel:")
+    print("Artikel-ID:  ")
+    var id = readln().toInt()
+
+    print("Name:  ")
+    var name = readln()
+
+    print("Preis:  ")
+    var preis = readln().toDouble()
+
+    print("Rezension:  ")
+    var kundenRezension = readln().toDouble()
+
+    print("Zusatzinfos:  ")
+    var merkmal = readln()
+
+    print("für wen:  ")
+    var who = readln()
+
+    print("Produktgröße:  ")
+    var size = readln()
+
+    println("\n\tHinzugefügter Artikel:")
+    var neuesProdukt = P11_BodyCare(id, name, preis, kundenRezension, merkmal, who, size)
+    ProductList.productList.add(neuesProdukt)
+    /*    println(ProductList.productList[id])*/
+    println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   ${neuesProdukt.who}   Größe: ${neuesProdukt.size}")
+    Thread.sleep(2000)
+    return
+}
+
+fun eingabeWarenP12() {
+    println("Machen Sie alle Angaben zum neuen Artikel:")
+    print("Artikel-ID:  ")
+    var id = readln().toInt()
+
+    print("Name:  ")
+    var name = readln()
+
+    print("Preis:  ")
+    var preis = readln().toDouble()
+
+    print("Rezension:  ")
+    var kundenRezension = readln().toDouble()
+
+    print("Zusatzinfos:  ")
+    var merkmal = readln()
+
+    print("Anwendung (Text  max. 1.000 Zeichen):  ")
+    var anwendungsBereich = readln()
+
+
+    print("begrenzte Abgabe (ja/nein):  ")
+    var begrenzteAbgabe = readln()
+    /*    when (begrenzteAbgabe) {
+                   "j" -> begrenzteAbgabe == "ja"
+                    "n" -> begrenzteAbgabe == "nein"
+        }*/
+
+    print("\tHinzugefügter Artikel  :")
+    var neuesProdukt = P12_Gesundheit(id, name, preis, kundenRezension, merkmal, anwendungsBereich, begrenzteAbgabe)
+    ProductList.productList.add(neuesProdukt)
+    /*    println(ProductList.productList)*/
+    println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   Anwemndung: ${neuesProdukt.anwendungsBereich}   Abgabe begrenzt: ${neuesProdukt.begrenzteAbgabe}")
+    Thread.sleep(2000)
+    return
+}
+
+fun eingabeWarenP21() {
+    println("Machen Sie alle Angaben zum neuen Artikel:")
+    print("Artikel-ID:  ")
+    var id = readln().toInt()
+
+    print("Name:  ")
+    var name = readln()
+
+    print("Preis:  ")
+    var preis = readln().toDouble()
+
+    print("Rezension:  ")
+    var kundenRezension = readln().toDouble()
+
+    print("Zusatzinfos:  ")
+    var merkmal = readln()
+
+    print("bio (ja/nein):  ")
+    var bio = readln()
+    /*    when (bio) {
+            "j" -> bio == "ja"
+            "n" -> bio == "nein"
+        }*/
+
+    println("Lebensmittel-Ampel")
+    println("Bedeutung: F = Fett  S = Salz  Z = Zucker in den Stärken N M H")
+    print("Bedeutung: N - niedrig   M - mittel  H - hoch  (Werte für F S Z eingeben):  ")
+    var feSaZu = readln().capitalize()
+
+    println("\tHinzugefügter Artikel:")
+    var neuesProdukt = P21_Lebensmittel(id, name, preis, kundenRezension, merkmal, bio, feSaZu)
+    ProductList.productList.add(neuesProdukt)
+    /*    println(ProductList.productList)*/
+    println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   ProdEigensch…   Bio: ${neuesProdukt.bio}   Lebensmittel-Ampel: ${neuesProdukt.feSaZu}")
+    Thread.sleep(2000)
+    return
+}
+
+fun eingabeWarenP22() {
+    println("Machen Sie alle Angaben zum neuen Artikel:")
+    print("Artikel-ID:  ")
+    var id = readln().toInt()
+
+    print("Name:  ")
+    var name = readln()
+
+    print("Preis:  ")
+    var preis = readln().toDouble()
+
+    print("Rezension:  ")
+    var kundenRezension = readln().toDouble()
+
+    print("Zusatzinfos:  ")
+    var merkmal = readln()
+
+    print("Artikel ist gefährlich? (ja/nein):  ")
+    var gefährlich = readln()
+
+    print("Verwendung innen oder außen:  ")
+    var innenAußen = readln()
+
+    println("\tHinzugefügter Artikel:")
+    var neuesProdukt = P22_Reinigungsmittel(id, name, preis, kundenRezension, merkmal, gefährlich, innenAußen)
+    ProductList.productList.add(neuesProdukt)
+    /*    println(ProductList.productList)*/
+    println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Berwertung: ${neuesProdukt.kundenRezension}  ProdEigensch…  Gefährdung: ${neuesProdukt.gefährlich}   Anwendungsbereich: ${neuesProdukt.innenAußen}")
+    Thread.sleep(2000)
+    return
+
+}
+
+
+
+
 //todo _________________________________________________________________________________________________________________
 
-fun changePreis(neuerPreis: Double){
+fun changePreis(neuerPreis: Double) {
     println("Geben sie master-Passwort ein")
     var input = readln()
 
-    if (input == "master123"){
-/*        this.preis = neuerPreis*/
-    }
-    else {
+    if (input == "master123") {
+        /*        this.preis = neuerPreis*/
+    } else {
         println("Authorisierung fehlgeschlagen.")
     }
 }       //todo  für Manager  Preis ändern
@@ -153,7 +300,6 @@ fun registerNeu() {
 
     }
 }       //todo löschen/archivieren
-
 
 
 //todo _________________________________________________________________________________________________________________
@@ -207,3 +353,36 @@ if (ok == "J") {
     println("Good bye!")
 exitProcess(1)
 }       // TodO Zeile 87: Abkürzung (?? gibt es die noch ?) rausnehmen, wenn fertig!*/
+
+
+/*enum class Marke{
+    ADIDAS, NIKE
+}*/     //todo  >> siehe Class Enum
+
+/*
+enum class jaNein{
+    ja, nein
+}
+
+
+class Tshirt (val groesse: jaNein) {
+}
+
+
+
+fun dieAbfrageJaNein(): jaNein{
+    var abfrageJaNein: jaNein?
+
+    do {
+        println("ist Bio (j/n):  ")
+        var eingabe = readln()
+
+        abfrageJaNein = when (eingabe) {
+            "ja", "j" -> jaNein.ja
+            "nein", "n" -> jaNein.nein
+            else -> null
+        }
+    } while (abfrageJaNein == null)
+
+    return abfrageJaNein
+}*/

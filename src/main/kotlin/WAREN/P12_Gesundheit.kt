@@ -7,7 +7,7 @@ class P12_Gesundheit(
         kundenRezension: Double,
         merkmal: String,
         var anwendungsBereich: String,
-        var begrenzteAbgabe: Boolean
+        var begrenzteAbgabe: String
 ) : P1__Leben(id, name, preis, kundenRezension, merkmal) {
 
     init {

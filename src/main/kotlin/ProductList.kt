@@ -1,4 +1,3 @@
-import USER.User
 import WAREN.*
 
 object ProductList {
@@ -10,13 +9,13 @@ object ProductList {
             P11_BodyCare(2, "Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL"),
             P11_BodyCare(3, "Lippenstift Velvet Matt Berry Nude, 4,5 g", 8.75, 3.5, "Naturkosmetik, matt, alle Hauttypen", "Woman", "S"),
 
-            P12_Gesundheit(4, "Mund- und Rachenspülung antiviral, fluoridfrei ab 6 Jahren, 300 ml", 7.95, 4.5, "Hals gurgeln", "", false),
-            P12_Gesundheit(5, "Doppelherz Omega-3 1400 Kapseln", 12.95, 4.7, " 90 St, 171,3 g", "innen", false),
-            P12_Gesundheit(6, "Ecodenta Zahnpasta, Sensitivity, 75 ml", 7.47, 4.2, "Ohne Fluorid", "Ohne Fluorid", false),
+            P12_Gesundheit(4, "Mund- und Rachenspülung antiviral, fluoridfrei ab 6 Jahren, 300 ml", 7.95, 4.5, "Hals gurgeln", "", "nein"),
+            P12_Gesundheit(5, "Doppelherz Omega-3 1400 Kapseln", 12.95, 4.7, " 90 St, 171,3 g", "innen", "nein"),
+            P12_Gesundheit(6, "Ecodenta Zahnpasta, Sensitivity, 75 ml", 7.47, 4.2, "Ohne Fluorid", "Ohne Fluorid", "nein"),
 
-            P21_Lebensmittel(7, "Milch, haltbare Alpenmilch, 1 l", 1.65, 4.9, "3,5% Fett", true, "H H N"),
-            P21_Lebensmittel(8, "EXTRA Kaugummi, Blueberry, 50 St", 1.85, 4.6, "Laktosefrei", false, " H H H"),
-            P21_Lebensmittel(9, "Fertiggericht italienische Ravioli mit Gemüsefüllung, 270 g", 2.45, 4.3, "Laktosefrei, Vegan", true, "H M M"),
+            P21_Lebensmittel(7, "Milch, haltbare Alpenmilch, 1 l", 1.65, 4.9, "3,5% Fett", "ja", "H H N"),
+            P21_Lebensmittel(8, "EXTRA Kaugummi, Blueberry, 50 St", 1.85, 4.6, "Laktosefrei", "nein", " H H H"),
+            P21_Lebensmittel(9, "Fertiggericht italienische Ravioli mit Gemüsefüllung, 270 g", 2.45, 4.3, "Laktosefrei, Vegan", "nein", "H M M"),
 
             P22_Reinigungsmittel(10, "Essigreiniger Essenz zum Reinigen & Kochen, 0,4 l", 1.45, 4.9, "Vorsicht! Nicht unverdünnt genießen!", "ja", "Nassbereich"),
             P22_Reinigungsmittel(11, "Colorwaschmittel Power Caps, 40 Wl", 8.95, 4.8, "Mit Duft", "nein", "-"),

@@ -1,6 +1,5 @@
 import WAREN.*
 import USER.*
-import kotlin.coroutines.coroutineContext
 import kotlin.system.exitProcess
 
 // Globale Variablen
