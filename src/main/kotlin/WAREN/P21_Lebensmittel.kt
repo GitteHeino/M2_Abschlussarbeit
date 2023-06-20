@@ -1,14 +1,14 @@
 package WAREN
 
 class P21_Lebensmittel(
-        nr: Int,
+        id: Int,
         name: String,
         preis: Double,
         kundenRezension: Double,
         merkmal: String,
         var bio: Boolean,
         var feSaZu: String = "N M H"
-) : Produkt(nr, name, preis, kundenRezension) {
+) : Produkt(id, name, preis, kundenRezension) {
 
     init {
         /*        println("Lebensmittel")*/

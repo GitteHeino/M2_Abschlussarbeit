@@ -1,14 +1,14 @@
 package WAREN
 
 class P2__Haushalt(
-        nr: Int,
+        id: Int,
         name: String,
         preis: Double,
         kundenRezension: Double,
         var merkmal: String,
         var gefährlich: String,
         var innenAußen: String
-) : Produkt(nr, name, preis, kundenRezension) {
+) : Produkt(id, name, preis, kundenRezension) {
 
     init {
 /*        println("P2__Haushalt")*/

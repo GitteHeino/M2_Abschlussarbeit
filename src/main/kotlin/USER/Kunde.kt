@@ -90,7 +90,7 @@ class Kunde(
         var auswahlArtikel = readln()?.toIntOrNull()
 
         if (auswahlArtikel != null) {
-            val selectedItem = productList.firstOrNull { it.nr == auswahlArtikel }
+            val selectedItem = productList.firstOrNull { it.id== auswahlArtikel }
             if (selectedItem != null) {
                 /*                println("ArtikelNr: ${selectedItem.nr} \nName: ${selectedItem.name} \nPreis: ${selectedItem.preis}\n" +
                                         "Bewertung: ${selectedItem.kundenRezension}\nMerkmal: ${selectedItem.warenAngebot} ${selectedItem}\n")*/
@@ -152,7 +152,7 @@ class Kunde(
         println("unser Angebot\n\n")
         println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
         for (produkt in ProductList.productList)
-            println("${produkt.nr}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
+            println("${produkt.id}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
         this.userWarenAuswahl()
     }
 
@@ -160,136 +160,9 @@ class Kunde(
         println("Users Bewertung (* * * * *)")
     }
 
-    fun registerNeu() {
-        println("Möchten Sie einen neuen Account anlegen? j/n:  ")
-        var neuerAccount = readln().capitalize().toString()
-        /*        while (neuerAccount == "j") {*/
-        /*        if (neuerAccount == "n") {
-        exitProcess(0)*/
-        when (neuerAccount) {
-            "J" -> datenEingabe()
-            "N" -> exitProcess(0)       // TODO ersetzen mit back()
-        }
-
-        /*        var versuche = 0
-                var userLoggedIn = false
-                while (versuche < 3 && !userLoggedIn) {
-                    println("geben sie ihr Passwort ein:  ")
-                    var pw = readln()
-                    if (pw == "guest123") {
-                        userLoggedIn = true
-                    } else {
-                        println("Falsches Passwort. Versuchen Sie es noch einmal")
-                        versuche++ // versuche = versuche + 1
-                    }
-                } // Ende der Schleife
-
-                if (versuche == 3) {
-                    println("Kein Zugriff, Programm wird geschlossen")
-                }
-                if (userLoggedIn) {
-                    *//*            datenEingabe()      //appStarten()*//*
-        }*/
-    }       // TODO löschen/archivieren
-
-    open fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
-        println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
-        print("Nachname:  ")
-        name = readln().toString()
-        print("Vorname:  ")
-        firstName = readln().toString()
-        print("eMail:  ")
-        eMail = readln().toString()
-        print("Passwort:  ")
-        var i = 0
-        while (i < 3) {
-            var password0 = readln().toString()
-            print("Bitte wiederholen Sie das Passwort:  \n")
-            password = readln().toString()
-            if (password0 == password) {
-                print("\t◌\n\n")
-                break
-            } else {
-                println("Die beiden Passwörter stimmen nicht überein. Bitte wiederholen …")
-            }
-            i++
-        }
-
-
-        println("Geben Sie nun noch Ihre Adresse an:")
-        print("Wohnort:  ")
-        city = readln().toString()
-        print("PLZ: ")
-        zipCode = readln().toString()
-        print("Straße:  ")
-        street = readln().toString()
-
-        var j = 1
-        /*while (j < 2) {*/
-        try {       // TODO Warum springt die try catch an, wenn alles richtig ist?
-            print("Nr:  ")
-            nr = readln().toInt()
-        } catch (ex: Exception) {
-            println("Nur Ziffern von 0 - 9 sind erlaubt")
-            j++
-        }
-
-        print("Geburtstag (dd.mm.yyyy):  ")
-        geburtstag = readln().toString()
 
 
 
-        print("Wählen Sie nun eine Anrede:\n" + " 1 für 'Sehr geehrte Frau', 2 für 'Sehr geehrter Herr', 3 für 'hej', 4 für 'Guten Tag': ")
-        val anrede = readln()
-
-        fun auswahlAnrede() {
-            when (anrede) {
-                "1" -> {
-                    print("Sehr geehrte Frau ")
-                    /*ergebnisListe.add("Sehr geehrte Frau")*/
-                }
-
-                "2" -> {
-                    print("Sehr geehrter Herr ")
-                    /*ergebnisListe.add("Sehr geehrter Herr")*/
-                }
-
-                "3" -> {
-                    print("hej ")
-                    /*userDB.add("hi")*/
-                }
-
-                "4" -> {
-                    print("Guten Tag ")
-                    /*ergebnisListe.add("Guten Tag")*/
-                }
-
-                else -> {
-                    println("Ungültige Auswahl")
-                }
-            }
-        }
-
-
-        println("\nKontrollieren Sie bitte Ihre Angaben:")
-        auswahlAnrede().toString()
-        println("$firstName $name \neMail: $eMail \nPasswort: ****** \n$zipCode\t$city \n$street $nr \n$geburtstag") // TODO  <- ${auswahlAnrede()}
-        println("\n\n\t◌\t◌\n\n")
-
-        println("Alles ok? J/N:")
-        var ok = readln().capitalize().toString()
-        if (ok == "J") {
-            println("Jetzt können Sie shopShoppen :-)")     //TODO  springt zu Zeile 63 WARUM ???
-
-            produktAngebotAlleKategorien()
-
-
-        } else if (ok == "N") {
-            datenEingabe()
-        } else
-            println("Good bye!")
-        exitProcess(1)
-    }       // TodO Zeile 87: Abkürzung (?? gibt es die noch ?) rausnehmen, wenn fertig!
 
 
 }

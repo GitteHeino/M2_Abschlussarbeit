@@ -1,14 +1,14 @@
 package WAREN
 
 class P12_Gesundheit(
-        nr: Int,
+        id: Int,
         name: String,
         preis: Double,
         kundenRezension: Double,
         merkmal: String,
         var anwendungsBereich: String,
         var begrenzteAbgabe: Boolean
-) : P1__Leben(nr, name, preis, kundenRezension, merkmal) {
+) : P1__Leben(id, name, preis, kundenRezension, merkmal) {
 
     init {
         /*        println("P12__Gesundheit")*/

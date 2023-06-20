@@ -1,7 +1,7 @@
 package WAREN
 
 open class Produkt(
-        var nr: Int,
+        var id: Int,
         var name: String = "produkt",
         var preis: Double = 1.0,
         var kundenRezension: Double = 5.0

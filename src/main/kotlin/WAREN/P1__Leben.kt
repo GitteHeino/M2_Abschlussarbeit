@@ -1,12 +1,12 @@
 package WAREN
 
 open class P1__Leben(
-        nr: Int,
+        id: Int,
         name: String,
         preis: Double,
         kundenRezension: Double,
         var merkmal: String = "sauber"
-) : Produkt(nr, name, preis, kundenRezension) {
+) : Produkt(id, name, preis, kundenRezension) {
 
 
 
@@ -14,9 +14,9 @@ open class P1__Leben(
 
     }
 
-    override fun toString(): String {
+/*    override fun toString(): String {
         return "$merkmal"
-    }
+    }*/
 
 
 }

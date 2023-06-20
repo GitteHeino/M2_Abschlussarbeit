@@ -1,14 +1,14 @@
 package WAREN
 
 class P11_BodyCare(
-        nr: Int,
+        id: Int,
         name: String,
         preis: Double,
         kundenRezension: Double,
         merkmal: String,
         var who: String,
         var size: String
-) : P1__Leben(nr, name, preis, kundenRezension, merkmal) {
+) : P1__Leben(id, name, preis, kundenRezension, merkmal) {
 
     init {
         /*        println("P11__bodyCare")*/
