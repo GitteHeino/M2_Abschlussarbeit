@@ -12,7 +12,7 @@ class Kunde(
         name: String,
         firstName: String,
         eMail: String,
-        password: String,/*    var id: Int = 0,*/
+        password: String,
         var city: String,
         var street: String,
         var nr: Int,

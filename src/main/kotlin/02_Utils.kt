@@ -1,3 +1,4 @@
+import KONTO.Konto
 import WAREN.P11_BodyCare
 import WAREN.P12_Gesundheit
 import WAREN.P21_Lebensmittel
@@ -101,6 +102,18 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
     }
 }     //  Liste der Produkte
 
+
+
+
+
+
+
+
+fun shopKonto(
+
+){
+
+}
 
 fun eingabeWarenP11() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
@@ -241,9 +254,6 @@ fun eingabeWarenP22() {
     return
 
 }
-
-
-
 
 //todo _________________________________________________________________________________________________________________
 

@@ -1,19 +1,18 @@
 package USER
 
 import ProductList
-import WAREN.P11_BodyCare
-import WAREN.P12_Gesundheit
-import WAREN.P21_Lebensmittel
-import WAREN.P22_Reinigungsmittel
+import WAREN.*
 import eingabeWarenP11
 import eingabeWarenP12
 import eingabeWarenP21
 import eingabeWarenP22
+import produktAngebotAlleKategorien
 
 class Manager(id: Int, name: String, firstName: String, eMail: String, password: String, var shopID: Int = 1, var shopCity: String = "", var shopStreet: String, var shopHausNr: Int, val shopZIP: String = "", var passwordAdmin: String = "") : User(id, name, firstName, eMail, password) {
 
     init {
     }
+
 
     override fun toString(): String {
         return "$name"
@@ -27,26 +26,26 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
     fun warenbestandPrüfen() {
     }
 
-    fun kontoStand() {
-    }
 
 //todo -----------------------------------------------------------------------------------------------------------------
 
 
-    fun managerMenu() {
+    fun managerMenu() {             //todo erl.:
         println(" Guten Morgen Manager\n")
         repeat(2) {
-            println("""
+            println(
+                """
                 1 Kontostand einsehen
                 2 neue Waren ins Sortiment
-                3 Preise ändern
+                3 Preise ändern            
                 4 Mitarbeiter loben
                 5 Test
-            """.trimIndent())
-
+            """.trimIndent()
+            )
             var job = readln()
             when (job) {
-                "1", "Jan", "Januar" -> {/*kontoStand()*/
+                "1" -> {
+                    kontoStand()
                     println("Gestern war der Kassenbestand: ... €")
                 }
 
@@ -56,7 +55,6 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
                 }
 
                 "3" -> {
-                    //preisÄnderung()
                     preisÄnderung()
                 }
 
@@ -68,20 +66,35 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
         }
     }
 
+    fun kontoStand() {
+        println("am /Datum/ beträgt Ihr Guthaben:")
+
+    }
+
     fun neueWarenInsSortiment() {
         println("In welcher Kategorie sollen neue Waren aufgenommen werden?\n")
-        println("""Wählen Sie zwischen 
+        println(
+            """Wählen Sie zwischen 
                   P11_BodyCare = 1  
                   P12_Gesundheit = 2  
                   P21_Lebensmittel = 3  
-                  P22_Reinigungsmittel = 4""".trimIndent())
+                  P22_Reinigungsmittel = 4""".trimIndent()
+        )
         var userAuswahl = readln().toInt()
 
         if (userAuswahl == 1) {
             println("Kategorie BodyCare")
             eingabeWarenP11()
             for (product in ProductList.productList) {
-                if (product is P11_BodyCare) println("ID: ${product.id}\t Artikel: ${product.name.padEnd(70, ' ')}\t Preis: ${product.preis}€")
+                if (product is P11_BodyCare) println(
+                    "ID: ${product.id}\t Artikel: ${
+                        product.name.padEnd(
+                            70,
+                            ' '
+                        )
+                    }\t Preis: ${product.preis}€"
+                )
+                alleProdukte()
                 backNA()
             }
 
@@ -89,7 +102,14 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Gesundheit")
             eingabeWarenP12()
             for (product in ProductList.productList) {
-                if (product is P11_BodyCare) println("ID: ${product.id}\t Artikel: ${product.name.padEnd(70, ' ')}\t Preis: ${product.preis}€")
+                if (product is P11_BodyCare) println(
+                    "ID: ${product.id}\t Artikel: ${
+                        product.name.padEnd(
+                            70,
+                            ' '
+                        )
+                    }\t Preis: ${product.preis}€"
+                )
                 backNA()
             }
 
@@ -97,7 +117,14 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Lebensmittel")
             eingabeWarenP21()
             for (product in ProductList.productList) {
-                if (product is P11_BodyCare) println("ID: ${product.id}\t Artikel: ${product.name.padEnd(70, ' ')}\t Preis: ${product.preis}€")
+                if (product is P11_BodyCare) println(
+                    "ID: ${product.id}\t Artikel: ${
+                        product.name.padEnd(
+                            70,
+                            ' '
+                        )
+                    }\t Preis: ${product.preis}€"
+                )
                 backNA()
             }
 
@@ -105,31 +132,41 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Reinigungsmittel")
             eingabeWarenP22()
             for (product in ProductList.productList) {
-                if (product is P11_BodyCare) println("ID: ${product.id}\t Artikel: ${product.name.padEnd(70, ' ')}\t Preis: ${product.preis}€")
+                if (product is P11_BodyCare) println(
+                    "ID: ${product.id}\t Artikel: ${
+                        product.name.padEnd(
+                            70,
+                            ' '
+                        )
+                    }\t Preis: ${product.preis}€"
+                )
                 backNA()
             }
         }
     }
 
-
     fun preisÄnderung() {
 
         // ProductTyp auswahl:
 
-        println("""Die Warenliste. Wählen Sie zwischen 
+        println(
+            """Die Warenliste. Wählen Sie zwischen 
                   P11_BodyCare = 1  
                   P12_Gesundheit = 2  
                   P21_Lebensmittel = 3  
-                  P22_Reinigungsmittel = 4""".trimIndent())
+                  P22_Reinigungsmittel = 4""".trimIndent()
+        )
 
         var userAuswahl = readln().toInt()
         if (userAuswahl == 1) {
             println("Kategorie BodyCare")
             for (product in ProductList.productList) {
                 if (product is P11_BodyCare)  // && userAuswahl)
-                    println("ID: ${product.id}\t Artikel: ${
-                        product.name.padEnd(70, ' ')
-                    }\t Preis: ${product.preis}€")
+                    println(
+                        "ID: ${product.id}\t Artikel: ${
+                            product.name.padEnd(70, ' ')
+                        }\t Preis: ${product.preis}€"
+                    )
 
             }
             println("\nFür welchen Artikel möchten Sie den Preis ändern? Trage die ID ein:  ")
@@ -146,9 +183,11 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Gesundheit")
             for (product in ProductList.productList) {
                 if (product is P12_Gesundheit)  // && userAuswahl)
-                    println("ID: ${product.id}\t Artikel: ${
-                        product.name.padEnd(70, ' ')
-                    }\t Preis: ${product.preis}€")
+                    println(
+                        "ID: ${product.id}\t Artikel: ${
+                            product.name.padEnd(70, ' ')
+                        }\t Preis: ${product.preis}€"
+                    )
             }
             println("\nFür welchen Artikel möchten Sie den Preis ändern? Trage die ID ein:  ")
             var userInput = readln().toInt()
@@ -164,9 +203,11 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Lebensmittel")
             for (product in ProductList.productList) {
                 if (product is P21_Lebensmittel)  // && userAuswahl)
-                    println("ID: ${product.id}\t Artikel: ${
-                        product.name.padEnd(70, ' ')
-                    }\t Preis: ${product.preis}€")
+                    println(
+                        "ID: ${product.id}\t Artikel: ${
+                            product.name.padEnd(70, ' ')
+                        }\t Preis: ${product.preis}€"
+                    )
             }
             println("\nFür welchen Artikel möchten Sie den Preis ändern? Trage die ID ein:  ")
             var userInput = readln().toInt()
@@ -182,9 +223,11 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             println("Kategorie Reinigungsmittel")
             for (product in ProductList.productList) {
                 if (product is P22_Reinigungsmittel)  // && userAuswahl)
-                    println("ID: ${product.id}\t Artikel: ${
-                        product.name.padEnd(70, ' ')
-                    }\t Preis: ${product.preis}€")
+                    println(
+                        "ID: ${product.id}\t Artikel: ${
+                            product.name.padEnd(70, ' ')
+                        }\t Preis: ${product.preis}€"
+                    )
             }
             println("\nFür welchen Artikel möchten Sie den Preis ändern? Trage die ID ein:  ")
             var userInput = readln().toInt()
@@ -219,6 +262,7 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             "n" -> managerMenu()
         }
     }
+
     fun backNP() {
         println("Preise für weitere Artikel ändern (j/n)?:  ")
         Thread.sleep(1500)
@@ -230,7 +274,19 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
     }
 
 
+    fun alleProdukte() {
+        /*for (product in ProductList.productList) {
+            if (product is P1__Leben || product is P2__Haushalt)  // && userAuswahl)
+                println(
+                    "ID: ${product.id}\t Artikel: ${
+                        product.name.padEnd(70, ' ')
+                    }\t Preis: ${product.preis}€"
+                )
+        }*/
 
+        produktAngebotAlleKategorien()
+
+    }
 }
 
 
