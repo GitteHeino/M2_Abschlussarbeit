@@ -5,6 +5,7 @@ import WAREN.P21_Lebensmittel
 import WAREN.P22_Reinigungsmittel
 import kotlin.system.exitProcess
 import USER.*
+import java.time.LocalDate
 
 
 fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
@@ -143,7 +144,6 @@ fun eingabeWarenP11() {
     Thread.sleep(2000)
 
 }
-
 fun eingabeWarenP12() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -184,7 +184,6 @@ fun eingabeWarenP12() {
     Thread.sleep(2000)
 
 }
-
 fun eingabeWarenP21() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -225,7 +224,6 @@ fun eingabeWarenP21() {
     Thread.sleep(2000)
 
 }
-
 fun eingabeWarenP22() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -289,27 +287,21 @@ fun warteschleife() {
 fun warten50() {
     Thread.sleep(50)
 }
-
 fun warten100() {
     Thread.sleep(100)
 }
-
 fun warten200() {
     Thread.sleep(200)
 }
-
 fun warten500() {
     Thread.sleep(500)
 }
-
 fun warten1000() {
     Thread.sleep(1000)
 }
-
 fun warten2000() {
     Thread.sleep(2000)
 }
-
 
 fun registerNeu() {
     println("Möchten Sie einen neuen Account anlegen? j/n:  ")
@@ -342,6 +334,14 @@ fun registerNeu() {
 
     }
 }       //todo löschen/archivieren
+
+fun date() {
+    val now = LocalDate.now()
+//    val nowWithTime = LocalDateTime.now()
+//    println(nowWithTime)
+    println(now)
+}
+
 
 
 //todo _________________________________________________________________________________________________________________

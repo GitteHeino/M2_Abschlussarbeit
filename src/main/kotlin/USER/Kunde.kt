@@ -1,14 +1,16 @@
 package USER
 
+
 import ProductList
 import ProductList.productList
 import UserList.userList
 import WAREN.Produkt
 import main
-import warten1000
+
 import warten200
 import warten2000
 import warten500
+import warteschleife
 import java.util.*
 
 class Kunde(
@@ -99,13 +101,21 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
     }
 
     fun userGuthaben() {
+
         val startBudgetKunde = 150.0
+        println("Wieviel möchten Sie auf Ihr Konto einzahlen?:  ")
+        var kundenKontoEinzahlung = readln().toDouble() + startBudgetKunde
         println("\tAktuell haben Sie ein Budget von '$startBudgetKunde€' auf Ihrem Konto.")
-        val artikel = productList[3]
-        var budgetKunde1 = startBudgetKunde
-        println("\tNach dem Kauf beträgt ihr Budget '$budgetKunde1€'.")
+        print("kundenKontoEinzahlung:  ")
+        var budgetKunde = startBudgetKunde
+        println("\tNach der Überweisung beträgt ihr Budget '$kundenKontoEinzahlung€'.")
+        println("Siw können nun einkaufen (e) oder zurück zum persönlichen bereich (z):  ")
+        val select = readln()
+        while (select == "e"){
+            backUM()
+        }
         warten2000()
-        backUK()
+
     }
 
     fun bezahlung(){
@@ -193,6 +203,8 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         } else {
             println("Kein Kunde mit der angegebenen E-Mail-Adresse gefunden.")
         }
+        warten2000()
+        backUM()
     }
 
     override fun produkt() {        // Anzeige des Warenangebotes
@@ -210,6 +222,7 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         println("Zurück zum Menü")
         userWarenAuswahl()
     }
+
 
 /*  fun meinWarenkorb() {         //todo  nicht vergessen!
         var w = readln()
