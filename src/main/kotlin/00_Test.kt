@@ -12,14 +12,14 @@ fun main() {
 
 //TODO -----Funktionen der fun main--------------------------------------------
 
-    /*    willkommen()*/
+        willkommen()
     /*    anmeldung()*/
     /*    warteschleife()*/
-
+    produktAngebotAlleKategorien()
     loginUseroderManager()
 
     /*    auswahlStart()  */      // User(), produkteDatenbank
-    produktAngebotAlleKategorien()
+
     /*    alleProdukte()*/
 
 
@@ -48,7 +48,7 @@ fun loginUseroderManager() {
                         var loginI = readln().toInt()
                         if (loginI == 0)
                             if (user.id == loginI) {        // prüft, ob zum Manager übergeben werden kann
-                                val managerAccount = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75, "04109", "s8o17")
+                                val managerAccount = user
                                 Thread.sleep(200)
                                 managerAccount.managerMenu()
                             }
@@ -56,7 +56,7 @@ fun loginUseroderManager() {
                         println("Die ID stimmt nicht")
                     }
                 } else {
-                    val userAccount = Kunde(101, "Maier", "Sepp", "h", "8", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
+                    val userAccount = user
                     Thread.sleep(200)
                     println("${userAccount.id}")
                     userAccount.userMenu()
@@ -66,8 +66,8 @@ fun loginUseroderManager() {
 
             } else {
                 println("Dieser User existiert nicht in unserer Datenbank.")
-                var neuKunde = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
-                Thread.sleep(200)
+                var neuKunde = user
+                        Thread.sleep(200)
                 return
             }
         }
@@ -81,7 +81,9 @@ fun loginUseroderManager() {
 }
 
 
-
+fun willkommen(){
+    println("\t\t\tWillkommen im shopShop!\n\n")
+}
 fun alleProdukte() {
     val warenkorb = ProductList.productList
     println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")
@@ -91,10 +93,11 @@ fun alleProdukte() {
 
 
 fun auswahlStart() {
+    var warenkorb = mutableListOf<Produkt>()
     val auswahl = readln().capitalize()
     when (auswahl) {
         "L" -> {
-            val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14")
+            val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14", warenkorb)
             kundenAccount.userMenu()
 
         }

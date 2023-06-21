@@ -6,9 +6,10 @@ class P11_BodyCare(
         preis: Double,
         kundenRezension: Double,
         merkmal: String,
+        menge: Int,
         var who: String,
         var size: String
-) : P1__Leben(id, name, preis, kundenRezension, merkmal) {
+) : P1__Leben(id, name, preis, kundenRezension, merkmal, menge) {
 
     init {
         /*        println("P11__bodyCare")*/

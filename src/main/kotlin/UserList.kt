@@ -1,11 +1,12 @@
 import USER.*
+import WAREN.Produkt
 
 object UserList {
 
     val userList: List<User> = listOf(
-            Kunde(101, "Maier", "Sepp", "h", "8", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14"),
-            Kunde(102, "Niblock", "Phil", "a", "1", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07"),
-            Kunde(103, "Nagel", "Jenny", "f", "6", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23"),
+            Kunde(101, "Maier", "Sepp", "h", "8", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14", meinWarenkorb = mutableListOf<Produkt>()),
+            Kunde(102, "Niblock", "Phil", "a", "1", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07", meinWarenkorb = mutableListOf<Produkt>()),
+            Kunde(103, "Nagel", "Jenny", "f", "6", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23", meinWarenkorb = mutableListOf<Produkt>()),
 
             Manager(0, "Admin", "Sandra", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75, "04109", "s8o17"),
 

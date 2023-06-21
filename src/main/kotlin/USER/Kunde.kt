@@ -2,10 +2,9 @@ package USER
 
 import ProductList
 import ProductList.productList
-import UserList
 import UserList.userList
-import produktAngebotAlleKategorien
-import kotlin.system.exitProcess
+import WAREN.Produkt
+import main
 
 class Kunde(
         id: Int,
@@ -18,57 +17,90 @@ class Kunde(
         var nr: Int,
         var zipCode: String,
         var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
-        var geburtstag: String = "yyyy-mm-dd"
+        var geburtstag: String = "yyyy-mm-dd",
+        var meinWarenkorb: MutableList<Produkt>
+
 ) : User(id, name, firstName, eMail, password) {
 
 
-
-    var meinWarenkorb: MutableList<Kunde> = mutableListOf<Kunde>(
-    )
-
+    override fun userMenu() {
+        println(
+                """
+                    Ihr KundenKonto
+                    
+            Guten Tag $firstName $name. Wählen sie aus:            
+                1 - Einkaufen
+                2 - Warenkorb ansehen
+                3 - Konto einsehen
+                4 - ausloggen
+            Beachten Sie auch unsere tagesaktuellen Angebote!
+        """.trimIndent()
+        )
+        /*        userMenuAnzeige()*/       //todo kann man das auslagern in Utils?
+        var userMenu = readln()
+        when (userMenu) {
+            "1" -> this.produkt()       // Einkauf
+            "2" -> this.warenkorb()     // Warenkorb ansehen und bezahlen
+            "3" -> this.userKonto()     // Kundendaten ändern
+            "4" -> backM()              // ausloggen und zurück zum Anfang (fun main)
+            else -> userMenu            // neue Runde
+        }
+    }
 
     fun userKonto() {
-        println("Das Konto des Users")
-        println("Sie haben die Möglichkeit Ihre persönlichen Daten einzusehen und zu ändern.\n" +
-                "Sie können auch Ihre Bestellung und Ihren Kontostand einsehen\n" +
-                "1 - aktuelles Guthaben\n" +
-                "2 - Konto\n" +
-                "3 - persönliche Daten einsehen")
+        println("Guten Tag $firstName $name\n")
+        println(
+                """Sie haben die Möglichkeit Ihre persönlichen Daten einzusehen und zu ändern.
+        Und Sie können Ihren Kontostand (und die Zahlungsmöglichkeiten) einsehen bzw. ändern.
+                1 - Kontoguthaben
+                2 - persönliche Daten einsehen
+                3 - zurück zum KundenKonto
+                """.trimIndent()
+        )
+
         var eingabe = readln().toInt()
         when (eingabe) {
-            1 -> meinWarenkorb()
-            2 -> userGuthaben()
-            3 -> anzeigenKundenEintrag(userList, eMail)
+            1 -> userGuthaben()
+            2 -> anzeigenKundenEintrag(userList, eMail)
+            3 -> backU()
 
 
         }
     }       // TODO löschen/archivieren || noch nicht!!
 
 
-    override fun userMenu() {
-        println(
-                """
-            Guten Tag, , wählen sie aus:
-                1 - Einkaufen
-                2 - Warenkorb ansehen
-                3 - Konto einsehen
-                4 - ausloggen
-        """.trimIndent()
-        )
-        var userMenu = readln().toInt()
-        when (userMenu) {
-            1 -> this.produkt()
-            2 -> this.userWarenAuswahl()
-            3 -> this.userKonto()
-            4 -> back()
+    fun warenkorb() {           // zeigt an was im Warenkorb ist
+        println("\u001b[34mIhr Warenkorb enthält:\u001b[0m")
+        var leer = ""
+        println("\u001B[34mArtikel ${leer.padEnd(62, ' ')}\u001B[34mMenge\u001B[0m\t\t \u001B[34mPreis gesamt\u001B[0m\t")
+        for (produkt in meinWarenkorb) {
+
+            println("${produkt.name.padEnd(70, ' ')}\t${produkt.menge}\t\t\t${produkt.preis}€")
         }
+
+        val gesamtPreis = meinWarenkorb.sumOf { it.preis * it.menge }
+
+        println("Gesamtpreis: ${leer.padEnd(68, ' ')} $gesamtPreis€")
     }
 
-    fun back() {
-        println("Zurück zum Menü")
-        backToUserBestellung()
-        println("Auf Wiedersehen!")
+    fun userGuthaben() {
+        val startBudgetKunde = 150.0
+        println("\tAktuell haben Sie ein Budget von '$startBudgetKunde€' auf Ihrem Konto.")
+        val artikel = productList[3]
+        var budgetKunde1 = startBudgetKunde
+        println("\tNach dem Kauf beträgt ihr Budget '$budgetKunde1€'.")
 
+    }
+
+
+    fun backM() {
+        println("Auf Wiedersehen!")
+        main()
+    }
+
+    fun backU() {
+        println("zurück zum KundenKonto")
+        userMenu()
     }
 
     fun backToUserBestellung() {
@@ -76,43 +108,58 @@ class Kunde(
         userWarenAuswahl()
     }
 
-    fun meinWarenkorb() {
+    /*fun meinWarenkorb() {         //todo  nicht vergessen!
         var w = readln()
         println(w)
-    }
+    }*/
 
     /*    fun addToList(item: String) {
             meinWarenkorb.add()
         }*/
 
     fun userWarenAuswahl() {
-        println("\u001B[34m Um einen Artikel genauer anzusehen geben Sie die dreistellige ArtikelNr. ein:  \u001B[0m")
+        println("\u001B[34m Um einen Artikel genauer anzusehen geben Sie die ArtikelNr. ein:  \u001B[0m")
         var auswahlArtikel = readln()?.toIntOrNull()
 
         if (auswahlArtikel != null) {
-            val selectedItem = productList.firstOrNull { it.id== auswahlArtikel }
+            val selectedItem = productList.firstOrNull { it.id == auswahlArtikel }
             if (selectedItem != null) {
-                /*                println("ArtikelNr: ${selectedItem.nr} \nName: ${selectedItem.name} \nPreis: ${selectedItem.preis}\n" +
-                                        "Bewertung: ${selectedItem.kundenRezension}\nMerkmal: ${selectedItem.warenAngebot} ${selectedItem}\n")*/
-                println(" Merkmal   $selectedItem")
-
+                println("Produkteigenschaften für: ${selectedItem.name}\t\tPreis ${selectedItem.preis}\t\t${selectedItem.kundenRezension}  ${selectedItem.merkmal}   ${selectedItem.menge}")
+                println("Wieviele Teile möchten Sie kaufen?")
+                var menge = readln().toInt()
+                selectedItem.menge = menge
+                meinWarenkorb.add(selectedItem)
             } else {
                 println("Artikel nicht gefunden")
             }
         } else {
             println("Ungültige Eingabe")
         }
-        auswahlMenge()
-        /*        backToUserBestellung()*/
+
+        /*        if (menge != null) {
+                    val selectedItem = productList.firstOrNull { it.id == menge }
+                    if (selectedItem != null) {
+                        println("gewählte Menge ... ")
+                        meinWarenkorb.add(selectedItem)
+                    }*/
+
+        print("weiter einkaufen? (j/n):  ")
+        var jaNein = readln()
+        if (jaNein == "j") {
+            produkt()
+        } else if (jaNein == "n") {
+            userMenu()
+        } else {
+            println("falsche Eingabe!")
+            userMenu()
+        }
 
 
     }
 
     fun auswahlMenge() {
-        println("Wieviele Teile möchten Sie kaufen?")
-        var menge = readln().toInt()
-        println("${meinWarenkorb}")
-        back()
+
+
     }
 
     private fun anzeigenKundenEintrag(userList: List<User>, eMail: String) {
@@ -138,17 +185,8 @@ class Kunde(
     }
 
 
-    fun userGuthaben() {
-        val startBudgetClient = 150.0
-        println("\tAktuell haben Sie ein Budget von '$startBudgetClient€' auf Ihrem Konto.")
-        val artikel = productList[3]
-        var budgetKunde1 = startBudgetClient
-        println("\tNach dem Kauf beträgt ihr Budget '$budgetKunde1€'.")
-
-    }
-
-    override fun produkt() {
-        var leer = ""
+    override fun produkt() {        // Anzeige des Warenangebotes
+        var leer = ""       // nur für formatierung
         println("unser Angebot\n\n")
         println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
         for (produkt in ProductList.productList)
@@ -156,14 +194,13 @@ class Kunde(
         this.userWarenAuswahl()
     }
 
-    fun sterne() {
-        println("Users Bewertung (* * * * *)")
+    /*    fun sterne() {
+            println("Users Bewertung (* * * * *)")
+        }
+        */
+    fun zuürckZumMenu() {
+        userMenu()
     }
-
-
-
-
-
 
 }
 

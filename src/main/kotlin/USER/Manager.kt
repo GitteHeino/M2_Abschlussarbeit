@@ -30,8 +30,8 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
 //todo -----------------------------------------------------------------------------------------------------------------
 
 
-    fun managerMenu() {             //todo erl.:
-        println(" Guten Morgen Manager\n")
+    override fun managerMenu() {             //todo erl.:
+        println(" Guten Morgen $firstName $name!\n")
         repeat(2) {
             println(
                 """
@@ -144,6 +144,9 @@ class Manager(id: Int, name: String, firstName: String, eMail: String, password:
             }
         }
     }
+
+//todo -----------------------------------------------------------------------------------------------------------------
+
 
     fun preisÄnderung() {
 

@@ -7,9 +7,10 @@ class P21_Lebensmittel(
         preis: Double,
         kundenRezension: Double,
         merkmal: String = "",
+        menge: Int,
         var bio: String = "",
         var feSaZu: String = ""
-) : Produkt(id, name, preis, kundenRezension, merkmal) {
+) : Produkt(id, name, preis, kundenRezension, merkmal, menge) {
 
     init {
         /*        println("Lebensmittel")*/

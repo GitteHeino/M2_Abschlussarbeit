@@ -6,9 +6,10 @@ class P22_Reinigungsmittel(
         preis: Double,
         kundenRezension: Double,
         merkmal: String = "",
+        menge: Int,
         var gefährlich: String,
         var innenAußen: String
-) : Produkt(id, name, preis, kundenRezension, merkmal) {
+) : Produkt(id, name, preis, kundenRezension, merkmal, menge) {
 
     init {
         /*        println("Reinigung")*/

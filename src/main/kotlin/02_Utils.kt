@@ -98,7 +98,7 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
 
     for (produkt in warenAngebot) {
         println("${produkt.id}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
-        Thread.sleep(200)
+        warten100()
     }
 }     //  Liste der Produkte
 
@@ -132,6 +132,9 @@ fun eingabeWarenP11() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
+    println("Menge")
+    var menge = readln().toInt()
+
     print("für wen:  ")
     var who = readln()
 
@@ -139,12 +142,12 @@ fun eingabeWarenP11() {
     var size = readln()
 
     println("\n\tHinzugefügter Artikel:")
-    var neuesProdukt = P11_BodyCare(id, name, preis, kundenRezension, merkmal, who, size)
+    var neuesProdukt = P11_BodyCare(id, name, preis, kundenRezension, merkmal, menge, who, size)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList[id])*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   ${neuesProdukt.who}   Größe: ${neuesProdukt.size}")
     Thread.sleep(2000)
-    return
+
 }
 
 fun eingabeWarenP12() {
@@ -164,6 +167,10 @@ fun eingabeWarenP12() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
+    print("Antzahl:  ")
+    var menge = readln().toInt()
+
+
     print("Anwendung (Text  max. 1.000 Zeichen):  ")
     var anwendungsBereich = readln()
 
@@ -176,12 +183,12 @@ fun eingabeWarenP12() {
         }*/
 
     print("\tHinzugefügter Artikel  :")
-    var neuesProdukt = P12_Gesundheit(id, name, preis, kundenRezension, merkmal, anwendungsBereich, begrenzteAbgabe)
+    var neuesProdukt = P12_Gesundheit(id, name, preis, kundenRezension, merkmal, menge, anwendungsBereich, begrenzteAbgabe)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList)*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   Anwemndung: ${neuesProdukt.anwendungsBereich}   Abgabe begrenzt: ${neuesProdukt.begrenzteAbgabe}")
     Thread.sleep(2000)
-    return
+
 }
 
 fun eingabeWarenP21() {
@@ -201,6 +208,9 @@ fun eingabeWarenP21() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
+    print("Antzahl:  ")
+    var menge = readln().toInt()
+
     print("bio (ja/nein):  ")
     var bio = readln()
     /*    when (bio) {
@@ -209,17 +219,17 @@ fun eingabeWarenP21() {
         }*/
 
     println("Lebensmittel-Ampel")
-    println("Bedeutung: F = Fett  S = Salz  Z = Zucker in den Stärken N M H")
+    print("Bedeutung: F = Fett  S = Salz  Z = Zucker in den Stärken N-niedrig M-mittel H-hoch")
     print("Bedeutung: N - niedrig   M - mittel  H - hoch  (Werte für F S Z eingeben):  ")
     var feSaZu = readln().capitalize()
 
     println("\tHinzugefügter Artikel:")
-    var neuesProdukt = P21_Lebensmittel(id, name, preis, kundenRezension, merkmal, bio, feSaZu)
+    var neuesProdukt = P21_Lebensmittel(id, name, preis, kundenRezension, merkmal,menge, bio, feSaZu)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList)*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   ProdEigensch…   Bio: ${neuesProdukt.bio}   Lebensmittel-Ampel: ${neuesProdukt.feSaZu}")
     Thread.sleep(2000)
-    return
+
 }
 
 fun eingabeWarenP22() {
@@ -239,6 +249,9 @@ fun eingabeWarenP22() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
+    print("Antzahl:  ")
+    var menge = readln().toInt()
+
     print("Artikel ist gefährlich? (ja/nein):  ")
     var gefährlich = readln()
 
@@ -246,12 +259,12 @@ fun eingabeWarenP22() {
     var innenAußen = readln()
 
     println("\tHinzugefügter Artikel:")
-    var neuesProdukt = P22_Reinigungsmittel(id, name, preis, kundenRezension, merkmal, gefährlich, innenAußen)
+    var neuesProdukt = P22_Reinigungsmittel(id, name, preis, kundenRezension, merkmal, menge ,gefährlich, innenAußen)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList)*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Berwertung: ${neuesProdukt.kundenRezension}  ProdEigensch…  Gefährdung: ${neuesProdukt.gefährlich}   Anwendungsbereich: ${neuesProdukt.innenAußen}")
     Thread.sleep(2000)
-    return
+
 
 }
 
@@ -278,6 +291,20 @@ fun warteschleife() {
     Thread.sleep(300); print(" .")
     Thread.sleep(800); println("\n")
 }       //todo  für überall
+
+fun warten50()
+{
+    Thread.sleep(50)
+}
+fun warten100(){
+    Thread.sleep(100)
+}
+fun warten200(){
+    Thread.sleep(200)
+}
+fun warten1000(){
+    Thread.sleep(1000)
+}
 
 fun registerNeu() {
     println("Möchten Sie einen neuen Account anlegen? j/n:  ")
@@ -312,6 +339,7 @@ fun registerNeu() {
 }       //todo löschen/archivieren
 
 
+
 //todo _________________________________________________________________________________________________________________
 
 /*fun login(){
@@ -341,6 +369,26 @@ fun registerNeu() {
         println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
     }*/       //todo löschen/archivieren
 
+/*fun userMenuAnzeige(){
+   println(
+            """
+            Bitte wählen sie aus:
+
+                1 - Einkaufen
+                2 - Warenkorb ansehen
+                3 - Konto einsehen
+                4 - ausloggen
+            Beachten Sie auch unsere tagesaktuellen Angebote!
+        """.trimIndent()
+    )
+    var userMenu = readln().toInt()
+    when (userMenu) {
+        1 -> this.produkt()
+        2 -> this.userWarenAuswahl()
+        3 -> this.userKonto()
+        4 -> backM()
+    }
+}*/     //todo wie diese fun ausserhalb userMenu()
 
 //todo _________________________________________________________________________________________________________________
 

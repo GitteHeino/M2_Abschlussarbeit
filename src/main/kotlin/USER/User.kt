@@ -17,6 +17,9 @@ open class User(
 
 
 
+    open fun managerMenu(){
+
+    }
     fun logout() {
     }
 

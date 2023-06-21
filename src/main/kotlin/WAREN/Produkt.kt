@@ -5,7 +5,8 @@ open class Produkt(
         var name: String = "produkt",
         var preis: Double = 1.0,
         var kundenRezension: Double = 5.0,
-        merkmal: String
+        var merkmal: String,
+        var menge: Int
 
 ) {
     init {
@@ -17,7 +18,7 @@ open class Produkt(
     }
 
     override fun toString(): String {
-        return "$name"
+        return "$name "
     }       // macht den eigentlichen Inhalt (des Speicherplatzes) sichtbar
 
 
@@ -30,7 +31,7 @@ open class Produkt(
 
 
     fun auswahlProdukt() {
-        println("Wählen Sie einen Artikel aus der Tabelle und geben Sie die ersten Buchstaben ein:")
+        println("Wählen Sie einen Artikel aus der Tabelle und geben Sie die Artikelnummer ein:")
         var dmArtikel = readln().capitalize().toString()
         val i = 1
         for (i in warenAngebot)
