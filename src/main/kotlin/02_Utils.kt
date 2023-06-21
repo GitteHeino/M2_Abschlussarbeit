@@ -103,15 +103,9 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
 }     //  Liste der Produkte
 
 
-
-
-
-
-
-
 fun shopKonto(
 
-){
+) {
 
 }
 
@@ -224,7 +218,7 @@ fun eingabeWarenP21() {
     var feSaZu = readln().capitalize()
 
     println("\tHinzugefügter Artikel:")
-    var neuesProdukt = P21_Lebensmittel(id, name, preis, kundenRezension, merkmal,menge, bio, feSaZu)
+    var neuesProdukt = P21_Lebensmittel(id, name, preis, kundenRezension, merkmal, menge, bio, feSaZu)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList)*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   ProdEigensch…   Bio: ${neuesProdukt.bio}   Lebensmittel-Ampel: ${neuesProdukt.feSaZu}")
@@ -259,7 +253,7 @@ fun eingabeWarenP22() {
     var innenAußen = readln()
 
     println("\tHinzugefügter Artikel:")
-    var neuesProdukt = P22_Reinigungsmittel(id, name, preis, kundenRezension, merkmal, menge ,gefährlich, innenAußen)
+    var neuesProdukt = P22_Reinigungsmittel(id, name, preis, kundenRezension, merkmal, menge, gefährlich, innenAußen)
     ProductList.productList.add(neuesProdukt)
     /*    println(ProductList.productList)*/
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Berwertung: ${neuesProdukt.kundenRezension}  ProdEigensch…  Gefährdung: ${neuesProdukt.gefährlich}   Anwendungsbereich: ${neuesProdukt.innenAußen}")
@@ -292,19 +286,30 @@ fun warteschleife() {
     Thread.sleep(800); println("\n")
 }       //todo  für überall
 
-fun warten50()
-{
+fun warten50() {
     Thread.sleep(50)
 }
-fun warten100(){
+
+fun warten100() {
     Thread.sleep(100)
 }
-fun warten200(){
+
+fun warten200() {
     Thread.sleep(200)
 }
-fun warten1000(){
+
+fun warten500() {
+    Thread.sleep(500)
+}
+
+fun warten1000() {
     Thread.sleep(1000)
 }
+
+fun warten2000() {
+    Thread.sleep(2000)
+}
+
 
 fun registerNeu() {
     println("Möchten Sie einen neuen Account anlegen? j/n:  ")
@@ -337,7 +342,6 @@ fun registerNeu() {
 
     }
 }       //todo löschen/archivieren
-
 
 
 //todo _________________________________________________________________________________________________________________

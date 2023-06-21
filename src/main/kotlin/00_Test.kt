@@ -33,9 +33,9 @@ fun loginUseroderManager() {
     while (i <= 3) {
         println("Bitte loggen sie sich ein")
         Thread.sleep(250)
-        println("eMail eingeben:  ")
+        print("eMail eingeben:  ")
         var loginM = readln()
-        println("Passwort (nur Zahlen und Buchstaben):  ")
+        print("Passwort (nur Zahlen und Buchstaben):  ")
         var loginP = readln()
 
         if (UserList.UserExist(loginM)) {
