@@ -104,6 +104,8 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         val artikel = productList[3]
         var budgetKunde1 = startBudgetKunde
         println("\tNach dem Kauf beträgt ihr Budget '$budgetKunde1€'.")
+        warten2000()
+        backUK()
     }
 
     fun bezahlung(){
@@ -162,8 +164,14 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
 
     fun backUM() {
         println("zurück zum KundenKonto")
-        userMenu()          // zurück zum persönlichen Bereich
+        userMenu()          // zurück zur shopShop-Zone
     }
+
+    fun backUK() {
+        println("zurück zum KundenKonto")
+        userKonto()          // zurück zum persönlichen Bereich
+    }
+
 
     private fun anzeigenKundenEintrag(userList: List<User>, eMail: String) {
         val gefundeneEinträge = userList.filter { user -> user is Kunde && user.eMail == eMail } as List<Kunde>
