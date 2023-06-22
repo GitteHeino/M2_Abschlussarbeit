@@ -410,7 +410,7 @@ import WAREN.P11_BodyCare
 import WAREN.P21_Lebensmittel
 import WAREN.P22_Reinigungsmittel*/
 
-/*class Shop_Drugstore() {
+/*class KONTO.Shop_Drugstore() {
 
     *//*    init {
     * }*//*

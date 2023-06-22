@@ -1,3 +1,5 @@
+package KONTO
+
 import WAREN.P12_Gesundheit
 import WAREN.P11_BodyCare
 import WAREN.P21_Lebensmittel
