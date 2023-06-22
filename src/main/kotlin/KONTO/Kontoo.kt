@@ -10,8 +10,8 @@ class Kontoo(val inhaber: String) {
         zahlungseingaenge.add(betrag)
     }
 
-    fun auszahlen(betrag: Double) {
-        kontostand -= betrag
+    fun bezahlen(rechnungsBetrag: Double) {
+        kontostand -= rechnungsBetrag
     }
 }
 

@@ -1,27 +1,26 @@
-import KONTO.Konto
-import WAREN.P11_BodyCare
-import WAREN.P12_Gesundheit
-import WAREN.P21_Lebensmittel
-import WAREN.P22_Reinigungsmittel
 import kotlin.system.exitProcess
-import USER.*
 import java.time.LocalDate
+import USER.Kunde
+import USER.User
+import UserList.userList
+import WAREN.*
 
 
 fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
     println("Bitte geben Sie nacheinander Name, Vorname, eMail und ein Passwort - jeweils gefolgt von ENTER ein.")
     print("Nachname:  ")
     val name = readln()
+
     print("Vorname:  ")
     val firstName = readln()
     print("eMail:  ")
     val eMail = readln()
     print("Passwort:  ")
+    val password = readln()
     var i = 0
     while (i < 3) {
-        var password0 = readln().toString()
         print("Bitte wiederholen Sie das Passwort:  \n")
-        val password = readln().toString()
+        var password0 = readln()
         if (password0 == password) {
             print("\t◌\n\n")
             break
@@ -32,61 +31,113 @@ fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
     }
 
 
-
     println("Geben Sie nun noch Ihre Adresse an:")
     print("Wohnort:  ")
-    val city = readln().toString()
+    val city = readln()
     print("PLZ: ")
-    val zipCode = readln().toString()
+    val zipCode = readln()
     print("Straße:  ")
-    val street = readln().toString()
+    val street = readln()
+    print("Nr:  ")
+    val nr = readln()
 
     var j = 1
-    /*while (j < 2) {*/
-    try {       // TODO Warum springt die try catch an, wenn alles richtig ist?
-        print("Nr:  ")
-        val nr = readln().toInt()
-    } catch (ex: Exception) {
-        println("Nur Ziffern von 0 - 9 sind erlaubt")
-        j++
+    while (j < 2) {
+        try {       // TODO Warum springt die try catch an, wenn alles richtig ist?
+            print("Nr:  ")
+            val nr = readln().toInt()
+        } catch (ex: Exception) {
+            println("Nur Ziffern von 0 - 9 sind erlaubt")
+            j++
+        }
     }
 
     print("Geburtstag (dd.mm.yyyy):  ")
-    val geburtstag = readln().toString()
-
+    val geburtstag = readln()
 
 
     print("Wählen Sie nun eine Anrede:\n" + " 1 für 'Sehr geehrte Frau', 2 für 'Sehr geehrter Herr', 3 für 'hej', 4 für 'Guten Tag': ")
-    val anrede = readln()
+    val anrede = auswahlAnrede()
 
-    fun auswahlAnrede() {
-        when (anrede) {
+
+    var neuerKunde = Kunde(0, name, firstName, eMail, password, city, street, 1, zipCode, geburtstag, anrede, meinWarenkorb = mutableListOf<Produkt>())
+    userList.add(neuerKunde)
+
+
+/*        when (anrede) {
             "1" -> {
                 print("Sehr geehrte Frau ")
-                /*ergebnisListe.add("Sehr geehrte Frau")*/
+                *//*ergebnisListe.add("Sehr geehrte Frau")*//*
             }
 
             "2" -> {
                 print("Sehr geehrter Herr ")
-                /*ergebnisListe.add("Sehr geehrter Herr")*/
+                *//*ergebnisListe.add("Sehr geehrter Herr")*//*
             }
 
             "3" -> {
                 print("hej ")
-                /*userDB.add("hi")*/
+                *//*userDB.add("hi")*//*
             }
 
             "4" -> {
                 print("Guten Tag ")
-                /*ergebnisListe.add("Guten Tag")*/
+                *//*ergebnisListe.add("Guten Tag")*//*
             }
 
             else -> {
                 println("Ungültige Auswahl")
             }
-        }
+        }*/
+
+
+
+    println("\nKontrollieren Sie bitte Ihre Angaben:")
+
+    println("${anrede} $firstName $name  \neMail: $eMail | \nPasswort: ****** | \n$zipCode $city \n$street $nr\n$geburtstag")
+    println("\n\t◌\t◌\n\n")
+
+    println("Alles ok? J/N:")
+    var ok = readln().capitalize()
+    if (ok == "J") {
+        warten200()
+
     }
-}       //todo  für Registrierung neuerKunde
+
+
+    warteschleife()
+    if (ok == "J") {
+        println("Jetzt können Sie shopShoppen :-)")
+        /*            userKonto()*/
+        /*            exitProcess(5)*/
+        warten500()
+        neuerKunde.userMenu()
+
+
+
+
+        val anrede = readLine()?.capitalize()
+
+        /*val ausgewehlteAnrede = auswahlAnrede()*/
+
+        println("\nKontrollieren Sie bitte Ihre Angaben (j - ok  n - ändern:  ")
+        println("$anrede $firstName $name \neMail: \n$eMail \nPasswort: ******\n\n$zipCode$city\n$street $nr\n$geburtstag")
+    } else if (ok == "N") {
+        datenEingabe()
+    } else
+        println("Good bye!")
+
+}       // Registrierung neuerKunde
+ fun auswahlAnrede(anrede: String = readln()): String {
+     return when (anrede) {
+         "1" -> "Sehr geehrte Frau "
+         "2" -> "Sehr geehrter Herr "
+         "3" -> "hi "
+         "4" -> "Guten Tag "
+         else -> "Ungültige Auswahl "
+     }
+ }       // Anrede auswählen
+
 
 fun produktAngebotAlleKategorien() {        // todo für den Kunden
     val warenAngebot = ProductList.productList
@@ -101,17 +152,13 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
         println("${produkt.id}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
         warten100()
     }
-}     //  Liste der Produkte
+}     //  Liste aller Produkte im shopShop
 
 
-fun shopKonto(
 
-) {
-
-}
 
 fun eingabeWarenP11() {
-    println("Machen Sie alle Angaben zum neuen Artikel:")
+    println("Machen Sie alle Angaben zum neuen Artikel:  ")
     print("Artikel-ID:  ")
     var id = readln().toInt()
 
@@ -127,10 +174,10 @@ fun eingabeWarenP11() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
-    println("Menge")
+    print("Menge:  ")
     var menge = readln().toInt()
 
-    print("für wen:  ")
+    print("Zielgruppe:  ")
     var who = readln()
 
     print("Produktgröße:  ")
@@ -143,7 +190,8 @@ fun eingabeWarenP11() {
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   ${neuesProdukt.who}   Größe: ${neuesProdukt.size}")
     Thread.sleep(2000)
 
-}
+}       // Methode zum eintragen neuer Artikel i.d.Kat. BodyCare
+
 fun eingabeWarenP12() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -183,7 +231,8 @@ fun eingabeWarenP12() {
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   Produkteigenschaften: ${neuesProdukt.merkmal}   Anwemndung: ${neuesProdukt.anwendungsBereich}   Abgabe begrenzt: ${neuesProdukt.begrenzteAbgabe}")
     Thread.sleep(2000)
 
-}
+}       // Methode zum eintragen neuer Artikel i.d.Kat. Gesundheit
+
 fun eingabeWarenP21() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -223,7 +272,8 @@ fun eingabeWarenP21() {
     println("ID: ${neuesProdukt.id}   Artikel: ${neuesProdukt.name}   Preis: ${neuesProdukt.preis}   Bewertung: ${neuesProdukt.kundenRezension}   ProdEigensch…   Bio: ${neuesProdukt.bio}   Lebensmittel-Ampel: ${neuesProdukt.feSaZu}")
     Thread.sleep(2000)
 
-}
+}       // Methode zum eintragen neuer Artikel i.d.Kat. Lebensmittel
+
 fun eingabeWarenP22() {
     println("Machen Sie alle Angaben zum neuen Artikel:")
     print("Artikel-ID:  ")
@@ -241,7 +291,7 @@ fun eingabeWarenP22() {
     print("Zusatzinfos:  ")
     var merkmal = readln()
 
-    print("Antzahl:  ")
+    print("Anzahl:  ")
     var menge = readln().toInt()
 
     print("Artikel ist gefährlich? (ja/nein):  ")
@@ -258,7 +308,7 @@ fun eingabeWarenP22() {
     Thread.sleep(2000)
 
 
-}
+}       // Methode zum eintragen neuer Artikel i.d.Kat. Reigungsmittel
 
 //todo _________________________________________________________________________________________________________________
 
@@ -287,22 +337,35 @@ fun warteschleife() {
 fun warten50() {
     Thread.sleep(50)
 }
+
 fun warten100() {
     Thread.sleep(100)
 }
+
 fun warten200() {
     Thread.sleep(200)
 }
+
 fun warten500() {
     Thread.sleep(500)
 }
+
 fun warten1000() {
     Thread.sleep(1000)
 }
+
 fun warten2000() {
     Thread.sleep(2000)
 }
 
+fun date() {
+    val now = LocalDate.now()
+//    val nowWithTime = LocalDateTime.now()
+//    println(nowWithTime)
+    println(now)
+}
+
+//todo _________________________________________________________________________________________________________________
 fun registerNeu() {
     println("Möchten Sie einen neuen Account anlegen? j/n:  ")
     var neuerAccount = readln().capitalize().toString()
@@ -334,15 +397,6 @@ fun registerNeu() {
 
     }
 }       //todo löschen/archivieren
-
-fun date() {
-    val now = LocalDate.now()
-//    val nowWithTime = LocalDateTime.now()
-//    println(nowWithTime)
-    println(now)
-}
-
-
 
 //todo _________________________________________________________________________________________________________________
 
@@ -416,35 +470,7 @@ if (ok == "J") {
 exitProcess(1)
 }       // TodO Zeile 87: Abkürzung (?? gibt es die noch ?) rausnehmen, wenn fertig!*/
 
+/*fun shopKonto() {
 
-/*enum class Marke{
-    ADIDAS, NIKE
-}*/     //todo  >> siehe Class Enum
-
-/*
-enum class jaNein{
-    ja, nein
-}
-
-
-class Tshirt (val groesse: jaNein) {
-}
-
-
-
-fun dieAbfrageJaNein(): jaNein{
-    var abfrageJaNein: jaNein?
-
-    do {
-        println("ist Bio (j/n):  ")
-        var eingabe = readln()
-
-        abfrageJaNein = when (eingabe) {
-            "ja", "j" -> jaNein.ja
-            "nein", "n" -> jaNein.nein
-            else -> null
-        }
-    } while (abfrageJaNein == null)
-
-    return abfrageJaNein
 }*/
+

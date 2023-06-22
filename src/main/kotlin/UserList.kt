@@ -3,7 +3,7 @@ import WAREN.Produkt
 
 object UserList {
 
-    val userList: List<User> = listOf(
+    val userList: MutableList<User> = mutableListOf(
             Kunde(101, "Maier", "Sepp", "h", "8", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14", meinWarenkorb = mutableListOf<Produkt>()),
             Kunde(102, "Niblock", "Phil", "a", "1", "Hannover", "Berliner Straße", 211, "30457", "Guten Tag ", "1987-02-07", meinWarenkorb = mutableListOf<Produkt>()),
             Kunde(103, "Nagel", "Jenny", "f", "6", "Rochlitz", "Kunigundentraße", 54, "09306", "Sehr geehrte Frau ", "1967-06-23", meinWarenkorb = mutableListOf<Produkt>()),
@@ -13,6 +13,7 @@ object UserList {
             Mitarbeiter(11, "Bogenmacher", "Paul", "bmp", "000", "Honk"),
             Mitarbeiter(12, "b", "Bert", "b", "0", "Honk")
     )
+
 
     fun UserExist(eMail: String): Boolean {
         for (kunde in userList) {

@@ -376,3 +376,44 @@ userMenu()*/
                 false
             }
         }*/
+
+
+
+
+
+
+
+
+
+
+
+/*enum class Marke{
+    ADIDAS, NIKE
+}*/     //todo  >> siehe Class Enum
+
+/*
+enum class jaNein{
+    ja, nein
+}
+
+
+class Tshirt (val groesse: jaNein) {
+}
+*/
+
+/*fun dieAbfrageJaNein(): jaNein{
+    var abfrageJaNein: jaNein?
+
+    do {
+        println("ist Bio (j/n):  ")
+        var eingabe = readln()
+
+        abfrageJaNein = when (eingabe) {
+            "ja", "j" -> jaNein.ja
+            "nein", "n" -> jaNein.nein
+            else -> null
+        }
+    } while (abfrageJaNein == null)
+
+    return abfrageJaNein
+}*/

@@ -59,6 +59,17 @@ object ProductList {
     }       // TODO löschen
 
 
+/*    fun getProducByCheapest(id: Int): Produkt? {
+
+        val auswählen = readln().toInt()
+        for (produkt in productList){
+            if(produkt.preis ...){
+                return produkt
+            }
+        }
+        return null
+    }*/
+
 
 /*    fun produktAngebotAlleKategorien() {
         val warenAngebot = ProductList.productList

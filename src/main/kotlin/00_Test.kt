@@ -83,7 +83,14 @@ fun loginUseroderManager() {
 
 fun willkommen(){
     println("\t\t\tWillkommen im shopShop!\n\n")
-}
+    println("Neu hier? [ ja/nein ]:  ")
+    var neuerKunde = readln()
+    if (neuerKunde == "j") {
+        datenEingabe()
+    }else
+        return
+    }
+
 fun alleProdukte() {
     val warenkorb = ProductList.productList
     println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")

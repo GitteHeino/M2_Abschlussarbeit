@@ -1,6 +1,5 @@
 package USER
 
-
 import ProductList
 import ProductList.productList
 import UserList.userList
@@ -10,7 +9,6 @@ import main
 import warten200
 import warten2000
 import warten500
-import warteschleife
 import java.util.*
 
 class Kunde(
@@ -20,7 +18,7 @@ class Kunde(
         eMail: String,
         password: String,
         var city: String,
-        var street: String,
+        street: String,
         var nr: Int,
         var zipCode: String,
         var anrede: String = "Hej!",     // List<String> = listOf("Sehr geehrte Frau ", "Sehr geehrter Herr ", "Guten Tag ")
@@ -45,24 +43,25 @@ class Kunde(
         """.trimIndent()
             /*Beachten Sie auch unsere tagesaktuellen Angebote!*/
         )
-        /*        userMenuAnzeige()*/       //todo kann man das auslagern in Utils?
+
+
         var userMenu = readln()
         when (userMenu) {
             "1" -> this.produkt()       // Einkauf
             "2" -> this.warenkorb()     // Warenkorb ansehen und bezahlen
             "3" -> this.userKonto()     // Kundendaten ändern
             "4" -> backM()              // ausloggen und zurück zum Anfang (fun main)
+/*            "5" -> getProducByNumber(id: Int)*/
             else -> userMenu            // neue Runde
         }
-    }
+    }       // des Users eigene shopShop-Page (Einkauf()
 
 //todo _________________________________________________________________________________________________________________
 
     fun userKonto() {
         println("\n\n\t\t\t \u001B[7m persönlicher Bereich \u001B[0m  $firstName $name\n")
         warten200()
-        println("""Sie haben die Möglichkeit Ihre persönlichen 
-Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
+        println("""Sie haben die Möglichkeit Ihre persönlichen Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
 (und die Zahlungsmöglichkeiten) einsehen bzw. ändern.
 
         1 - Kontoguthaben
@@ -74,16 +73,16 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         var eingabe = readln().toInt()
         when (eingabe) {
             1 -> userGuthaben()
-            2 -> anzeigenKundenEintrag(userList, eMail)
+            2 -> anzeigenKundenEintrag(userList)
             3 -> backUM()
 
 
         }
-    }       // TODO löschen/archivieren || noch nicht!!
+    }       // des Users persönlicher Bereich
 
 //todo _________________________________________________________________________________________________________________
 
-    fun warenkorb() {           // zeigt an was im Warenkorb ist
+    fun warenkorb() {
         println("\n\n\u001b[34mIhr Warenkorb enthält:\u001b[0m\n  ")
         var leer = ""
         println("\u001B[34mArtikel ${leer.padEnd(62, ' ')}\u001B[34mMenge\u001B[0m\t\t\u001B[34mPreis gesamt\u001B[0m")
@@ -98,17 +97,20 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
 
         println("Gesamtpreis: ${leer.padEnd(68, ' ')} $formattedNumber€\n\n")
         backUM()
-    }
+    }       // zeigt an was im Warenkorb ist
 
     fun userGuthaben() {
 
-        val startBudgetKunde = 150.0
+        val startBudgetKunde = 150.000
+        val number = startBudgetKunde
+        val formattedNumber = String.format(Locale.ENGLISH,"%.2f", number)
+        println("\tAktuell haben Sie ein Budget von \u001b[44m$startBudgetKunde €\u001b[0m auf Ihrem Konto.\n")
+
         println("Wieviel möchten Sie auf Ihr Konto einzahlen?:  ")
         var kundenKontoEinzahlung = readln().toDouble() + startBudgetKunde
-        println("\tAktuell haben Sie ein Budget von '$startBudgetKunde€' auf Ihrem Konto.")
-        print("kundenKontoEinzahlung:  ")
+
         var budgetKunde = startBudgetKunde
-        println("\tNach der Überweisung beträgt ihr Budget '$kundenKontoEinzahlung€'.")
+        println("\tNach der Überweisung beträgt ihr Budget \u001b[41;1m$kundenKontoEinzahlung €\u001b[0m.")
         println("Siw können nun einkaufen (e) oder zurück zum persönlichen bereich (z):  ")
         val select = readln()
         while (select == "e"){
@@ -116,11 +118,7 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         }
         warten2000()
 
-    }
-
-    fun bezahlung(){
-
-    }
+    }       // Kontostand sehen und bearbeiten
 
     fun userWarenAuswahl() {
         print("\n\u001B[34mUm einen Artikel genauer anzusehen geben Sie die ArtikelNr. ein:  \u001B[0m\n")
@@ -162,7 +160,7 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         }
 
 
-    }
+    }       // einkauf (in den Warenkorb)
 
 //todo _________________________________________________________________________________________________________________
 
@@ -170,42 +168,47 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
         println("Auf Wiedersehen!")
         warten2000()
         main()          // zurück auf die fun main. alles auf Anfang
-    }
+    }       // zurück zum Start
 
     fun backUM() {
-        println("zurück zum KundenKonto")
+        println("\nzurück zum KundenMenu")
         userMenu()          // zurück zur shopShop-Zone
-    }
+    }       // zum KundenMenu
 
     fun backUK() {
-        println("zurück zum KundenKonto")
+        println("\nzurück zum KundenKonto")
         userKonto()          // zurück zum persönlichen Bereich
-    }
+    }       // zum KundenKonto
 
 
-    private fun anzeigenKundenEintrag(userList: List<User>, eMail: String) {
-        val gefundeneEinträge = userList.filter { user -> user is Kunde && user.eMail == eMail } as List<Kunde>
+    private fun anzeigenKundenEintrag(userList: MutableList <User>) {
+        /*        val gefundeneEinträge = userList.filter { user -> user is Kunde && user.eMail == eMail }*/
+        println("Bitte geben Sie Ihre eMail-Adresse an:  ")
+        var gesuchteEmail = readln().toString()
+        var k = userList.find{it.eMail == gesuchteEmail}
+        if( k != null){
 
-        if (gefundeneEinträge.isNotEmpty()) {
-            for (kunde in gefundeneEinträge) {
-                println("Name: ${kunde.name}")
-                println("Vorname: ${kunde.firstName}")
-                println("eMail: ${kunde.eMail}")
-                println("Passwort: ${kunde.password}")
-                println("Stadt: ${kunde.city}")
-                println("Straße: ${kunde.street}")
-                println("Hausnummer: ${kunde.nr}")
-                println("PLZ: ${kunde.zipCode}")
-                println("Anrede: ${kunde.anrede}")
-                println("Geburtstag: ${kunde.geburtstag}")
-                println("------------------------")
+            println("Name: ${k.name}")
+            println("Vorname: ${k.firstName}")
+            println("eMail: ${k.eMail}")
+            println("Passwort: ******\t\t\t Passwort ändern (ja - j, nein - n, zurück - z):  ")
+            var pwÄndern = readln()
+            when(pwÄndern){
+                "j" -> println(" Passwort neu:")
+                "n" -> println(" Passwort nicht ändern.")
+                "z" -> backUM()
             }
-        } else {
-            println("Kein Kunde mit der angegebenen E-Mail-Adresse gefunden.")
+
+            warten500()
+            backUM()
         }
-        warten2000()
-        backUM()
-    }
+
+        else {
+            println("Kein Kunde mit der angegebenen E-Mail-Adresse gefunden.")
+            warten500()
+            backUM()
+        }
+    }       // Anzeige der Kundendaten aus Liste
 
     override fun produkt() {        // Anzeige des Warenangebotes
         var leer = ""       // nur für formatierung
@@ -218,33 +221,34 @@ Daten einzusehen und zu ändern. Und Sie können Ihren Kontostand
 
 //todo _________________________________________________________________________________________________________________
 
-    fun backToUserBestellung() {
-        println("Zurück zum Menü")
-        userWarenAuswahl()
-    }
+    /*
+        fun backToUserBestellung() {
+            println("Zurück zum Menü")
+            userWarenAuswahl()
+        }
+    */
 
-
-/*  fun meinWarenkorb() {         //todo  nicht vergessen!
-        var w = readln()
-        println(w)
-}*/
-
-/*    fun addToList(item: String) {
+    /*    fun addToList(item: String) {
             meinWarenkorb.add()
 }*/
 
-    fun auswahlMenge() {
+    /*    fun auswahlMenge() {
 
 
-    }
+    }*/
 
     /*    fun sterne() {
             println("Users Bewertung (* * * * *)")
         }
         */
-    fun zuürckZumMenu() {
+
+    /*    fun zuürckZumKundenMenu() {
         userMenu()
-    }
+    }*/
+
+    /*    fun bezahlung(){
+
+    }*/
 
 }
 
