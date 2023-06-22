@@ -4,6 +4,7 @@ import ProductList
 import ProductList.productList
 import UserList.userList
 import WAREN.Produkt
+import alleProdukte
 import main
 
 import warten200
@@ -41,7 +42,7 @@ class Kunde(
                 3 - persönliche Daten einsehen
                 4 - ausloggen
         """.trimIndent()
-            /*Beachten Sie auch unsere tagesaktuellen Angebote!*/
+                /*Beachten Sie auch unsere tagesaktuellen Angebote!*/
         )
 
 
@@ -51,7 +52,7 @@ class Kunde(
             "2" -> this.warenkorb()     // Warenkorb ansehen und bezahlen
             "3" -> this.userKonto()     // Kundendaten ändern
             "4" -> backM()              // ausloggen und zurück zum Anfang (fun main)
-/*            "5" -> getProducByNumber(id: Int)*/
+            /*            "5" -> getProducByNumber(id: Int)*/
             else -> userMenu            // neue Runde
         }
     }       // des Users eigene shopShop-Page (Einkauf()
@@ -93,7 +94,7 @@ class Kunde(
 
         val gesamtPreis = meinWarenkorb.sumOf { it.preis * it.menge }
         val number = gesamtPreis
-        val formattedNumber = String.format(Locale.ENGLISH,"%.2f", number)
+        val formattedNumber = String.format(Locale.ENGLISH, "%.2f", number)
 
         println("Gesamtpreis: ${leer.padEnd(68, ' ')} $formattedNumber€\n\n")
         backUM()
@@ -103,18 +104,19 @@ class Kunde(
 
         val startBudgetKunde = 150.000
         val number = startBudgetKunde
-        val formattedNumber = String.format(Locale.ENGLISH,"%.2f", number)
-        println("\tAktuell haben Sie ein Budget von \u001b[44m$startBudgetKunde €\u001b[0m auf Ihrem Konto.\n")
+        val formattedNumber = String.format(Locale.ENGLISH, "%.2f", number)
+        println("\tAktuell haben Sie ein Budget von \u001b[43m $startBudgetKunde € \u001b[0m auf Ihrem Konto.\n")
 
         println("Wieviel möchten Sie auf Ihr Konto einzahlen?:  ")
         var kundenKontoEinzahlung = readln().toDouble() + startBudgetKunde
 
         var budgetKunde = startBudgetKunde
-        println("\tNach der Überweisung beträgt ihr Budget \u001b[41;1m$kundenKontoEinzahlung €\u001b[0m.")
-        println("Siw können nun einkaufen (e) oder zurück zum persönlichen bereich (z):  ")
+        println("\tSie haben nun ein Budget von \u001b[44;1m $kundenKontoEinzahlung € \u001b[0m für Ihre Einkäufe.")
+        println("Siw können nun \u001B[34;1m\u001B[0minkaufen (e) oder \u001B[34;1m\u001B[0murück zum persönlichen bereich (z):  ")
         val select = readln()
-        while (select == "e"){
-            backUM()
+        when(select){
+            "z" -> backUK()
+            "e" -> backUM()
         }
         warten2000()
 
@@ -141,17 +143,11 @@ class Kunde(
             userWarenAuswahl()
         }
 
-        /*        if (menge != null) {
-                    val selectedItem = productList.firstOrNull { it.id == menge }
-                    if (selectedItem != null) {
-                        println("gewählte Menge ... ")
-                        meinWarenkorb.add(selectedItem)
-                    }*/
 
         println("weiter einkaufen? (j/n):  ")
         var jaNein = readln()
         if (jaNein == "j") {
-            produkt()
+            this.produkt()
         } else if (jaNein == "n") {
             userMenu()
         } else {
@@ -160,7 +156,7 @@ class Kunde(
         }
 
 
-    }       // einkauf (in den Warenkorb)
+    }       // Einkauf (in den Warenkorb)
 
 //todo _________________________________________________________________________________________________________________
 
@@ -173,40 +169,36 @@ class Kunde(
     fun backUM() {
         println("\nzurück zum KundenMenu")
         userMenu()          // zurück zur shopShop-Zone
-    }       // zum KundenMenu
+    }       // zum KundenMenu (eigene shopShop-Page)
 
     fun backUK() {
         println("\nzurück zum KundenKonto")
         userKonto()          // zurück zum persönlichen Bereich
-    }       // zum KundenKonto
+    }       // zum persönlichen Bereich des Kunden
 
-
-    private fun anzeigenKundenEintrag(userList: MutableList <User>) {
-        /*        val gefundeneEinträge = userList.filter { user -> user is Kunde && user.eMail == eMail }*/
-        println("Bitte geben Sie Ihre eMail-Adresse an:  ")
+    private fun anzeigenKundenEintrag(userList: MutableList<User>) {
+        println("Bitte geben Sie zur sicheren Identifikation hier Ihre eMail-Adresse an:  ")
         var gesuchteEmail = readln().toString()
-        var k = userList.find{it.eMail == gesuchteEmail}
-        if( k != null){
+        var k = userList.find { it.eMail == gesuchteEmail }
+        if (k != null) {
 
             println("Name: ${k.name}")
             println("Vorname: ${k.firstName}")
             println("eMail: ${k.eMail}")
-            println("Passwort: ******\t\t\t Passwort ändern (ja - j, nein - n, zurück - z):  ")
+            println("Passwort: ******\t\t\t Passwort ändern (\u001b[4mj\u001b[0ma  \u001b[4mn\u001b[0mein  \u001b[4mz\u001b[0murück):  ")     // \u001b[4m
             var pwÄndern = readln()
-            when(pwÄndern){
+            when (pwÄndern) {
                 "j" -> println(" Passwort neu:")
                 "n" -> println(" Passwort nicht ändern.")
-                "z" -> backUM()
+                "z" -> backUK()
             }
 
             warten500()
             backUM()
-        }
-
-        else {
-            println("Kein Kunde mit der angegebenen E-Mail-Adresse gefunden.")
+        } else {
+            println("Kein Kunde mit der angegebenen eMail-Adresse gefunden.")
             warten500()
-            backUM()
+            backUK()
         }
     }       // Anzeige der Kundendaten aus Liste
 
@@ -216,6 +208,7 @@ class Kunde(
         println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t \u001B[34mBewertung\u001B[0m")
         for (produkt in ProductList.productList)
             println("${produkt.id}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
+        alleProdukte()     // Ad
         this.userWarenAuswahl()
     }
 
@@ -251,8 +244,7 @@ class Kunde(
     }*/
 
 }
-
 // TODO Ende der Class Kunde
+
 //todo _________________________________________________________________________________________________________________
-// Ü > mT/f(m)  10  CC
 

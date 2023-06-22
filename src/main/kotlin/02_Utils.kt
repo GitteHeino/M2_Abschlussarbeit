@@ -1,6 +1,8 @@
+import KONTO.Konto
 import kotlin.system.exitProcess
 import java.time.LocalDate
 import USER.Kunde
+import USER.Manager
 import USER.User
 import UserList.userList
 import WAREN.*
@@ -22,7 +24,7 @@ fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
         print("Bitte wiederholen Sie das Passwort:  \n")
         var password0 = readln()
         if (password0 == password) {
-            print("\t◌\n\n")
+            print("\t◌ ◌ ◌ ◌ ◌ ◌ ◌ ◌\n\n")
             break
         } else {
             println("Die beiden Passwörter stimmen nicht überein. Bitte wiederholen …")
@@ -41,7 +43,7 @@ fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
     print("Nr:  ")
     val nr = readln()
 
-    var j = 1
+/*    var j = 1
     while (j < 2) {
         try {       // TODO Warum springt die try catch an, wenn alles richtig ist?
             print("Nr:  ")
@@ -50,94 +52,57 @@ fun datenEingabe() {        // TODO  <- kotlin.collections.mutableListOf<User>
             println("Nur Ziffern von 0 - 9 sind erlaubt")
             j++
         }
-    }
+    }*/
 
     print("Geburtstag (dd.mm.yyyy):  ")
     val geburtstag = readln()
 
-
     print("Wählen Sie nun eine Anrede:\n" + " 1 für 'Sehr geehrte Frau', 2 für 'Sehr geehrter Herr', 3 für 'hej', 4 für 'Guten Tag': ")
     val anrede = auswahlAnrede()
-
 
     var neuerKunde = Kunde(0, name, firstName, eMail, password, city, street, 1, zipCode, geburtstag, anrede, meinWarenkorb = mutableListOf<Produkt>())
     userList.add(neuerKunde)
 
-
-/*        when (anrede) {
-            "1" -> {
-                print("Sehr geehrte Frau ")
-                *//*ergebnisListe.add("Sehr geehrte Frau")*//*
-            }
-
-            "2" -> {
-                print("Sehr geehrter Herr ")
-                *//*ergebnisListe.add("Sehr geehrter Herr")*//*
-            }
-
-            "3" -> {
-                print("hej ")
-                *//*userDB.add("hi")*//*
-            }
-
-            "4" -> {
-                print("Guten Tag ")
-                *//*ergebnisListe.add("Guten Tag")*//*
-            }
-
-            else -> {
-                println("Ungültige Auswahl")
-            }
-        }*/
-
-
-
     println("\nKontrollieren Sie bitte Ihre Angaben:")
 
-    println("${anrede} $firstName $name  \neMail: $eMail | \nPasswort: ****** | \n$zipCode $city \n$street $nr\n$geburtstag")
-    println("\n\t◌\t◌\n\n")
+    println("${anrede} $firstName $name \neMail: $eMail\nPasswort: ****** \n$zipCode $city \n$street $nr\n$geburtstag")
+    println("\n\t◌\n\n")
 
-    println("Alles ok? J/N:")
+    println("Alles ok? \u001b[36mj\u001b[0ma  \u001b[36mn\u001b[0mein:")
     var ok = readln().capitalize()
-    if (ok == "J") {
+/*    if (ok == "J") {
         warten200()
+    }*/
 
-    }
-
-
-    warteschleife()
+    warteschleife2()
     if (ok == "J") {
         println("Jetzt können Sie shopShoppen :-)")
-        /*            userKonto()*/
-        /*            exitProcess(5)*/
+
         warten500()
         neuerKunde.userMenu()
 
-
-
-
         val anrede = readLine()?.capitalize()
-
-        /*val ausgewehlteAnrede = auswahlAnrede()*/
 
         println("\nKontrollieren Sie bitte Ihre Angaben (j - ok  n - ändern:  ")
         println("$anrede $firstName $name \neMail: \n$eMail \nPasswort: ******\n\n$zipCode$city\n$street $nr\n$geburtstag")
     } else if (ok == "N") {
+        print("beginnen Sie nochmal ...\n")
         datenEingabe()
     } else
         println("Good bye!")
 
 }       // Registrierung neuerKunde
- fun auswahlAnrede(anrede: String = readln()): String {
-     return when (anrede) {
-         "1" -> "Sehr geehrte Frau "
-         "2" -> "Sehr geehrter Herr "
-         "3" -> "hi "
-         "4" -> "Guten Tag "
-         else -> "Ungültige Auswahl "
-     }
- }       // Anrede auswählen
 
+fun auswahlAnrede(anrede: String = readln()): String {
+    return when (anrede) {
+        "1" -> "Sehr geehrte Frau"
+
+        "2" -> "Sehr geehrter Herr"
+        "3" -> "hi"
+        "4" -> "Guten Tag"
+        else -> "Ungültige Auswahl"
+    }
+}       // Anrede auswählen
 
 fun produktAngebotAlleKategorien() {        // todo für den Kunden
     val warenAngebot = ProductList.productList
@@ -155,7 +120,7 @@ fun produktAngebotAlleKategorien() {        // todo für den Kunden
 }     //  Liste aller Produkte im shopShop
 
 
-
+//todo Manager _________________________________________________________________________________________________________
 
 fun eingabeWarenP11() {
     println("Machen Sie alle Angaben zum neuen Artikel:  ")
@@ -308,23 +273,49 @@ fun eingabeWarenP22() {
     Thread.sleep(2000)
 
 
-}       // Methode zum eintragen neuer Artikel i.d.Kat. Reigungsmittel
+}       // Methode zum eintragen neuer Artikel i.d.Kat. Reinigungsmittel
 
-//todo _________________________________________________________________________________________________________________
 
-fun changePreis(neuerPreis: Double) {
+    /*fun changePreis(neuerPreis: Double) {
     println("Geben sie master-Passwort ein")
     var input = readln()
 
     if (input == "master123") {
-        /*        this.preis = neuerPreis*/
+              this.preis = neuerPreis
     } else {
         println("Authorisierung fehlgeschlagen.")
     }
-}       //todo  für Manager  Preis ändern
+}*/       //todo   Preis ändern
+
+
+//todo Kunde ___________________________________________________________________________________________________________
+
+
+/*
+    fun backToUserBestellung() {
+        println("Zurück zum Menü")
+        userWarenAuswahl()
+    }
+*/      // zurück zum KundenMenu / Start Warenangebot
+
+/*    fun addToList(item: String) {
+        meinWarenkorb.add()
+}*/     // Artikel zum Warenkorb hinzufügen
+
+/*    fun sterne() {
+        println("Users Bewertung (* * * * *)")
+    }
+    */      // Bewertung durch kunden
+
+/*    fun bezahlung(){
+
+}*/
+
+
+//todo allgemein _______________________________________________________________________________________________________
 
 fun warteschleife() {
-    Thread.sleep(700)
+    Thread.sleep(300)
     print("Sie werden gleich weitergeleitet zum Shop  . ")
     Thread.sleep(300); print(".")
     Thread.sleep(300); print(" .")
@@ -332,11 +323,15 @@ fun warteschleife() {
         Thread.sleep(300); print(" .")*/
     Thread.sleep(300); print(" .")
     Thread.sleep(800); println("\n")
-}       //todo  für überall
+}       // großer PausenScreen ....
+
+fun warteschleife2() {
+    Thread.sleep(450)
+}       // kleiner PausenScreen ....
 
 fun warten50() {
     Thread.sleep(50)
-}
+}       // Pause in ms
 
 fun warten100() {
     Thread.sleep(100)
@@ -363,44 +358,230 @@ fun date() {
 //    val nowWithTime = LocalDateTime.now()
 //    println(nowWithTime)
     println(now)
-}
+}       // Datumsintegration
 
-//todo _________________________________________________________________________________________________________________
-fun registerNeu() {
+fun alleProdukte() {
+    val warenkorb = ProductList.productList
+    println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")
+
+
+}        //  Anzahl der Produkte
+
+//todo löschen/archivieren ProductList.kt ______________________________________________________________________________
+
+
+    /*    fun getProducByCheapest(id: Int): Produkt? {
+
+    val auswählen = readln().toInt()
+    for (produkt in productList){
+        if(produkt.preis ...){
+            return produkt
+        }
+    }
+    return null
+}*/     // nach dem (billigsten …) selectieren
+
+    /*    fun produktAngebotAlleKategorien() {
+    val warenAngebot = ProductList.productList
+    val leer = " "
+    println("\n\t\t = = = shopShop. DER Online_DrugStore! = = =\n")
+    println("Sie sehen die Kategorien, in denen Sie eine gute Auswahl haben.\n")      // "Beachten sie auch unsere Sonderangebote!"
+            // println(">>> ${warenAngebot.size}.000 Produkte im Shop!\n\n")
+    println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
+
+
+    for (produkt in warenAngebot) {
+        println("${produkt.id}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
+        Thread.sleep(200)
+    }
+}*/     // alle Artikel im shopShop
+
+            /*    println("Was möchten Sie sich näher ansehen? Geben Sie hierzu die angezeigte Nr. ein:  ")
+val auswählen = readln().toInt()
+if(auswählen == produkt.nr)*/
+            // Was möchten Sie sich näher ansehen?
+
+
+
+//todo Shop_DrugStore.kt _______________________________________________________________________________________________
+
+/*import WAREN.P12_Gesundheit
+import WAREN.P11_BodyCare
+import WAREN.P21_Lebensmittel
+import WAREN.P22_Reinigungsmittel*/
+
+/*class Shop_Drugstore() {
+
+    *//*    init {
+    * }*//*
+
+    *//*fun willkommen() {
+        println("shopShop - Ihr Drugstore digital um die Ecke!")
+        Thread.sleep(1000)
+    }*//*
+
+    *//*    fun Produkt() {
+            var produktDB = mutableListOf<String>()
+            var produktKörper1 = P11_BodyCare(111, "Sonnenfluid Gesicht, 50ml", 4.75, 3.8, "sensitiv LSF 50+", "all", "L")
+            var produktKörper2 = P11_BodyCare(112, "Axe 3in1 Duschgel & Shampoo 250 ml", 26.99, 4.5, "Face Body Hair, 6x 250ml, dermatologisch getestet", "Men", "XL")
+            var produktKörper3 = P11_BodyCare(113, "Lippenstift Velvet Matt Berry Nude, 4,5 g", 8.75, 3.5, "Naturkosmetik, matt, alle Hauttypen", "Woman", "S")
+
+            var produktGesund = P12_Gesundheit(121, "Mund- und Rachenspülung antiviral, fluoridfrei ab 6 Jahren, 300 ml", 7.95, 4.5, "Hals gurgeln", "", false)
+            var produktGesund2 = P12_Gesundheit(122, "Doppelherz Omega-3 1400 Kapseln", 12.95, 4.7, " 90 St, 171,3 g", "innen", false)
+            var produktGesund3 = P12_Gesundheit(123, "Ecodenta Zahnpasta, Sensitivity, 75 ml", 7.47, 4.2, "Ohne Fluorid", "Ohne Fluorid", false)
+            var produktGesund4 = P12_Gesundheit(124, "Test ", 7.95, 4.9, "Hals gurgeln", "", true)
+
+            var produktLeben1 = P21_Lebensmittel(211, "Milch, haltbare Alpenmilch, 1 l", 1.65, 4.9, "3,5% Fett", "ja", "H H N")
+            var produktLeben2 = P21_Lebensmittel(212, "EXTRA Kaugummi, Blueberry, 50 St", 1.85, 4.6, "Laktosefrei", "nein", " H H H")
+            var produktLeben3 = P21_Lebensmittel(213, "Fertiggericht italienische Ravioli mit Gemüsefüllung, 270 g", 2.45, 4.3, "Laktosefrei, Vegan", "nein", "H M M")
+
+            var produktReini1 = P22_Reinigungsmittel(221, "Essigreiniger Essenz zum Reinigen & Kochen, 0,4 l", 1.45, 4.9, "Vorsicht! Nicht unverdünnt genießen!", "ja", "Nassbereich")
+            var produktReini2 = P22_Reinigungsmittel(222, "Colorwaschmittel Power Caps, 40 Wl", 8.95, 4.8, "Mit Duft", "nein", "-")
+            var produktReini3 = P22_Reinigungsmittel(223, "Vileda Ultramax Bodenwischer", 41.51, 4.4, "Komplett Ultramax Set + 2 extra Bezüge", "nicht verschlucken!", "innen")
+            println(produktDB.addAll(mutableListOf()))
+        }*//*
+
+    *//*    fun login()
+
+        fun register()*//*
+
+}*/
+
+
+//todo löschen/archivieren Konto.kt ____________________________________________________________________________________
+
+    /*fun shopkonto() {
+        println("am $datum beträgt Ihr Guthaben: $kontostand")
+    }*/
+
+    /*    fun einzahlen(kundenKontoEinzahlung: Double) {
+date()
+print("wie viel möchten Sie einzahlen? (Betrag in € z.B. 100.0):  ")
+var einzahlung = readln()
+kontostand = kontostand + einzahlung
+
+}
+}*/
+
+    /*fun date() {
+val now = LocalDate.now()
+//    val nowWithTime = LocalDateTime.now()
+//    println(nowWithTime)
+println(now)
+}*/
+
+            /*
+val birthday = LocalDate.of(2000,1,1)
+println(birthday)
+val format = DateTimeFormatter.ofPattern("dd.MM.yyyy")*/
+
+    /*class Kontoo(val inhaber: String) {
+    var kontostand: Double = 0.0
+    val zahlungseingaenge: MutableList<Double> = mutableListOf()
+
+    fun einzahlen(betrag: Double) {
+        kontostand += betrag
+        zahlungseingaenge.add(betrag)
+    }
+
+    fun bezahlen(rechnungsBetrag: Double) {
+        kontostand -= rechnungsBetrag
+    }
+}*/
+
+    /*object KundenKonto {
+    private val konten: MutableMap<String, Konto> = mutableMapOf()
+
+    fun kontoErstellen(kundenname: String) {
+        konten[kundenname] = Konto(kundenname)
+    }
+
+    fun kontoLoeschen(kundenname: String) {
+        konten.remove(kundenname)
+    }
+
+    fun kontoVorhanden(kundenname: String): Boolean {
+        return konten.containsKey(kundenname)
+    }
+
+    fun konto(kundenname: String): Konto? {
+        return konten[kundenname]
+    }
+}*/
+
+            // oder:
+
+    /*object ShopKonto {
+    private val konto: Konto = Konto("Shop-Inhaber")
+
+    fun konto(): Konto {
+        return konto
+    }
+}*/
+
+    /*fun main(){
+
+// Kundenkonto erstellen
+    KundenKonto.kontoErstellen("Max Mustermann")
+
+// Einzahlung auf Kundenkonto
+    val konto = KundenKonto.konto("Max Mustermann")
+    konto?.einzahlen(100.0)
+
+
+// Überprüfen des Kontostands des Shop-Inhabers
+    val shopInhaberKonto = ShopKonto.konto()
+    println("Kontostand des Shop-Inhabers: ${shopInhaberKonto.kontostand}")
+
+// Löschen des Kundenkontos
+    KundenKonto.kontoLoeschen("Max Mustermann")
+
+}*/
+
+
+
+//todo löschen/archivieren _____________________________________________________________________________________________
+
+    /*fun registerNeu() {
     println("Möchten Sie einen neuen Account anlegen? j/n:  ")
     var neuerAccount = readln().capitalize().toString()
-    /*        while (neuerAccount == "j") {*/
-    /*        if (neuerAccount == "n") {
-    exitProcess(0)*/
-    when (neuerAccount) {
-        "J" -> datenEingabe()
-        "N" -> exitProcess(0)       // TODO ersetzen mit back()
-    }
+    while (neuerAccount == "j") {
+        if (neuerAccount == "n") {
+            exitProcess(0)
+            when (neuerAccount) {
+                "J" -> datenEingabe()
+                "N" -> exitProcess(0)       // TODO ersetzen mit back()
+            }
 
-    var versuche = 0
-    var userLoggedIn = false
-    while (versuche < 3 && !userLoggedIn) {
-        println("geben sie ihr Passwort ein:  ")
-        var pw = readln()
-        if (pw == "guest123") {
-            userLoggedIn = true
-        } else {
-            println("Falsches Passwort. Versuchen Sie es noch einmal")
-            versuche++ // versuche = versuche + 1
+            var versuche = 0
+            var userLoggedIn = false
+            while (versuche < 3 && !userLoggedIn) {
+                println("geben sie ihr Passwort ein:  ")
+                var pw = readln()
+                if (pw == "guest123") {
+                    userLoggedIn = true
+                } else {
+                    println("Falsches Passwort. Versuchen Sie es noch einmal")
+                    versuche++ // versuche = versuche + 1
+                }
+            } // Ende der Schleife
+
+            if (versuche == 3) {
+                println("Kein Zugriff, Programm wird geschlossen")
+            }
+            if (userLoggedIn) {
+
+            }
         }
-    } // Ende der Schleife
-
-    if (versuche == 3) {
-        println("Kein Zugriff, Programm wird geschlossen")
     }
-    if (userLoggedIn) {
+}
+*/
 
-    }
-}       //todo löschen/archivieren
+    /*fun shopKonto() {
 
-//todo _________________________________________________________________________________________________________________
+}*/
 
-/*fun login(){
+    /*fun login(){
     println("shopShop - Deine Online-Drogerie")
     println("Loggen Sie sich mit Ihren Anmeldedaten ein. ▷▷ " +
             "eMail oder Benutzername:")
@@ -427,7 +608,7 @@ fun registerNeu() {
         println("Sie haben eMail/Benutzername oder das Passwort falsch eingegeben.")
     }*/       //todo löschen/archivieren
 
-/*fun userMenuAnzeige(){
+    /*fun userMenuAnzeige(){
    println(
             """
             Bitte wählen sie aus:
@@ -448,29 +629,88 @@ fun registerNeu() {
     }
 }*/     //todo wie diese fun ausserhalb userMenu()
 
-//todo _________________________________________________________________________________________________________________
 
-/*println("\nKontrollieren Sie bitte Ihre Angaben:")
+
+//todo println()'s _____________________________________________________________________________________________________
+
+
+            /*println("\nKontrollieren Sie bitte Ihre Angaben:")
 auswahlAnrede().toString()
 println("$firstName $name \neMail: $eMail \nPasswort: ****** \n$zipCode\t$city \n$street $nr \n$geburtstag") // TODO  <- ${auswahlAnrede()}
 println("\n\n\t◌\t◌\n\n")*/
 
-/*println("Alles ok? J/N:")
+            /*println("Alles ok? J/N:")
 var ok = readln().capitalize().toString()
 if (ok == "J") {
-    println("Jetzt können Sie shopShoppen :-)")     //TODO
+println("Jetzt können Sie shopShoppen :-)")     //TODO
 
-    produktAngebotAlleKategorien()
+produktAngebotAlleKategorien()
 
 
 } else if (ok == "N") {
-    datenEingabe()
+datenEingabe()
 } else
-    println("Good bye!")
+println("Good bye!")
 exitProcess(1)
 }       // TodO Zeile 87: Abkürzung (?? gibt es die noch ?) rausnehmen, wenn fertig!*/
 
-/*fun shopKonto() {
+            // (\u001b[4mj\u001b[0ma  \u001b[4mn\u001b[0mein)*/             // Abfrage ( ja/nein ) unterstrichen
 
+
+
+
+//todo fun.main ________________________________________________________________________________________________________
+
+//    anmeldung()
+//    warteschleife()
+//    auswahlStart()      // User(), produkteDatenbank
+//    alleProdukte()
+
+
+    /*fun auswahlStart() {
+    var warenkorb = mutableListOf<Produkt>()
+    val auswahl = readln().capitalize()
+    when (auswahl) {
+        "L" -> {
+            val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14", warenkorb)
+            kundenAccount.userMenu()
+
+        }
+
+        "R" -> {
+            val kundenAccount = datenEingabe()
+        }
+
+
+        "M" -> {
+
+            val managerAccount = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75, "04109", "s8o17")
+            managerAccount.managerMenu()
+
+        }
+
+        else -> {
+            println("Ungültige Eingabe")
+            exitProcess(1)
+        }
+    }
+} */       //
+
+
+            // Variante
+
+   /* fun alleProdukte() {
+    val warenkorb = mutableListOf( ProductList.productList, " ", "Heute frisch eingetroffen: Toilettenpapier und Nudeln! Greifen Sie zu …")
+    println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")*/
+
+
+
+//todo User.kt _________________________________________________________________________________________________________
+
+
+    /*fun logout() {
 }*/
 
+    /*
+fun bezahlen() {
+}*/

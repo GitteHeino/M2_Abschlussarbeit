@@ -56,39 +56,10 @@ object ProductList {
             println("Ungültige Eingabe")
         }
         return
-    }       // TODO löschen
+    }       // TODO
 
 
-/*    fun getProducByCheapest(id: Int): Produkt? {
 
-        val auswählen = readln().toInt()
-        for (produkt in productList){
-            if(produkt.preis ...){
-                return produkt
-            }
-        }
-        return null
-    }*/
-
-
-/*    fun produktAngebotAlleKategorien() {
-        val warenAngebot = ProductList.productList
-        val leer = " "
-        println("\n\t\t = = = shopShop. DER Online_DrugStore! = = =\n")
-        println("Sie sehen die Kategorien, in denen Sie eine gute Auswahl haben.\n")      // "Beachten sie auch unsere Sonderangebote!"
-        *//*println(">>> ${warenAngebot.size}.000 Produkte im Shop!\n\n")*//*
-        println("\u001b[34mNr.\u001b[0m\t \u001B[34mArtikel ${leer.padEnd(64, ' ')}\u001B[34mPreis\u001B[0m\t\t \u001B[34mBewertung\u001B[0m\t")
-
-
-        for (produkt in warenAngebot) {
-            println("${produkt.nr}\t ${produkt.name.padEnd(70, ' ')}\t ${produkt.preis}€\t\t ${produkt.kundenRezension}")
-            Thread.sleep(200)
-        }
-    }*/
-
-    /*println("Was möchten Sie sich näher ansehen? Geben Sie hierzu die angezeigte Nr. ein:  ")
-    val auswählen = readln().toInt()
-    if(auswählen == produkt.nr)*/
 
 
 }

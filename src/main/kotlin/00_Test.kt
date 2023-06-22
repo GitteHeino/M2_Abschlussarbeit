@@ -12,19 +12,24 @@ fun main() {
 
 //TODO -----Funktionen der fun main--------------------------------------------
 
-        willkommen()
-    /*    anmeldung()*/
-    /*    warteschleife()*/
-    produktAngebotAlleKategorien()
-    loginUseroderManager()
-
-    /*    auswahlStart()  */      // User(), produkteDatenbank
-
-    /*    alleProdukte()*/
+    willkommen()        // StartScreen mit preselection NeukundenRegistrierung
+    produktAngebotAlleKategorien()      // das Warenangebot
+    loginUseroderManager()      // Auswahl, ob Zugang für Kunde oder ShopManager
 
 
 //TODO -----Ende der fun maim--------------------------------------------------
 }
+
+
+fun willkommen(){
+    println("\t\t\tWillkommen im shopShop!\n\n")
+    println("Neu hier?  \u001B[36mj\u001B[0ma  \u001B[36mn\u001B[0mein:  ")
+    var neuerKunde = readln()
+    if (neuerKunde == "j") {
+        datenEingabe()
+    }else
+        return
+}        // StartScreen mit preselection NeukundenRegistrierung
 
 fun loginUseroderManager() {
     println("\n\n\t===== =  shopShop - Deine Online-Drogerie  = =====\n")
@@ -59,6 +64,7 @@ fun loginUseroderManager() {
                     val userAccount = user
                     Thread.sleep(200)
                     println("${userAccount.id}")
+                    warteschleife()
                     userAccount.userMenu()
                     return
                 }
@@ -78,53 +84,4 @@ fun loginUseroderManager() {
         }
         false
     }
-}
-
-
-fun willkommen(){
-    println("\t\t\tWillkommen im shopShop!\n\n")
-    println("Neu hier? [ ja/nein ]:  ")
-    var neuerKunde = readln()
-    if (neuerKunde == "j") {
-        datenEingabe()
-    }else
-        return
-    }
-
-fun alleProdukte() {
-    val warenkorb = ProductList.productList
-    println("\ninsgesamt ${warenkorb.lastIndex + 1}.000 Produkte. Noch mehr gibt's auf unserer Partnerseite ...")
-
-
-}        //  Anzahl der Produkte
-
-
-fun auswahlStart() {
-    var warenkorb = mutableListOf<Produkt>()
-    val auswahl = readln().capitalize()
-    when (auswahl) {
-        "L" -> {
-            val kundenAccount = Kunde(101, "Maier", "Sepp", "maiers@gmail.com", "ms41", "Berg", "Zur Schmiede", 11, "82335", "Sehr geehrter Herr ", "1951-06-14", warenkorb)
-            kundenAccount.userMenu()
-
-        }
-
-        "R" -> {
-            val kundenAccount = datenEingabe()
-        }
-
-
-        "M" -> {
-
-            val managerAccount = Manager(0, "Unbekannt", "Kiki", "cc", "44", 3698, "Leipzig", "Elsterstraße", 75, "04109", "s8o17")
-            managerAccount.managerMenu()
-
-        }
-
-        else -> {
-            println("Ungültige Eingabe")
-            exitProcess(1)
-        }
-    }
-}        // todo löschen/archivieren und XXX
-
+}      // Auswahl, ob Zugang für Kunde oder ShopManager

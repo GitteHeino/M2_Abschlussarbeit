@@ -2,7 +2,6 @@ package USER
 
 import WAREN.Produkt
 
-
 open class User(
         val id: Int = 0,
         var name: String = "",
@@ -15,18 +14,11 @@ open class User(
 ) {
     private var isloggedIn: Boolean = false
 
-
     open fun managerMenu() {
 
     }
 
-    fun logout() {
-    }
-
     open fun produkt() {
-    }
-
-    fun bezahlen() {
     }
 
     open fun userMenu() {
@@ -43,6 +35,4 @@ open class User(
 
         }
     }
-
-
 }
